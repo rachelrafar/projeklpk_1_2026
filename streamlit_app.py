@@ -448,6 +448,29 @@ button[data-baseweb="tab"]{
     }
 }
 
+.logo-spin{
+    text-align:center;
+    font-size:90px;
+    animation:spin 8s linear infinite;
+}
+
+@keyframes spin{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
+}
+
+.feature-card{
+    background:linear-gradient(
+        135deg,
+        #3B82F6,
+        #2563EB
+    );
+    border-radius:25px;
+    padding:25px;
+    min-height:160px;
+    margin-bottom:15px;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
