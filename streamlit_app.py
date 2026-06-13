@@ -622,9 +622,8 @@ if "menu" not in st.session_state:
 
 # ================= GLOBAL HEADER =================
 
-st.markdown("""
-<div class="app-header">
-
+    st.markdown("""
+    <div class="app-header">
     <div class="app-logo">
         🧪
     </div>
