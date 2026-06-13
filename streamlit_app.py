@@ -256,31 +256,6 @@ section[data-testid="stSidebar"]{
 }
 
 
-/* ========== LOGO ANIMATION ========== */
-
-.logo-spin{
-
-    text-align:center;
-    font-size:90px;
-
-    animation:
-    spin 8s linear infinite;
-}
-
-
-@keyframes spin{
-
-from{
-    transform:rotate(0deg);
-}
-
-to{
-    transform:rotate(360deg);
-}
-
-}
-
-
 /* ========== SCROLLBAR ========== */
 
 ::-webkit-scrollbar{
