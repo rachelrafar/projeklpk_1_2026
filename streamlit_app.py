@@ -337,29 +337,29 @@ if not st.session_state.login:
 
     users = load_users()
 
+    # Header Login
     st.markdown("""
-    <div class='login-title'>
+    <div class="login-title">
         🧪 ChemAssist Ultra
     </div>
 
-    <div class='login-sub'>
+    <div class="login-sub">
         Smart Chemical Analysis Platform
     </div>
     """, unsafe_allow_html=True)
 
+
+    # Posisi tengah
     col1, col2, col3 = st.columns([1, 2, 1])
 
     with col2:
 
-        st.markdown("""
-        <div class="login-box">
-        """, unsafe_allow_html=True)
-
+        # Tab Login dan Register
         tab1, tab2 = st.tabs([
             "🔐 Sign In",
             "📝 Sign Up"
         ])
-
+        
 # ================= SIGN IN =================
 
         with tab1:
@@ -622,19 +622,14 @@ if "menu" not in st.session_state:
 
 # ================= GLOBAL HEADER =================
 
-    st.markdown("""
-    <div class="app-header">
-    <div class="app-logo">
-        🧪
-    </div>
+st.markdown("""
+<div class="app-header">
+    <div class="app-logo">🧪</div>
 
     <div class="app-info">
         <h1>ChemAssist Ultra</h1>
-        <p>
-            Next Generation Chemistry Dashboard
-        </p>
+        <p>Next Generation Chemistry Dashboard</p>
     </div>
-
 </div>
 """, unsafe_allow_html=True)
 
