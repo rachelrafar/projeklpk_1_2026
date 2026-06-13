@@ -78,11 +78,10 @@ for key, value in default_session.items():
 st.markdown("""
 <style>
 
-/* ========== BACKGROUND ========== */
+/* ================= BACKGROUND ================= */
 
-.stApp{
-    background:
-    linear-gradient(
+.stApp {
+    background: linear-gradient(
         135deg,
         #F0F9FF,
         #E0F2FE,
@@ -91,245 +90,304 @@ st.markdown("""
     );
 }
 
-
-.block-container{
+.block-container {
     padding-top: 2rem;
 }
 
 
-/* ========== TITLE ========== */
+/* ================= GLOBAL HEADER ================= */
 
-.main-title{
-    text-align:center;
-    font-size:58px;
-    font-weight:900;
-    color:#2563EB;
-}
+.app-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(20px);
 
-.subtitle{
-    text-align:center;
-    color:#1E40AF;
-    font-size:18px;
-}
+    padding: 20px 30px;
+    border-radius: 25px;
 
+    margin-bottom: 25px;
 
-/* ========== LOGIN ========== */
-
-.login-title{
-    text-align:center;
-    font-size:56px;
-    font-weight:900;
-    color:#1E3A8A;
-}
-
-
-.login-sub{
-    text-align:center;
-    font-size:18px;
-    color:#475569;
-    margin-bottom:25px;
-}
-
-
-.login-box{
-    background:rgba(255,255,255,0.85);
-    backdrop-filter:blur(20px);
-    border-radius:30px;
-    padding:35px;
     box-shadow:
-        0 15px 35px
-        rgba(37,99,235,.20);
+        0 10px 25px rgba(37,99,235,0.15);
 }
 
 
-.login-box-title{
-    text-align:center;
-    font-size:28px;
-    font-weight:800;
-    color:#2563EB;
+.app-logo {
+    font-size: 55px;
+    display: inline-block;
+
+    animation: spin 8s linear infinite;
+
+    filter:
+        drop-shadow(0 0 8px #60A5FA);
 }
 
 
-/* ========== INPUT ========== */
+.app-info h1 {
+    margin: 0;
 
-.stTextInput input{
-    background:white;
-    border-radius:14px;
+    font-size: 34px;
+    font-weight: 900;
+
+    color: #2563EB;
 }
 
 
-/* ========== BUTTON ========== */
+.app-info p {
+    margin-top: 5px;
 
-.stButton button{
-    width:100%;
-    height:52px;
-
-    border-radius:15px !important;
-    border:1px solid #BFDBFE !important;
-
-    background:white !important;
-    color:#2563EB !important;
-
-    font-size:16px !important;
-    font-weight:700 !important;
-
-    box-shadow:0 6px 15px rgba(37,99,235,0.12) !important;
-
-    margin-top:5px;
-}
-
-/* ========== SIDEBAR ========== */
-
-section[data-testid="stSidebar"]{
-
-    background:
-    rgba(255,255,255,0.55);
-
-    backdrop-filter:
-    blur(20px);
+    color: #475569;
+    font-size: 16px;
 }
 
 
-/* ========== CARD ========== */
+/* ================= ANIMATION ================= */
+
+@keyframes spin {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* ================= LOGIN ================= */
+
+.login-title {
+    text-align: center;
+
+    font-size: 58px;
+    font-weight: 900;
+
+    color: #1E3A8A;
+}
+
+
+.login-sub {
+    text-align: center;
+
+    color: #475569;
+    font-size: 18px;
+
+    margin-bottom: 35px;
+}
+
+
+.stTabs {
+    background: rgba(255,255,255,0.90);
+
+    backdrop-filter: blur(20px);
+
+    padding: 35px;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 15px 35px rgba(37,99,235,0.18);
+}
+
+
+button[data-baseweb="tab"] {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+}
+
+
+.login-box-title {
+    text-align: center;
+
+    font-size: 28px;
+    font-weight: 800;
+
+    color: #2563EB;
+
+    margin-bottom: 20px;
+}
+
+
+/* ================= INPUT ================= */
+
+.stTextInput input {
+    background: white !important;
+
+    border-radius: 14px !important;
+
+    border: 1px solid #BFDBFE !important;
+
+    padding: 10px;
+}
+
+
+/* ================= BUTTON ================= */
+
+.stButton button {
+    width: 100% !important;
+
+    height: 52px !important;
+
+    border-radius: 15px !important;
+
+    background: white !important;
+
+    color: #2563EB !important;
+
+    border: 1px solid #BFDBFE !important;
+
+    font-size: 16px !important;
+
+    font-weight: 700 !important;
+
+    box-shadow:
+        0 6px 15px rgba(37,99,235,0.12) !important;
+
+    transition: 0.3s;
+}
+
+
+.stButton button:hover {
+
+    transform: translateY(-2px);
+
+    background: #EFF6FF !important;
+}
+
+
+/* ================= SIDEBAR ================= */
+
+section[data-testid="stSidebar"] {
+
+    background: rgba(255,255,255,0.55);
+
+    backdrop-filter: blur(20px);
+
+    border-right:
+        1px solid rgba(255,255,255,0.4);
+}
+
+
+/* ================= CARD ================= */
 
 .card,
 .metric-box,
 .feature-card,
 .info-box,
-.tentang-box{
+.tentang-box {
 
-    background:
-    rgba(255,255,255,.75);
+    border-radius: 25px;
 
-    backdrop-filter:
-    blur(18px);
-
-    border-radius:25px;
-
-    padding:25px;
+    padding: 25px;
 
     box-shadow:
-    0 10px 25px
-    rgba(37,99,235,.15);
-
+        0 10px 25px rgba(37,99,235,0.15);
 }
 
 
-/* ========== FEATURE CARD ========== */
+/* ================= METRIC ================= */
 
-.feature-card{
-    background:linear-gradient(
+.metric-box {
+
+    background:
+        rgba(255,255,255,0.75);
+
+    text-align: center;
+
+    backdrop-filter: blur(18px);
+}
+
+
+.metric-box h2 {
+    font-size: 40px;
+
+    margin-bottom: 5px;
+}
+
+
+.metric-box h3 {
+    font-size: 32px;
+
+    font-weight: 900;
+
+    color: #2563EB;
+}
+
+
+.metric-box p {
+    color: #475569;
+}
+
+
+/* ================= FEATURE CARD ================= */
+
+.feature-card {
+
+    background: linear-gradient(
         135deg,
         #3B82F6,
         #2563EB
     );
 
-    border-radius:25px;
-    padding:25px;
-    min-height:160px;
+    min-height: 160px;
 
-    margin-bottom:25px; /* sebelumnya terlalu kecil */
-
-    box-shadow:
-        0 10px 25px rgba(37,99,235,0.25);
-}
-/* ========== METRIC ========== */
-
-.metric-box{
-
-    text-align:center;
+    margin-bottom: 20px;
 }
 
 
-.metric-box h2{
+.feature-title {
 
-    font-size:40px;
+    color: white;
+
+    font-size: 22px;
+
+    font-weight: 800;
+
+    margin-bottom: 10px;
 }
 
 
-.metric-box h3{
+.feature-desc {
 
-    color:#2563EB;
+    color: #E0F2FE;
 
-    font-size:32px;
+    line-height: 1.6;
 }
 
 
-/* ========== SCROLLBAR ========== */
+/* ================= STATUS CARD ================= */
 
-::-webkit-scrollbar{
-    width:8px;
+.card {
+
+    background:
+        rgba(255,255,255,0.75);
+
+    backdrop-filter: blur(18px);
 }
 
 
-::-webkit-scrollbar-thumb{
+/* ================= SCROLLBAR ================= */
 
-    background:#60A5FA;
-    border-radius:20px;
+::-webkit-scrollbar {
 
-}
-
-/* ================= GLOBAL HEADER ================= */
-
-.app-header{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:20px;
-
-    background:rgba(255,255,255,0.75);
-
-    backdrop-filter:blur(20px);
-
-    padding:20px 30px;
-
-    border-radius:25px;
-
-    margin-bottom:25px;
-
-    box-shadow:
-        0 10px 25px rgba(37,99,235,0.15);
-
+    width: 8px;
 }
 
 
-.app-logo{
+::-webkit-scrollbar-thumb {
 
-    font-size:55px;
+    background: #60A5FA;
 
-    animation:
-    spin 8s linear infinite;
-
+    border-radius: 20px;
 }
 
 
-.app-info h1{
-
-    margin:0;
-
-    color:#2563EB;
-
-    font-size:34px;
-
-    font-weight:900;
-
-}
-
-
-.app-info p{
-
-    margin:5px 0 0 0;
-
-    color:#475569;
-
-    font-size:16px;
-
-}
 </style>
-""", unsafe_allow_html=True)
 
 # ================= LOGIN PAGE =================
 
@@ -624,12 +682,16 @@ if "menu" not in st.session_state:
 
 st.markdown("""
 <div class="app-header">
-    <div class="app-logo">🧪</div>
+
+    <div class="app-logo">
+        🧪
+    </div>
 
     <div class="app-info">
         <h1>ChemAssist Ultra</h1>
         <p>Next Generation Chemistry Dashboard</p>
     </div>
+
 </div>
 """, unsafe_allow_html=True)
 
