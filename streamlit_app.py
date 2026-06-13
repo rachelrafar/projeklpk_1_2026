@@ -345,7 +345,9 @@ section[data-testid="stSidebar"] {
     text-align: center;
     font-size: 64px;
     font-weight: 900;
-    color: #0F172A;
+
+    color: #0B1F5E; /* Biru tua */
+
     letter-spacing: 2px;
     margin-top: 5px;
     margin-bottom: 8px;
@@ -353,15 +355,17 @@ section[data-testid="stSidebar"] {
     text-transform: uppercase;
 
     text-shadow:
-        0 4px 12px rgba(37, 99, 235, 0.25);
+        0 4px 15px rgba(11, 31, 94, 0.25);
 }
 
 
 .subtitle {
     text-align: center;
+
     font-size: 20px;
     font-weight: 500;
-    color: #334155;
+
+    color: #1E3A8A; /* Biru sedikit lebih terang */
 
     letter-spacing: 1px;
 
