@@ -788,6 +788,8 @@ menu = selected
 # ================= HOME =================
 
 if menu == "🏠 Home":
+
+    # Header Home
     st.markdown("""
     <div class="home-header">
 
@@ -800,19 +802,21 @@ if menu == "🏠 Home":
         </div>
 
         <div class="subtitle">
-            Next Generation Chemistry Dashboard
+            Smart Chemical Analysis Platform
         </div>
 
     </div>
     """, unsafe_allow_html=True)
 
+
     st.markdown("<br>", unsafe_allow_html=True)
 
 
-    # Statistik
-    c1, c2, c3 = st.columns(3)
+    # ================= Statistik =================
 
-    with c1:
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
         st.markdown(f"""
         <div class="metric-box">
             <h2>📚</h2>
@@ -821,7 +825,7 @@ if menu == "🏠 Home":
         </div>
         """, unsafe_allow_html=True)
 
-    with c2:
+    with col2:
         st.markdown(f"""
         <div class="metric-box">
             <h2>⚗️</h2>
@@ -830,7 +834,7 @@ if menu == "🏠 Home":
         </div>
         """, unsafe_allow_html=True)
 
-    with c3:
+    with col3:
         st.markdown("""
         <div class="metric-box">
             <h2>🚀</h2>
@@ -843,26 +847,25 @@ if menu == "🏠 Home":
     st.markdown("<br>", unsafe_allow_html=True)
 
 
-    # Feature Cards
-    col1, col2 = st.columns(2)
+    # ================= Feature Menu =================
+
+    kiri, kanan = st.columns(2)
 
 
-    with col1:
+    with kiri:
 
         st.markdown("""
         <div class="feature-card">
             <div class="feature-title">
                 💧 Smart Solution Maker
             </div>
-
             <div class="feature-desc">
-                Perhitungan larutan otomatis dengan tampilan modern dan akurat.
+                Perhitungan larutan otomatis dengan hasil cepat dan akurat.
             </div>
         </div>
         """, unsafe_allow_html=True)
 
-
-        if st.button("🚀 Buka Menu Larutan", key="btn_larutan"):
+        if st.button("🚀 Buka Menu Larutan", key="home_larutan"):
             go_to("💧 Larutan")
 
 
@@ -874,34 +877,30 @@ if menu == "🏠 Home":
             <div class="feature-title">
                 📚 Chemical Database
             </div>
-
             <div class="feature-desc">
-                Informasi senyawa lengkap, rumus, sifat fisika, dan bahaya bahan kimia.
+                Informasi lengkap mengenai rumus, sifat, dan keamanan bahan kimia.
             </div>
         </div>
         """, unsafe_allow_html=True)
 
-
-        if st.button("📖 Informasi Kimia", key="btn_kimia"):
+        if st.button("📖 Informasi Kimia", key="home_database"):
             go_to("📚 Informasi Bahan Kimia")
 
 
-    with col2:
+    with kanan:
 
         st.markdown("""
         <div class="feature-card">
             <div class="feature-title">
                 ⚡ Smart pH Calculator
             </div>
-
             <div class="feature-desc">
-                Analisis pH larutan asam, basa, garam, dan buffer secara otomatis.
+                Perhitungan pH asam, basa, garam, dan larutan penyangga secara otomatis.
             </div>
         </div>
         """, unsafe_allow_html=True)
 
-
-        if st.button("⚗️ Kalkulator pH", key="btn_ph"):
+        if st.button("⚗️ Kalkulator pH", key="home_ph"):
             go_to("⚗️ pH")
 
 
@@ -913,31 +912,32 @@ if menu == "🏠 Home":
             <div class="feature-title">
                 🧠 Chemical Analysis
             </div>
-
             <div class="feature-desc">
-                Analisis karakteristik senyawa dan prediksi sifat kimia modern.
+                Analisis karakteristik dan sifat senyawa kimia secara modern.
             </div>
         </div>
         """, unsafe_allow_html=True)
 
-
-        if st.button("🧪 Analisis Kimia", key="btn_analisis"):
+        if st.button("🧪 Analisis Kimia", key="home_analisis"):
             go_to("🧪 Analisis Kimia")
 
 
     st.markdown("<br>", unsafe_allow_html=True)
 
 
-    # System Performance
-    st.markdown("### 🚀 System Performance")
+    # ================= Status Sistem =================
 
-    progress = st.progress(0)
-
-    for i in range(100):
-        time.sleep(0.01)
-        progress.progress(i + 1)
-
-    st.success("System Ready ✅")
+    st.markdown("""
+    <div class="card" style="text-align:center;">
+        <h3>🚀 System Status</h3>
+        <p>
+            ChemAssist Ultra v5.0 berjalan normal dan siap digunakan.
+        </p>
+        <h2 style="color:#22C55E;">
+            ● ONLINE
+        </h2>
+    </div>
+    """, unsafe_allow_html=True)
     
 # ================= LARUTAN =================
 
