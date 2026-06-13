@@ -998,60 +998,20 @@ if menu == "🏠 Home":
 
        # ================= System Status =================
 
-    st.markdown(
-        """
-        <div style="
-            text-align:center;
-            background:linear-gradient(135deg,#2563EB,#1D4ED8);
-            color:white;
-            border-radius:25px;
-            padding:30px;
-            margin-top:15px;
-        ">
-
-            <h3 style="
-                font-size:28px;
-                color:#E0F2FE;
-                margin-bottom:15px;
-            ">
-                🚀 SYSTEM STATUS
-            </h3>
-
-            <p style="
-                font-size:17px;
-                color:white;
-                margin-bottom:25px;
-            ">
-                ChemAssist Ultra <b>Version 5.0</b> berjalan normal.
-            </p>
-
-            <div style="
-                display:inline-block;
-                background:linear-gradient(135deg,#22C55E,#16A34A);
-                color:white;
-                padding:12px 35px;
-                border-radius:999px;
-                font-size:32px;
-                font-weight:900;
-                box-shadow:
-                    0 0 15px rgba(34,197,94,0.7),
-                    0 0 30px rgba(34,197,94,0.5);
-            ">
-                ● ONLINE
-            </div>
-
-            <p style="
-                color:#DBEAFE;
-                font-size:15px;
-                margin-top:20px;
-            ">
-                All Systems Operational
-            </p>
-
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+        st.markdown("""
+    <div style='
+        text-align:center;
+        background:linear-gradient(135deg,#2563EB,#1D4ED8);
+        color:white;
+        border-radius:25px;
+        padding:25px;
+    '>
+        <h3>🚀 SYSTEM STATUS</h3>
+        <p>ChemAssist Ultra <b>Version 5.0</b> berjalan normal.</p>
+        <h2 style='color:#86EFAC;'>● ONLINE</h2>
+        <p>All Systems Operational</p>
+    </div>
+    """, unsafe_allow_html=True)
     
 # ================= LARUTAN =================
 
