@@ -386,6 +386,42 @@ button[data-baseweb="tab"]{
     line-height:1.6;
 }
 
+/* ================= BUTTON PUTIH ================= */
+
+.stButton button{
+
+    width:100% !important;
+
+    height:52px !important;
+
+    border-radius:15px !important;
+
+    border:1px solid #BFDBFE !important;
+
+    background:white !important;
+
+    color:#2563EB !important;
+
+    font-size:16px !important;
+
+    font-weight:700 !important;
+
+    box-shadow:0 6px 15px rgba(37,99,235,0.12) !important;
+
+    transition:0.3s;
+}
+
+.stButton button:hover{
+
+    background:#EFF6FF !important;
+
+    color:#1D4ED8 !important;
+
+    transform:translateY(-2px);
+
+    border:1px solid #93C5FD !important;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
