@@ -342,34 +342,31 @@ section[data-testid="stSidebar"] {
 /* ================= HEADER TITLE ================= */
 
 .main-title {
-    text-align: center;
-    font-size: 64px;
-    font-weight: 900;
+    text-align: center !important;
+    font-size: 64px !important;
+    font-weight: 900 !important;
 
-    color: #0B1F5E; /* Biru tua */
+    color: #0B1F5E !important;
 
-    letter-spacing: 2px;
-    margin-top: 5px;
-    margin-bottom: 8px;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
 
-    text-transform: uppercase;
+    margin-top: 5px !important;
+    margin-bottom: 8px !important;
 
-    text-shadow:
-        0 4px 15px rgba(11, 31, 94, 0.25);
+    text-shadow: 
+        0 4px 15px rgba(11, 31, 94, 0.3) !important;
 }
 
-
 .subtitle {
-    text-align: center;
+    text-align: center !important;
 
-    font-size: 20px;
-    font-weight: 500;
+    color: #1E3A8A !important;
 
-    color: #1E3A8A; /* Biru sedikit lebih terang */
+    font-size: 20px !important;
+    font-weight: 500 !important;
 
-    letter-spacing: 1px;
-
-    margin-bottom: 30px;
+    letter-spacing: 1px !important;
 }
 
 </style>
