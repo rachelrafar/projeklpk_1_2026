@@ -162,34 +162,22 @@ st.markdown("""
 /* ========== BUTTON ========== */
 
 .stButton button{
-
     width:100%;
     height:52px;
 
-    border-radius:15px;
+    border-radius:15px !important;
+    border:1px solid #BFDBFE !important;
 
-    border:none;
+    background:white !important;
+    color:#2563EB !important;
 
-    background:
-    linear-gradient(
-        90deg,
-        #60A5FA,
-        #2563EB
-    );
+    font-size:16px !important;
+    font-weight:700 !important;
 
-    color:white;
+    box-shadow:0 6px 15px rgba(37,99,235,0.12) !important;
 
-    font-size:16px;
-    font-weight:700;
-
-    transition:0.3s;
+    margin-top:5px;
 }
-
-
-.stButton button:hover{
-    transform:translateY(-3px);
-}
-
 
 /* ========== SIDEBAR ========== */
 
@@ -231,38 +219,21 @@ section[data-testid="stSidebar"]{
 /* ========== FEATURE CARD ========== */
 
 .feature-card{
-
-    background:
-    linear-gradient(
+    background:linear-gradient(
         135deg,
         #3B82F6,
         #2563EB
     );
 
+    border-radius:25px;
+    padding:25px;
     min-height:160px;
+
+    margin-bottom:25px; /* sebelumnya terlalu kecil */
+
+    box-shadow:
+        0 10px 25px rgba(37,99,235,0.25);
 }
-
-
-.feature-title{
-
-    color:white;
-
-    font-size:22px;
-
-    font-weight:800;
-
-    margin-bottom:10px;
-}
-
-
-.feature-desc{
-
-    color:#DBEAFE;
-
-    line-height:1.7;
-}
-
-
 /* ========== METRIC ========== */
 
 .metric-box{
