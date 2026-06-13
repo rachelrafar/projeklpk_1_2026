@@ -789,6 +789,7 @@ menu = selected
 
 if menu == "🏠 Home":
 
+    # Header Home
     st.markdown("""
     <div class="home-header">
 
@@ -806,25 +807,16 @@ if menu == "🏠 Home":
 
     </div>
     """, unsafe_allow_html=True)
-    
-    st.markdown("""
-    <div class='main-title'>
-        ChemAssist Ultra
-    </div>
-
-    <div class='subtitle'>
-        Smart Chemical Analysis Platform
-    </div>
-    """, unsafe_allow_html=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
+
 
     # Statistik
     c1, c2, c3 = st.columns(3)
 
     with c1:
         st.markdown(f"""
-        <div class='metric-box'>
+        <div class="metric-box">
             <h2>📚</h2>
             <h3>{len(db)}</h3>
             <p>Database Senyawa</p>
@@ -833,7 +825,7 @@ if menu == "🏠 Home":
 
     with c2:
         st.markdown(f"""
-        <div class='metric-box'>
+        <div class="metric-box">
             <h2>⚗️</h2>
             <h3>{len(data_ph)}</h3>
             <p>Data pH</p>
@@ -842,99 +834,101 @@ if menu == "🏠 Home":
 
     with c3:
         st.markdown("""
-        <div class='metric-box'>
+        <div class="metric-box">
             <h2>🚀</h2>
             <h3>5.0</h3>
             <p>Modern Edition</p>
         </div>
         """, unsafe_allow_html=True)
 
+
     st.markdown("<br>", unsafe_allow_html=True)
+
 
     # Feature Cards
     col1, col2 = st.columns(2)
 
+
     with col1:
 
         st.markdown("""
-        <div class='feature-card'>
-            <div class='feature-title'>
+        <div class="feature-card">
+            <div class="feature-title">
                 💧 Smart Solution Maker
             </div>
 
-            <div class='feature-desc'>
+            <div class="feature-desc">
                 Perhitungan larutan otomatis dengan tampilan modern dan akurat.
             </div>
         </div>
         """, unsafe_allow_html=True)
 
-        if st.button(
-            "🚀 Buka Menu Larutan",
-            key="btn_larutan"
-        ):
+
+        if st.button("🚀 Buka Menu Larutan", key="btn_larutan"):
             go_to("💧 Larutan")
+
 
         st.markdown("<br>", unsafe_allow_html=True)
 
+
         st.markdown("""
-        <div class='feature-card'>
-            <div class='feature-title'>
+        <div class="feature-card">
+            <div class="feature-title">
                 📚 Chemical Database
             </div>
 
-            <div class='feature-desc'>
-                Informasi senyawa lengkap, rumus, sifat fisika dan bahaya bahan kimia.
+            <div class="feature-desc">
+                Informasi senyawa lengkap, rumus, sifat fisika, dan bahaya bahan kimia.
             </div>
         </div>
         """, unsafe_allow_html=True)
 
-        if st.button(
-            "📖 Informasi Kimia",
-            key="btn_kimia"
-        ):
+
+        if st.button("📖 Informasi Kimia", key="btn_kimia"):
             go_to("📚 Informasi Bahan Kimia")
+
 
     with col2:
 
         st.markdown("""
-        <div class='feature-card'>
-            <div class='feature-title'>
+        <div class="feature-card">
+            <div class="feature-title">
                 ⚡ Smart pH Calculator
             </div>
 
-            <div class='feature-desc'>
-                Analisis pH larutan asam, basa, garam dan buffer secara otomatis.
+            <div class="feature-desc">
+                Analisis pH larutan asam, basa, garam, dan buffer secara otomatis.
             </div>
         </div>
         """, unsafe_allow_html=True)
 
-        if st.button(
-            "⚗️ Kalkulator pH",
-            key="btn_ph"
-        ):
+
+        if st.button("⚗️ Kalkulator pH", key="btn_ph"):
             go_to("⚗️ pH")
+
 
         st.markdown("<br>", unsafe_allow_html=True)
 
+
         st.markdown("""
-        <div class='feature-card'>
-            <div class='feature-title'>
+        <div class="feature-card">
+            <div class="feature-title">
                 🧠 Chemical Analysis
             </div>
 
-            <div class='feature-desc'>
+            <div class="feature-desc">
                 Analisis karakteristik senyawa dan prediksi sifat kimia modern.
             </div>
         </div>
         """, unsafe_allow_html=True)
 
-        if st.button(
-            "🧪 Analisis Kimia",
-            key="btn_analisis"
-        ):
+
+        if st.button("🧪 Analisis Kimia", key="btn_analisis"):
             go_to("🧪 Analisis Kimia")
 
+
     st.markdown("<br>", unsafe_allow_html=True)
+
 
     # System Performance
     st.markdown("### 🚀 System Performance")
