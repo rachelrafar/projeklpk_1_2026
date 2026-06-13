@@ -996,19 +996,55 @@ if menu == "🏠 Home":
     st.markdown("<br>", unsafe_allow_html=True)
 
 
-    # ================= Status Sistem =================
+    # ================= System Status =================
 
-    st.markdown("""
-    <div class="card" style="text-align:center;">
-        <h3>🚀 System Status</h3>
-        <p>
-            ChemAssist Ultra v5.0 berjalan normal dan siap digunakan.
-        </p>
-        <h2 style="color:#22C55E;">
-            ● ONLINE
-        </h2>
-    </div>
-    """, unsafe_allow_html=True)
+st.markdown("""
+<div class="card" style="
+    text-align:center;
+    background: linear-gradient(
+        135deg,
+        rgba(37,99,235,0.95),
+        rgba(29,78,216,0.95)
+    );
+    color:white;
+">
+
+    <h3 style="
+        font-size:28px;
+        margin-bottom:10px;
+        color:#E0F2FE;
+    ">
+        🚀 SYSTEM STATUS
+    </h3>
+
+    <p style="
+        font-size:17px;
+        line-height:1.6;
+        color:white;
+        margin-bottom:15px;
+    ">
+        ChemAssist Ultra <b>Version 5.0</b> berjalan dengan stabil dan siap membantu analisis laboratorium kimia secara cepat, akurat, dan modern.
+    </p>
+
+    <h2 style="
+        color:#86EFAC;
+        font-size:35px;
+        font-weight:900;
+        letter-spacing:2px;
+        text-shadow:0 0 12px #22C55E;
+    ">
+        ● ONLINE
+    </h2>
+
+    <p style="
+        color:#DBEAFE;
+        font-size:14px;
+    ">
+        All Systems Operational
+    </p>
+
+</div>
+""", unsafe_allow_html=True)
     
 # ================= LARUTAN =================
 
