@@ -347,6 +347,45 @@ button[data-baseweb="tab"]{
     margin-top:20px;
 }
 
+/* ================= FEATURE CARD BIRU ================= */
+
+.feature-card{
+
+    background:linear-gradient(
+        135deg,
+        #3B82F6,
+        #2563EB
+    );
+
+    border-radius:25px;
+
+    padding:25px;
+
+    min-height:160px;
+
+    margin-bottom:15px;
+
+    box-shadow:0 10px 25px rgba(37,99,235,0.25);
+}
+
+.feature-card .feature-title{
+
+    color:white !important;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+}
+
+.feature-card .feature-desc{
+
+    color:#E0F2FE !important;
+
+    line-height:1.6;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -849,100 +888,132 @@ if dark_mode:
     """, unsafe_allow_html=True)
 
 menu = selected
+
 # ================= HOME =================
 
-if menu=="🏠 Home":
+if menu == "🏠 Home":
 
-    c1,c2,c3=st.columns(3)
+    c1, c2, c3 = st.columns(3)
 
     with c1:
         st.markdown(f"""
         <div class='metric-box'>
-        <h2>📚</h2>
-        <h3>{len(db)}</h3>
-        <p>Database Senyawa</p>
+            <h2>📚</h2>
+            <h3>{len(db)}</h3>
+            <p>Database Senyawa</p>
         </div>
         """, unsafe_allow_html=True)
 
     with c2:
         st.markdown(f"""
         <div class='metric-box'>
-        <h2>⚗️</h2>
-        <h3>{len(data_ph)}</h3>
-        <p>Data pH</p>
+            <h2>⚗️</h2>
+            <h3>{len(data_ph)}</h3>
+            <p>Data pH</p>
         </div>
         """, unsafe_allow_html=True)
 
     with c3:
         st.markdown("""
         <div class='metric-box'>
-        <h2>🚀</h2>
-        <h3>5.0</h3>
-        <p>Modern Edition</p>
+            <h2>🚀</h2>
+            <h3>5.0</h3>
+            <p>Modern Edition</p>
         </div>
         """, unsafe_allow_html=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    col1,col2=st.columns(2)
+    col1, col2 = st.columns(2)
+
+    # ================= KOLOM KIRI =================
 
     with col1:
 
         st.markdown("""
-        <div class='card'>
-            <div class='feature-title'>💧 Smart Solution Maker</div>
+        <div class='feature-card'>
+            <div class='feature-title'>
+                💧 Smart Solution Maker
+            </div>
             <div class='feature-desc'>
-            Perhitungan larutan otomatis dengan tampilan modern.
+                Perhitungan larutan otomatis dengan tampilan modern.
             </div>
         </div>
         """, unsafe_allow_html=True)
 
-        if st.button("🚀 Buka Menu Larutan"):
+        if st.button(
+            "🚀 Buka Menu Larutan",
+            key="btn_larutan"
+        ):
             go_to("💧 Larutan")
 
+        st.markdown("<br>", unsafe_allow_html=True)
+
         st.markdown("""
-        <div class='card'>
-            <div class='feature-title'>📚 Chemical Database</div>
+        <div class='feature-card'>
+            <div class='feature-title'>
+                📚 Chemical Database
+            </div>
             <div class='feature-desc'>
-            Informasi senyawa lengkap dan interaktif.
+                Informasi senyawa lengkap dan interaktif.
             </div>
         </div>
         """, unsafe_allow_html=True)
 
-        if st.button("📖 Informasi Kimia"):
+        if st.button(
+            "📖 Informasi Kimia",
+            key="btn_kimia"
+        ):
             go_to("📚 Informasi Bahan Kimia")
+
+    # ================= KOLOM KANAN =================
 
     with col2:
 
         st.markdown("""
-        <div class='card'>
-            <div class='feature-title'>⚡ Smart pH Calculator</div>
+        <div class='feature-card'>
+            <div class='feature-title'>
+                ⚡ Smart pH Calculator
+            </div>
             <div class='feature-desc'>
-            Analisis pH cepat dengan sistem otomatis.
+                Analisis pH cepat dengan sistem otomatis.
             </div>
         </div>
         """, unsafe_allow_html=True)
 
-        if st.button("⚗️ Kalkulator pH"):
+        if st.button(
+            "⚗️ Kalkulator pH",
+            key="btn_ph"
+        ):
             go_to("⚗️ pH")
 
+        st.markdown("<br>", unsafe_allow_html=True)
+
         st.markdown("""
-        <div class='card'>
-            <div class='feature-title'>🧠 Chemical Analysis</div>
+        <div class='feature-card'>
+            <div class='feature-title'>
+                🧠 Chemical Analysis
+            </div>
             <div class='feature-desc'>
-            Analisis karakteristik senyawa modern.
+                Analisis karakteristik senyawa modern.
             </div>
         </div>
         """, unsafe_allow_html=True)
 
-        if st.button("🧪 Analisis Kimia"):
+        if st.button(
+            "🧪 Analisis Kimia",
+            key="btn_analisis"
+        ):
             go_to("🧪 Analisis Kimia")
+
         st.markdown("### 🚀 System Performance")
-        
-        progress=st.progress(0)
+
+        progress = st.progress(0)
+
         for i in range(100):
             time.sleep(0.01)
-            progress.progress(i+1)
+            progress.progress(i + 1)
+
         st.success("System Ready ✅")
 
 # ================= LARUTAN =================
