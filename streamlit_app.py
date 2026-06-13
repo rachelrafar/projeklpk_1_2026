@@ -96,35 +96,24 @@ st.markdown("""
 
 /* ================= LOGO ANIMATION ================= */
 
-/* Container logo */
 .logo-container {
-
-    text-align: center;
-
-    margin-bottom: 10px;
+    text-align:center;
+    margin-bottom:10px;
 }
 
-
-/* Logo berputar */
 .logo-spin {
-
-    font-size: 80px;
-
-    display: inline-block;
-
+    font-size:80px;
+    display:inline-block;
     animation: spin 6s linear infinite;
+    transform-origin:center;
 }
 
-
-/* Animasi putar */
 @keyframes spin {
-
     from {
-        transform: rotate(0deg);
+        transform:rotate(0deg);
     }
-
     to {
-        transform: rotate(360deg);
+        transform:rotate(360deg);
     }
 }
 /* ================= LOGIN ================= */
@@ -341,10 +330,12 @@ section[data-testid="stSidebar"] {
 
 /* ================= SCROLLBAR ================= */
 
+::-webkit-scrollbar {
+    width: 8px;
+}
+
 ::-webkit-scrollbar-thumb {
-
     background: #60A5FA;
-
     border-radius: 20px;
 }
 
@@ -381,7 +372,7 @@ if not st.session_state.login:
             "📝 Sign Up"
         ])
         
-# ================= SIGN IN =================
+        # ================= SIGN IN =================
 
         with tab1:
 
@@ -526,7 +517,7 @@ if not st.session_state.login:
                     st.rerun()
 
         st.markdown("""
-        </div>
+
         """, unsafe_allow_html=True)
 
     st.stop()
