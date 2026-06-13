@@ -94,58 +94,29 @@ st.markdown("""
     padding-top: 2rem;
 }
 
+/* ================= LOGO ANIMATION ================= */
 
-/* ================= GLOBAL HEADER ================= */
+/* Container logo */
+.logo-container {
 
-.app-header {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+    text-align: center;
 
-    background: rgba(255,255,255,0.75);
-    backdrop-filter: blur(20px);
-
-    padding: 20px 30px;
-    border-radius: 25px;
-
-    margin-bottom: 25px;
-
-    box-shadow:
-        0 10px 25px rgba(37,99,235,0.15);
+    margin-bottom: 10px;
 }
 
 
-.app-logo {
-    font-size: 55px;
+/* Logo berputar */
+.logo-spin {
+
+    font-size: 80px;
+
     display: inline-block;
 
-    animation: spin 8s linear infinite;
-
-    filter:
-        drop-shadow(0 0 8px #60A5FA);
+    animation: spin 6s linear infinite;
 }
 
 
-.app-info h1 {
-    margin: 0;
-
-    font-size: 34px;
-    font-weight: 900;
-
-    color: #2563EB;
-}
-
-
-.app-info p {
-    margin-top: 5px;
-
-    color: #475569;
-    font-size: 16px;
-}
-
-
-/* ================= ANIMATION ================= */
-
+/* Animasi putar */
 @keyframes spin {
 
     from {
@@ -155,10 +126,7 @@ st.markdown("""
     to {
         transform: rotate(360deg);
     }
-
 }
-
-
 /* ================= LOGIN ================= */
 
 .login-title {
@@ -673,20 +641,22 @@ def go_to(page_name):
 if "menu" not in st.session_state:
     st.session_state.menu = "🏠 Home"
 
-# ================= GLOBAL HEADER =================
-
+# ================= HEADER GLOBAL =================
 st.markdown("""
-<div class="app-header">
+<div class="logo-container">
 
-    <div class="app-logo">
+    <div class="logo-spin">
         🧪
     </div>
 
-    <div class="app-info">
-        <h1>ChemAssist Ultra</h1>
-        <p>Next Generation Chemistry Dashboard</p>
-    </div>
+</div>
 
+<div class="main-title">
+    ChemAssist Ultra
+</div>
+
+<div class="subtitle">
+    Next Generation Chemistry Dashboard
 </div>
 """, unsafe_allow_html=True)
 
