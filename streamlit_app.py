@@ -634,21 +634,19 @@ if "menu" not in st.session_state:
 
 # ================= HEADER GLOBAL =================
 st.markdown("""
+
 <div class="logo-container">
-
-    <div class="logo-spin">
-        🧪
-    </div>
-
+    <div class="logo-spin">🧪</div>
 </div>
 
 <div class="main-title">
-    ChemAssist Ultra
+ChemAssist Dashboard
 </div>
 
 <div class="subtitle">
-    Next Generation Chemistry Dashboard
+Sistem Analisis Parameter Laboratorium Kimia Interaktif
 </div>
+
 """, unsafe_allow_html=True)
 
 # ================= SIDEBAR =================
