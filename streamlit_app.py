@@ -339,6 +339,35 @@ section[data-testid="stSidebar"] {
     border-radius: 20px;
 }
 
+/* ================= HEADER TITLE ================= */
+
+.main-title {
+    text-align: center;
+    font-size: 64px;
+    font-weight: 900;
+    color: #0F172A;
+    letter-spacing: 2px;
+    margin-top: 5px;
+    margin-bottom: 8px;
+
+    text-transform: uppercase;
+
+    text-shadow:
+        0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+
+.subtitle {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    color: #334155;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 30px;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
