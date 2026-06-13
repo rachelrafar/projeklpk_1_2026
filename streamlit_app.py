@@ -305,67 +305,19 @@ to{
 
 /* Logo berputar */
 .logo-spin{
-
-    font-size: 80px;
-
-    display: inline-block;
-
-    animation: spin 8s linear infinite;
-
-    filter:
-        drop-shadow(0 0 10px #60A5FA)
-        drop-shadow(0 0 20px #2563EB);
-
+    text-align:center;
+    font-size:90px;
+    animation:spin 8s linear infinite;
+    display:inline-block;
 }
 
-
-/* Animasi putar */
 @keyframes spin{
-
     from{
-        transform: rotate(0deg);
+        transform:rotate(0deg);
     }
-
     to{
-        transform: rotate(360deg);
+        transform:rotate(360deg);
     }
-
-}
-
-
-/* Judul */
-.main-title{
-
-    margin-top: 10px;
-
-    font-size: 55px;
-
-    font-weight: 900;
-
-    background: linear-gradient(
-        90deg,
-        #1D4ED8,
-        #60A5FA
-    );
-
-    -webkit-background-clip: text;
-
-    -webkit-text-fill-color: transparent;
-
-}
-
-
-/* Subtitle */
-.subtitle{
-
-    margin-top: 5px;
-
-    font-size: 18px;
-
-    color: #475569;
-
-    letter-spacing: 1px;
-
 }
 
 
