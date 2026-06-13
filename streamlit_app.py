@@ -788,8 +788,6 @@ menu = selected
 # ================= HOME =================
 
 if menu == "🏠 Home":
-
-    # Header Home
     st.markdown("""
     <div class="home-header">
 
