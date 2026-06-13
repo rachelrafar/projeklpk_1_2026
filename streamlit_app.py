@@ -996,16 +996,12 @@ if menu == "🏠 Home":
     st.markdown("<br>", unsafe_allow_html=True)
 
 
-     # ================= System Status =================
+    # ================= System Status =================
 
     st.markdown("""
     <div class="card" style="
         text-align:center;
-        background:linear-gradient(
-            135deg,
-            #2563EB,
-            #1D4ED8
-        );
+        background:linear-gradient(135deg,#2563EB,#1D4ED8);
         color:white;
         border-radius:25px;
         padding:25px;
@@ -1023,7 +1019,6 @@ if menu == "🏠 Home":
             color:#86EFAC;
             font-size:35px;
             font-weight:900;
-            text-shadow:0 0 12px #22C55E;
         ">
             ● ONLINE
         </h2>
