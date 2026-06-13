@@ -858,26 +858,28 @@ if dark_mode:
 
 menu = selected
 
-# ================= WELCOME HOME =================
+# ================= HOME =================
 
-st.markdown("""
-<div class="home-header">
+if menu == "🏠 Home":
 
-    <div class="logo-spin">
-        🧪
+    st.markdown("""
+    <div class="home-header">
+
+        <div class="logo-spin">
+            🧪
+        </div>
+
+        <div class="main-title">
+            ChemAssist Ultra
+        </div>
+
+        <div class="subtitle">
+            Next Generation Chemistry Dashboard
+        </div>
+
     </div>
-
-    <div class="main-title">
-        ChemAssist Ultra
-    </div>
-
-    <div class="subtitle">
-        Next Generation Chemistry Dashboard
-    </div>
-
-</div>
-""", unsafe_allow_html=True)
-
+    """, unsafe_allow_html=True)
+    
     st.markdown("""
     <div class='main-title'>
         ChemAssist Ultra
