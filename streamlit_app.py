@@ -373,12 +373,6 @@ section[data-testid="stSidebar"] {
 
 /* ================= SCROLLBAR ================= */
 
-::-webkit-scrollbar {
-
-    width: 8px;
-}
-
-
 ::-webkit-scrollbar-thumb {
 
     background: #60A5FA;
@@ -386,8 +380,9 @@ section[data-testid="stSidebar"] {
     border-radius: 20px;
 }
 
-
 </style>
+""", unsafe_allow_html=True)
+
 
 # ================= LOGIN PAGE =================
 
