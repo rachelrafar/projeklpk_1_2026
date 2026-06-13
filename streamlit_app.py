@@ -422,6 +422,32 @@ button[data-baseweb="tab"]{
     border:1px solid #93C5FD !important;
 }
 
+/* ================= LOGO ANIMASI ================= */
+
+.logo-spin{
+
+    text-align:center;
+
+    font-size:90px;
+
+    margin-top:10px;
+
+    margin-bottom:10px;
+
+    animation:spin 8s linear infinite;
+}
+
+@keyframes spin{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -929,6 +955,26 @@ menu = selected
 
 if menu == "🏠 Home":
 
+    # Logo Animasi
+    st.markdown("""
+    <div class="logo-spin">
+        ⚗️
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("""
+    <div class='main-title'>
+        ChemAssist Ultra
+    </div>
+
+    <div class='subtitle'>
+        Smart Chemical Analysis Platform
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    # Statistik
     c1, c2, c3 = st.columns(3)
 
     with c1:
@@ -960,8 +1006,102 @@ if menu == "🏠 Home":
 
     st.markdown("<br>", unsafe_allow_html=True)
 
+    # Feature Cards
     col1, col2 = st.columns(2)
 
+    with col1:
+
+        st.markdown("""
+        <div class='feature-card'>
+            <div class='feature-title'>
+                💧 Smart Solution Maker
+            </div>
+
+            <div class='feature-desc'>
+                Perhitungan larutan otomatis dengan tampilan modern dan akurat.
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+        if st.button(
+            "🚀 Buka Menu Larutan",
+            key="btn_larutan"
+        ):
+            go_to("💧 Larutan")
+
+        st.markdown("<br>", unsafe_allow_html=True)
+
+        st.markdown("""
+        <div class='feature-card'>
+            <div class='feature-title'>
+                📚 Chemical Database
+            </div>
+
+            <div class='feature-desc'>
+                Informasi senyawa lengkap, rumus, sifat fisika dan bahaya bahan kimia.
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+        if st.button(
+            "📖 Informasi Kimia",
+            key="btn_kimia"
+        ):
+            go_to("📚 Informasi Bahan Kimia")
+
+    with col2:
+
+        st.markdown("""
+        <div class='feature-card'>
+            <div class='feature-title'>
+                ⚡ Smart pH Calculator
+            </div>
+
+            <div class='feature-desc'>
+                Analisis pH larutan asam, basa, garam dan buffer secara otomatis.
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+        if st.button(
+            "⚗️ Kalkulator pH",
+            key="btn_ph"
+        ):
+            go_to("⚗️ pH")
+
+        st.markdown("<br>", unsafe_allow_html=True)
+
+        st.markdown("""
+        <div class='feature-card'>
+            <div class='feature-title'>
+                🧠 Chemical Analysis
+            </div>
+
+            <div class='feature-desc'>
+                Analisis karakteristik senyawa dan prediksi sifat kimia modern.
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+        if st.button(
+            "🧪 Analisis Kimia",
+            key="btn_analisis"
+        ):
+            go_to("🧪 Analisis Kimia")
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    # System Performance
+    st.markdown("### 🚀 System Performance")
+
+    progress = st.progress(0)
+
+    for i in range(100):
+        time.sleep(0.01)
+        progress.progress(i + 1)
+
+    st.success("System Ready ✅")
+    
     # ================= KOLOM KIRI =================
 
     with col1:
