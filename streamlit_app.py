@@ -270,32 +270,64 @@ section[data-testid="stSidebar"]{
 
 }
 
-/* ================= HOME HEADER ================= */
+/* ================= GLOBAL HEADER ================= */
 
-.home-header{
-    text-align: center;
-    margin-bottom: 30px;
+.app-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    background:rgba(255,255,255,0.75);
+
+    backdrop-filter:blur(20px);
+
+    padding:20px 30px;
+
+    border-radius:25px;
+
+    margin-bottom:25px;
+
+    box-shadow:
+        0 10px 25px rgba(37,99,235,0.15);
+
 }
 
 
-/* Logo berputar */
-.logo-spin{
-    text-align:center;
-    font-size:90px;
-    animation:spin 8s linear infinite;
-    display:inline-block;
-}
+.app-logo{
 
-@keyframes spin{
-    from{
-        transform:rotate(0deg);
-    }
-    to{
-        transform:rotate(360deg);
-    }
+    font-size:55px;
+
+    animation:
+    spin 8s linear infinite;
+
 }
 
 
+.app-info h1{
+
+    margin:0;
+
+    color:#2563EB;
+
+    font-size:34px;
+
+    font-weight:900;
+
+}
+
+
+.app-info p{
+
+    margin:5px 0 0 0;
+
+    color:#475569;
+
+    font-size:16px;
+
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -588,6 +620,25 @@ def go_to(page_name):
 if "menu" not in st.session_state:
     st.session_state.menu = "🏠 Home"
 
+# ================= GLOBAL HEADER =================
+
+st.markdown("""
+<div class="app-header">
+
+    <div class="app-logo">
+        🧪
+    </div>
+
+    <div class="app-info">
+        <h1>ChemAssist Ultra</h1>
+        <p>
+            Next Generation Chemistry Dashboard
+        </p>
+    </div>
+
+</div>
+""", unsafe_allow_html=True)
+
 # ================= SIDEBAR =================
 
 with st.sidebar:
@@ -788,26 +839,6 @@ menu = selected
 # ================= HOME =================
 
 if menu == "🏠 Home":
-
-    # Header Home
-    st.markdown("""
-    <div class="home-header">
-
-        <div class="logo-spin">
-            🧪
-        </div>
-
-        <div class="main-title">
-            ChemAssist Ultra
-        </div>
-
-        <div class="subtitle">
-            Smart Chemical Analysis Platform
-        </div>
-
-    </div>
-    """, unsafe_allow_html=True)
-
 
     st.markdown("<br>", unsafe_allow_html=True)
 
