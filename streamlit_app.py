@@ -295,6 +295,79 @@ to{
 
 }
 
+/* ================= HOME HEADER ================= */
+
+.home-header{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+/* Logo berputar */
+.logo-spin{
+
+    font-size: 80px;
+
+    display: inline-block;
+
+    animation: spin 8s linear infinite;
+
+    filter:
+        drop-shadow(0 0 10px #60A5FA)
+        drop-shadow(0 0 20px #2563EB);
+
+}
+
+
+/* Animasi putar */
+@keyframes spin{
+
+    from{
+        transform: rotate(0deg);
+    }
+
+    to{
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* Judul */
+.main-title{
+
+    margin-top: 10px;
+
+    font-size: 55px;
+
+    font-weight: 900;
+
+    background: linear-gradient(
+        90deg,
+        #1D4ED8,
+        #60A5FA
+    );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+}
+
+
+/* Subtitle */
+.subtitle{
+
+    margin-top: 5px;
+
+    font-size: 18px;
+
+    color: #475569;
+
+    letter-spacing: 1px;
+
+}
+
 
 </style>
 """, unsafe_allow_html=True)
@@ -328,7 +401,7 @@ if not st.session_state.login:
             "📝 Sign Up"
         ])
 
-        # ================= SIGN IN =================
+# ================= SIGN IN =================
 
         with tab1:
 
@@ -477,20 +550,6 @@ if not st.session_state.login:
         """, unsafe_allow_html=True)
 
     st.stop()
-    
-# ================= HEADER =================
-
-st.markdown("""
-<div class="logo">🧪</div>
-
-<div class="main-title">
-ChemAssist Ultra
-</div>
-
-<div class="subtitle">
-Next Generation Chemistry Dashboard
-</div>
-""", unsafe_allow_html=True)
 
 # ================= SESSION =================
 
@@ -799,16 +858,25 @@ if dark_mode:
 
 menu = selected
 
-# ================= HOME =================
+# ================= WELCOME HOME =================
 
-if menu == "🏠 Home":
+st.markdown("""
+<div class="home-header">
 
-    # Logo Animasi
-    st.markdown("""
     <div class="logo-spin">
-        ⚗️
+        🧪
     </div>
-    """, unsafe_allow_html=True)
+
+    <div class="main-title">
+        ChemAssist Ultra
+    </div>
+
+    <div class="subtitle">
+        Next Generation Chemistry Dashboard
+    </div>
+
+</div>
+""", unsafe_allow_html=True)
 
     st.markdown("""
     <div class='main-title'>
