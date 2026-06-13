@@ -1,4 +1,6 @@
-# ================= IMPORT =================
+# =========================
+# IMPORT LIBRARY
+# =========================
 
 import streamlit as st
 from streamlit_option_menu import option_menu
@@ -13,18 +15,22 @@ import os
 import hashlib
 from datetime import datetime
 
-# ================= PAGE CONFIG =================
+
+# =========================
+# PAGE CONFIG
+# =========================
 
 st.set_page_config(
-
     page_title="ChemAssist Ultra",
-
     page_icon="🧪",
-
     layout="wide",
-
     initial_sidebar_state="expanded"
 )
+
+
+# =========================
+# USER DATABASE
+# =========================
 
 USER_FILE = "users.json"
 
@@ -32,209 +38,74 @@ if not os.path.exists(USER_FILE):
     with open(USER_FILE, "w") as f:
         json.dump({}, f)
 
+
 def load_users():
     with open(USER_FILE, "r") as f:
         return json.load(f)
+
 
 def save_users(users):
     with open(USER_FILE, "w") as f:
         json.dump(users, f, indent=4)
 
+
 def hash_password(password):
     return hashlib.sha256(password.encode()).hexdigest()
 
-# ================= SESSION =================
 
-if "login" not in st.session_state:
-    st.session_state.login = False
+# =========================
+# SESSION STATE
+# =========================
 
-if "history" not in st.session_state:
-    st.session_state.history = []
-    
-if "username" not in st.session_state:
-    st.session_state.username = ""
+default_session = {
+    "login": False,
+    "username": "",
+    "nama": "",
+    "menu": "🏠 Home",
+    "history": []
+}
 
-if "nama" not in st.session_state:
-    st.session_state.nama = ""
+
+for key, value in default_session.items():
+    if key not in st.session_state:
+        st.session_state[key] = value
+
+
+# =========================
+# GLOBAL STYLE
+# =========================
 
 st.markdown("""
 <style>
 
-/* ================= BACKGROUND ================= */
+/* ========== BACKGROUND ========== */
 
 .stApp{
-    background:linear-gradient(
+    background:
+    linear-gradient(
         135deg,
         #F0F9FF,
         #E0F2FE,
         #BAE6FD,
         #7DD3FC
-    ) !important;
+    );
 }
 
-.main{
-    background: transparent !important;
-}
 
 .block-container{
     padding-top: 2rem;
 }
 
-/* ================= TITLE ================= */
 
-.login-title{
-    text-align:center;
-    font-size:58px;
-    font-weight:900;
-    color:#1E3A8A;
-    margin-bottom:5px;
-}
-
-.login-sub{
-    text-align:center;
-    color:#475569;
-    font-size:18px;
-    margin-bottom:35px;
-}
-
-/* ================= LOGIN BOX ================= */
-
-.stTabs{
-    background:rgba(255,255,255,0.92) !important;
-    backdrop-filter:blur(20px);
-    padding:35px !important;
-    border-radius:30px !important;
-    border:1px solid rgba(255,255,255,0.5);
-    box-shadow:0 15px 40px rgba(37,99,235,0.15) !important;
-}
-
-button[data-baseweb="tab"]{
-    font-size:16px !important;
-    font-weight:700 !important;
-}
-
-/* ================= WELCOME ================= */
-
-.login-box-title{
-    text-align:center;
-    font-size:32px;
-    font-weight:800;
-    color:#1E3A8A;
-    margin-bottom:8px;
-}
-
-.login-box-sub{
-    text-align:center;
-    color:#64748B;
-    margin-bottom:30px;
-}
-
-/* ================= INPUT ================= */
-
-div[data-baseweb="input"]{
-    background:white !important;
-    border-radius:15px !important;
-    border:2px solid #DBEAFE !important;
-}
-
-.stTextInput input{
-    background:white !important;
-    border:none !important;
-    font-size:16px !important;
-}
-
-.stTextInput input:focus{
-    box-shadow:none !important;
-}
-
-/* ================= BUTTON ================= */
-
-.stButton button{
-    width:100% !important;
-    height:52px !important;
-    border:none !important;
-    border-radius:15px !important;
-
-    font-size:16px !important;
-    font-weight:700 !important;
-
-    color:white !important;
-
-    background:linear-gradient(
-        90deg,
-        #60A5FA,
-        #2563EB
-    ) !important;
-
-    box-shadow:0 8px 20px rgba(37,99,235,0.25);
-}
-
-.stButton button:hover{
-    transform:translateY(-2px);
-}
-
-/* ================= SUCCESS ERROR ================= */
-
-.stSuccess,
-.stError,
-.stWarning{
-    border-radius:12px !important;
-}
-
-/* ================= SIDEBAR ================= */
-
-section[data-testid="stSidebar"]{
-    background:rgba(255,255,255,0.55);
-    backdrop-filter:blur(20px);
-    border-right:1px solid rgba(255,255,255,0.4);
-}
-
-/* ================= CARD ================= */
-
-.card{
-    background:rgba(255,255,255,0.7);
-    backdrop-filter:blur(18px);
-    border-radius:25px;
-    padding:25px;
-    margin-bottom:20px;
-    border:1px solid rgba(255,255,255,0.4);
-    box-shadow:0 8px 24px rgba(37,99,235,0.12);
-}
-
-/* ================= METRIC ================= */
-
-.metric-box{
-    background:rgba(255,255,255,0.75);
-    backdrop-filter:blur(18px);
-    border-radius:25px;
-    padding:25px;
-    text-align:center;
-    box-shadow:0 8px 24px rgba(37,99,235,0.12);
-}
-
-.metric-box h2{
-    font-size:40px;
-    margin-bottom:5px;
-}
-
-.metric-box h3{
-    color:#2563EB;
-    font-size:32px;
-    font-weight:800;
-}
-
-.metric-box p{
-    color:#475569;
-}
-
-/* ================= HOME ================= */
+/* ========== TITLE ========== */
 
 .main-title{
     text-align:center;
-    font-size:60px;
+    font-size:58px;
     font-weight:900;
     color:#2563EB;
 }
+
 
 .subtitle{
     text-align:center;
@@ -242,234 +113,217 @@ section[data-testid="stSidebar"]{
     font-size:18px;
 }
 
-/* ================= FEATURE ================= */
 
-.feature-title{
-    color:#2563EB;
-    font-size:22px;
-    font-weight:700;
+/* ========== LOGIN ========== */
+
+.login-title{
+    text-align:center;
+    font-size:56px;
+    font-weight:900;
+    color:#1E3A8A;
 }
 
-.feature-desc{
+
+.login-sub{
+    text-align:center;
+    font-size:18px;
     color:#475569;
-    line-height:1.6;
+    margin-bottom:25px;
 }
 
-/* ================= ABOUT ================= */
 
-.tentang-box{
-    background:rgba(255,255,255,0.7);
-    backdrop-filter:blur(15px);
-    border-radius:25px;
-    padding:30px;
-    border:1px solid rgba(255,255,255,0.4);
-}
-
-.tentang-box h2,
-.tentang-box h3{
-    color:#2563EB;
-}
-
-.tentang-box p,
-.tentang-box li{
-    color:#334155;
-}
-
-/* ================= CHEM ICON ================= */
-
-.chem-bg{
-    position:fixed;
-    left:50px;
-    top:250px;
-    font-size:180px;
-    opacity:0.08;
-    z-index:0;
-}
-
-.chem-bg2{
-    position:fixed;
-    right:70px;
-    bottom:80px;
-    font-size:180px;
-    opacity:0.08;
-    z-index:0;
-}
-
-/* ================= SCROLLBAR ================= */
-
-::-webkit-scrollbar{
-    width:8px;
-}
-
-::-webkit-scrollbar-thumb{
-    background:#60A5FA;
-    border-radius:20px;
-}
-
-/* ================= LOGIN TABS ================= */
-
-.stTabs{
+.login-box{
     background:rgba(255,255,255,0.85);
     backdrop-filter:blur(20px);
-    padding:30px;
-    border-radius:25px;
-    box-shadow:0 10px 30px rgba(37,99,235,0.15);
+    border-radius:30px;
+    padding:35px;
+    box-shadow:
+        0 15px 35px
+        rgba(37,99,235,.20);
 }
 
-button[data-baseweb="tab"]{
-    font-size:16px !important;
-    font-weight:700 !important;
-}
 
 .login-box-title{
     text-align:center;
     font-size:28px;
     font-weight:800;
     color:#2563EB;
-    margin-bottom:20px;
 }
 
-.login-box{
 
-    background:rgba(255,255,255,0.55);
+/* ========== INPUT ========== */
 
-    padding:40px;
-
-    border-radius:30px;
-
-    backdrop-filter:blur(20px);
-
-    border:1px solid rgba(255,255,255,0.5);
-
-    box-shadow:
-        0 10px 30px rgba(37,99,235,0.20);
-
-    margin-top:20px;
+.stTextInput input{
+    background:white;
+    border-radius:14px;
 }
 
-/* ================= FEATURE CARD BIRU ================= */
 
-.feature-card{
-
-    background:linear-gradient(
-        135deg,
-        #3B82F6,
-        #2563EB
-    );
-
-    border-radius:25px;
-
-    padding:25px;
-
-    min-height:160px;
-
-    margin-bottom:15px;
-
-    box-shadow:0 10px 25px rgba(37,99,235,0.25);
-}
-
-.feature-card .feature-title{
-
-    color:white !important;
-
-    font-size:22px;
-
-    font-weight:700;
-
-    margin-bottom:10px;
-}
-
-.feature-card .feature-desc{
-
-    color:#E0F2FE !important;
-
-    line-height:1.6;
-}
-
-/* ================= BUTTON PUTIH ================= */
+/* ========== BUTTON ========== */
 
 .stButton button{
 
-    width:100% !important;
+    width:100%;
+    height:52px;
 
-    height:52px !important;
+    border-radius:15px;
 
-    border-radius:15px !important;
+    border:none;
 
-    border:1px solid #BFDBFE !important;
+    background:
+    linear-gradient(
+        90deg,
+        #60A5FA,
+        #2563EB
+    );
 
-    background:white !important;
+    color:white;
 
-    color:#2563EB !important;
-
-    font-size:16px !important;
-
-    font-weight:700 !important;
-
-    box-shadow:0 6px 15px rgba(37,99,235,0.12) !important;
+    font-size:16px;
+    font-weight:700;
 
     transition:0.3s;
 }
 
+
 .stButton button:hover{
-
-    background:#EFF6FF !important;
-
-    color:#1D4ED8 !important;
-
-    transform:translateY(-2px);
-
-    border:1px solid #93C5FD !important;
+    transform:translateY(-3px);
 }
 
-/* ================= LOGO ANIMASI ================= */
 
-.logo-spin{
+/* ========== SIDEBAR ========== */
 
-    text-align:center;
+section[data-testid="stSidebar"]{
 
-    font-size:90px;
+    background:
+    rgba(255,255,255,0.55);
 
-    margin-top:10px;
-
-    margin-bottom:10px;
-
-    animation:spin 8s linear infinite;
+    backdrop-filter:
+    blur(20px);
 }
 
-@keyframes spin{
 
-    from{
-        transform:rotate(0deg);
-    }
+/* ========== CARD ========== */
 
-    to{
-        transform:rotate(360deg);
-    }
+.card,
+.metric-box,
+.feature-card,
+.info-box,
+.tentang-box{
+
+    background:
+    rgba(255,255,255,.75);
+
+    backdrop-filter:
+    blur(18px);
+
+    border-radius:25px;
+
+    padding:25px;
+
+    box-shadow:
+    0 10px 25px
+    rgba(37,99,235,.15);
+
 }
 
-.logo-spin{
-    text-align:center;
-    font-size:90px;
-    animation:spin 8s linear infinite;
-}
 
-@keyframes spin{
-    from{transform:rotate(0deg);}
-    to{transform:rotate(360deg);}
-}
+/* ========== FEATURE CARD ========== */
 
 .feature-card{
-    background:linear-gradient(
+
+    background:
+    linear-gradient(
         135deg,
         #3B82F6,
         #2563EB
     );
-    border-radius:25px;
-    padding:25px;
+
     min-height:160px;
-    margin-bottom:15px;
 }
+
+
+.feature-title{
+
+    color:white;
+
+    font-size:22px;
+
+    font-weight:800;
+
+    margin-bottom:10px;
+}
+
+
+.feature-desc{
+
+    color:#DBEAFE;
+
+    line-height:1.7;
+}
+
+
+/* ========== METRIC ========== */
+
+.metric-box{
+
+    text-align:center;
+}
+
+
+.metric-box h2{
+
+    font-size:40px;
+}
+
+
+.metric-box h3{
+
+    color:#2563EB;
+
+    font-size:32px;
+}
+
+
+/* ========== LOGO ANIMATION ========== */
+
+.logo-spin{
+
+    text-align:center;
+    font-size:90px;
+
+    animation:
+    spin 8s linear infinite;
+}
+
+
+@keyframes spin{
+
+from{
+    transform:rotate(0deg);
+}
+
+to{
+    transform:rotate(360deg);
+}
+
+}
+
+
+/* ========== SCROLLBAR ========== */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+
+::-webkit-scrollbar-thumb{
+
+    background:#60A5FA;
+    border-radius:20px;
+
+}
+
 
 </style>
 """, unsafe_allow_html=True)
