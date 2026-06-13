@@ -998,37 +998,23 @@ if menu == "🏠 Home":
 
     # ================= System Status =================
 
-    st.markdown("""
-    <div class="card" style="
+  st.markdown(
+    """
+    <div style="
         text-align:center;
         background:linear-gradient(135deg,#2563EB,#1D4ED8);
         color:white;
         border-radius:25px;
         padding:25px;
     ">
-
-        <h3 style="font-size:28px;color:#E0F2FE;">
-            🚀 SYSTEM STATUS
-        </h3>
-
-        <p style="font-size:17px;color:white;">
-            ChemAssist Ultra <b>Version 5.0</b> berjalan normal.
-        </p>
-
-        <h2 style="
-            color:#86EFAC;
-            font-size:35px;
-            font-weight:900;
-        ">
-            ● ONLINE
-        </h2>
-
-        <p style="color:#DBEAFE;font-size:15px;">
-            All Systems Operational
-        </p>
-
+        <h3>🚀 SYSTEM STATUS</h3>
+        <p>ChemAssist Ultra <b>Version 5.0</b> berjalan normal.</p>
+        <h2 style="color:#86EFAC;">● ONLINE</h2>
+        <p>All Systems Operational</p>
     </div>
-    """, unsafe_allow_html=True)
+    """,
+    unsafe_allow_html=True
+)
     
 # ================= LARUTAN =================
 
