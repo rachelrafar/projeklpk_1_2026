@@ -811,6 +811,75 @@ if dark_mode:
         color:white !important;
     }
 
+    /* ================= MENU KIRI ================= */
+
+div[data-testid="stVerticalBlock"] h2{
+    color:white !important;
+}
+
+.menu-title{
+    color:white !important;
+}
+
+/* ================= MENU BUTTON ================= */
+
+.stButton > button{
+    background:#1E293B !important;
+    color:white !important;
+    border:1px solid #334155 !important;
+}
+
+.stButton > button:hover{
+    background:#2563EB !important;
+}
+
+/* ================= FEATURE CARD HOME ================= */
+
+.feature-card{
+    background:linear-gradient(
+    135deg,
+    #1E293B,
+    #334155
+    ) !important;
+
+    color:white !important;
+
+    border:1px solid rgba(255,255,255,0.08) !important;
+}
+
+.feature-card h2,
+.feature-card h3,
+.feature-card p{
+    color:white !important;
+}
+
+/* ================= SMART CARD ================= */
+
+.smart-card{
+    background:linear-gradient(
+    135deg,
+    #1E293B,
+    #334155
+    ) !important;
+
+    border:1px solid rgba(255,255,255,0.08) !important;
+}
+
+.smart-card *{
+    color:white !important;
+}
+
+/* ================= CARD PUTIH ATAS ================= */
+
+.quick-menu{
+    background:#1E293B !important;
+    color:white !important;
+}
+
+.quick-menu *{
+    color:white !important;
+}
+
     </style>
     """, unsafe_allow_html=True)
 
