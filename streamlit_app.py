@@ -1182,13 +1182,10 @@ elif menu == "💧 Larutan":
 
         col1, col2 = st.columns(2)
 
-       with col1:
-           if st.button(
-               "⬅️ Kembali ke Home",
-               use_container_width=True
-           ):
-               st.session_state.menu = "🏠 Home"
-               st.rerun()
+        with col1:
+            if st.button("⬅️ Kembali ke Home"):
+                st.session_state.menu = "🏠 Home"
+                st.rerun()
 
         with col2:
             hitung_pengenceran = st.button(
@@ -1296,12 +1293,9 @@ elif menu == "⚗️ pH":
     col1, col2 = st.columns(2)
 
     with col1:
-           if st.button(
-               "⬅️ Kembali ke Home",
-               use_container_width=True
-           ):
-               st.session_state.menu = "🏠 Home"
-               st.rerun()
+            if st.button("⬅️ Kembali ke Home"):
+                st.session_state.menu = "🏠 Home"
+                st.rerun()
 
     with col2:
         hitung_ph = st.button(
