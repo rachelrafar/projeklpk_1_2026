@@ -822,7 +822,6 @@ if menu == "🏠 Home":
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-
     # ================= Statistik =================
 
     col1, col2, col3 = st.columns(3)
@@ -854,107 +853,111 @@ if menu == "🏠 Home":
         </div>
         """, unsafe_allow_html=True)
 
-
     st.markdown("<br>", unsafe_allow_html=True)
 
+    # ================= FITUR UTAMA =================
 
-    # ================= Feature Menu =================
+    st.markdown("## 🚀 Fitur Utama")
 
-    kiri, kanan = st.columns(2)
+    col1, col2 = st.columns(2)
 
+    with col1:
 
-    with kiri:
-
-        st.markdown("""
-        <div class="feature-card">
-            <div class="feature-title">
-                💧 Smart Solution Maker
-            </div>
-            <div class="feature-desc">
-                Perhitungan larutan otomatis dengan hasil cepat dan akurat.
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-
-        if st.button("🚀 Buka Menu Larutan", key="home_larutan"):
+        if st.button("💧 Buka Menu Larutan", use_container_width=True):
             go_to("💧 Larutan")
 
-
-        st.markdown("<br>", unsafe_allow_html=True)
-
-
         st.markdown("""
-        <div class="feature-card">
-            <div class="feature-title">
-                📚 Chemical Database
-            </div>
-            <div class="feature-desc">
-                Informasi lengkap mengenai rumus, sifat, dan keamanan bahan kimia.
+        <div class='card'>
+            <div class='feature-title'>💧 Smart Solution Maker</div>
+            <div class='feature-desc'>
+            Perhitungan larutan otomatis dengan tampilan modern.
             </div>
         </div>
         """, unsafe_allow_html=True)
 
-        if st.button("📖 Informasi Kimia", key="home_database"):
+        if st.button("📚 Informasi Kimia", use_container_width=True):
             go_to("📚 Informasi Bahan Kimia")
 
-
-    with kanan:
-
         st.markdown("""
-        <div class="feature-card">
-            <div class="feature-title">
-                ⚡ Smart pH Calculator
-            </div>
-            <div class="feature-desc">
-                Perhitungan pH asam, basa, garam, dan larutan penyangga secara otomatis.
+        <div class='card'>
+            <div class='feature-title'>📚 Chemical Database</div>
+            <div class='feature-desc'>
+            Informasi senyawa lengkap dan interaktif.
             </div>
         </div>
         """, unsafe_allow_html=True)
 
-        if st.button("⚗️ Kalkulator pH", key="home_ph"):
+    with col2:
+
+        if st.button("⚗️ Kalkulator pH", use_container_width=True):
             go_to("⚗️ pH")
 
-
-        st.markdown("<br>", unsafe_allow_html=True)
-
-
         st.markdown("""
-        <div class="feature-card">
-            <div class="feature-title">
-                🧠 Chemical Analysis
-            </div>
-            <div class="feature-desc">
-                Analisis karakteristik dan sifat senyawa kimia secara modern.
+        <div class='card'>
+            <div class='feature-title'>⚡ Smart pH Calculator</div>
+            <div class='feature-desc'>
+            Analisis pH cepat dengan sistem otomatis.
             </div>
         </div>
         """, unsafe_allow_html=True)
 
-        if st.button("🧪 Analisis Kimia", key="home_analisis"):
+        if st.button("🧪 Analisis Kimia", use_container_width=True):
             go_to("🧪 Analisis Kimia")
 
-
-    st.markdown("<br>", unsafe_allow_html=True)
-
-
-       # ================= System Status =================
-
-    st.markdown(
-        """
-        <div style="
-            text-align:center;
-            background:linear-gradient(135deg,#2563EB,#1D4ED8);
-            color:white;
-            border-radius:25px;
-            padding:25px;
-        ">
-            <h3>🚀 SYSTEM STATUS</h3>
-            <p>ChemAssist Ultra <b>Version 5.0</b> berjalan normal.</p>
-            <h2 style="color:#86EFAC;">● ONLINE</h2>
-            <p>All Systems Operational</p>
+        st.markdown("""
+        <div class='card'>
+            <div class='feature-title'>🧠 Chemical Analysis</div>
+            <div class='feature-desc'>
+            Analisis karakteristik senyawa modern.
+            </div>
         </div>
-        """,
-        unsafe_allow_html=True
-    )
+        """, unsafe_allow_html=True)
+
+    # ================= SYSTEM =================
+
+    st.markdown("### 🚀 System Performance")
+
+    progress = st.progress(0)
+
+    for i in range(100):
+        time.sleep(0.01)
+        progress.progress(i + 1)
+
+    st.success("System Ready ✅")
+
+    # ================= TENTANG =================
+
+    st.markdown("## 🧪 Tentang ChemAssist Ultra")
+
+    st.markdown("""
+    <div class='card'>
+
+    <div class='feature-title'>
+    ✨ Teknologi yang Digunakan
+    </div>
+
+    <div class='feature-desc'>
+    • Python<br>
+    • Streamlit<br>
+    • NumPy<br>
+    • Pandas<br>
+    • JSON Database
+    </div>
+
+    <br>
+
+    <div class='feature-title'>
+    🎯 Tujuan Aplikasi
+    </div>
+
+    <div class='feature-desc'>
+    Membantu mahasiswa, laboran, dan praktisi kimia dalam melakukan
+    perhitungan larutan, analisis pH, pencarian informasi senyawa,
+    serta analisis karakteristik bahan kimia secara cepat dan mudah.
+    </div>
+
+    </div>
+    """, unsafe_allow_html=True)
     
 # ================= LARUTAN =================
 
