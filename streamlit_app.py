@@ -1933,9 +1933,9 @@ else:
 
     st.info("Data NFPA belum tersedia.")
     
-        # ================= KESIMPULAN =================
+# ================= KESIMPULAN =================
 
-        st.subheader("📋 Kesimpulan")
+st.subheader("📋 Kesimpulan")
 
         kesimpulan = f"""
 {data[0]} merupakan senyawa golongan {data[1].lower()}
