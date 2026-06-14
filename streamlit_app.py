@@ -1815,6 +1815,25 @@ elif menu == "🧪 Analisis Kimia":
 
         }
 
+        def interpretasi_nfpa(nilai):
+
+            if nilai == 0:
+                return "Sangat Rendah"
+
+            elif nilai == 1:
+                return "Rendah"
+
+            elif nilai == 2:
+                return "Sedang"
+
+            elif nilai == 3:
+                return "Tinggi"
+
+            elif nilai == 4:
+                return "Sangat Tinggi"
+
+            return "-"
+
         if senyawa in nfpa:
 
             f, h, r = nfpa[senyawa]
@@ -1822,13 +1841,25 @@ elif menu == "🧪 Analisis Kimia":
             c1, c2, c3 = st.columns(3)
 
             with c1:
-                st.metric("🔥 Flammability", f)
+                st.metric(
+                    "🔥 Flammability",
+                    f,
+                    interpretasi_nfpa(f)
+                )
 
             with c2:
-                st.metric("☣️ Health", h)
+                st.metric(
+                    "☣️ Health",
+                    h,
+                    interpretasi_nfpa(h)
+                )
 
             with c3:
-                st.metric("⚛️ Reactivity", r)
+                st.metric(
+                    "⚛️ Reactivity",
+                    r,
+                    interpretasi_nfpa(r)
+                )
 
         else:
 
@@ -1838,14 +1869,36 @@ elif menu == "🧪 Analisis Kimia":
 
         st.subheader("📋 Kesimpulan")
 
-        st.success(f"""
+        kesimpulan = f"""
 {data[0]} merupakan senyawa golongan {data[1].lower()}
 dengan massa molekul relatif {data[2]}.
+"""
 
-Berdasarkan data yang tersedia, senyawa ini memiliki tingkat bahaya
-berupa {data[3].lower()} sehingga memerlukan penanganan sesuai
-prosedur keselamatan laboratorium.
-""")
+        if senyawa in nfpa:
+
+            f, h, r = nfpa[senyawa]
+
+            kesimpulan += f"""
+
+Berdasarkan klasifikasi NFPA:
+
+🔥 Flammability : {f} ({interpretasi_nfpa(f)})
+☣️ Health : {h} ({interpretasi_nfpa(h)})
+⚛️ Reactivity : {r} ({interpretasi_nfpa(r)})
+
+Senyawa ini memerlukan penanganan sesuai prosedur
+keselamatan laboratorium serta penggunaan APD yang tepat.
+"""
+
+        else:
+
+            kesimpulan += f"""
+
+Tingkat bahaya senyawa ini adalah {data[3].lower()}.
+Gunakan APD dan ikuti prosedur keselamatan laboratorium.
+"""
+
+        st.success(kesimpulan)
         
 # ================= TENTANG =================
 
