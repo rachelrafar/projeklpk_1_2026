@@ -1306,24 +1306,11 @@ elif menu == "📚 Informasi Bahan Kimia":
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    col1, col2 = st.columns(2)
-
-    with col1:
-        home_info = st.button(
-            "⬅️ Kembali ke Home",
-            key="home_info",
-            use_container_width=True
-        )
-
-    with col2:
         tampilkan_info = st.button(
             "📖 Tampilkan Informasi",
             key="btn_info",
             use_container_width=True
         )
-
-    if home_info:
-        go_to("🏠 Home")
 
     if tampilkan_info:
 
@@ -1347,6 +1334,17 @@ elif menu == "📚 Informasi Bahan Kimia":
         <b>Bentuk/Fisik:</b> {data[4]}<br><br>
 
         <b>Struktur Molekul:</b> {data[5]}
+
+              # ================= HOME =================
+
+        st.markdown("<br>", unsafe_allow_html=True)
+
+        if st.button(
+            "🏠 Kembali ke Home",
+            key="home_info_bahan",
+            use_container_width=True
+        ):
+            go_to("🏠 Home")
 
         </div>
         """, unsafe_allow_html=True)
