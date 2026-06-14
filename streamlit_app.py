@@ -729,82 +729,80 @@ if dark_mode:
     st.markdown("""
     <style>
 
-    /* ================= APP BACKGROUND ================= */
     .stApp{
-        background: linear-gradient(135deg, #020617, #0B1220, #0F172A) !important;
-        color: white !important;
+        background:linear-gradient(
+        135deg,
+        #020617,
+        #0F172A,
+        #111827
+        ) !important;
     }
 
-    /* ================= SIDEBAR ================= */
-    section[data-testid="stSidebar"],
+    /* SIDEBAR */
+    section[data-testid="stSidebar"]{
+        background:#0F172A !important;
+    }
+
     section[data-testid="stSidebar"] > div{
-        background: #0B1220 !important;
-        color: white !important;
+        background:#0F172A !important;
     }
 
     section[data-testid="stSidebar"] *{
-        color: white !important;
+        color:white !important;
     }
 
-    /* ================= CARD FIX ================= */
-    div[data-testid="stVerticalBlock"] > div:has(div.stMarkdown),
+    /* Card */
     .card{
-        background: rgba(15, 23, 42, 0.75) !important;
-        border: 1px solid rgba(148, 163, 184, 0.2) !important;
-        border-radius: 18px !important;
-        padding: 15px !important;
-        color: white !important;
+        background:rgba(15,23,42,0.6) !important;
+        border:1px solid rgba(255,255,255,0.08) !important;
+        color:white !important;
     }
 
-    /* ================= TEXT GLOBAL ================= */
-    h1, h2, h3, h4, h5, h6, p, span, label{
-        color: #E2E8F0 !important;
+    /* Metric Home */
+    .metric-box{
+        color:white !important;
+        background:rgba(15,23,42,0.6) !important;
+        border:1px solid rgba(255,255,255,0.08) !important;
     }
 
-    /* ================= METRIC ================= */
-    div[data-testid="metric-container"]{
-        background: rgba(15, 23, 42, 0.75) !important;
-        border-radius: 16px !important;
-        padding: 12px !important;
-        border: 1px solid rgba(148, 163, 184, 0.2) !important;
+    .metric-box h2{
+        color:#38BDF8 !important;
     }
 
-    div[data-testid="metric-container"] label{
-        color: #94A3B8 !important;
+    .metric-box h3{
+        color:white !important;
     }
 
-    div[data-testid="metric-container"] div{
-        color: #38BDF8 !important;
+    .metric-box p{
+        color:#E2E8F0 !important;
     }
 
-    /* ================= INPUT ================= */
-    input, textarea{
-        background-color: #0B1220 !important;
-        color: white !important;
-        border: 1px solid #334155 !important;
-        border-radius: 10px !important;
+    /* Input */
+    .stTextInput input{
+        background:#0B1220 !important;
+        color:white !important;
+        border:1px solid #334155 !important;
     }
 
-    /* ================= SELECTBOX ================= */
+    /* Selectbox */
     div[data-baseweb="select"]{
-        background-color: #0B1220 !important;
-        color: white !important;
+        background:#0B1220 !important;
     }
 
     div[data-baseweb="select"] *{
-        color: black !important;
+        color:black !important;
     }
 
-    /* ================= BUTTON ================= */
-    button{
-        background: #1E293B !important;
-        color: white !important;
-        border: 1px solid #334155 !important;
-        border-radius: 10px !important;
+    /* Button */
+    .stButton button{
+        background:#1E293B !important;
+        color:white !important;
+        border:1px solid #334155 !important;
     }
 
-    button:hover{
-        background: #334155 !important;
+    /* Text global */
+    h1,h2,h3,h4,h5,h6,p,span,label{
+        color:white !important;
     }
 
     </style>
