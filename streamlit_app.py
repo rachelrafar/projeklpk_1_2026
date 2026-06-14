@@ -867,11 +867,19 @@ if menu == "🏠 Home":
             go_to("💧 Larutan")
 
         st.markdown("""
-        <div class='card'>
-            <div class='feature-title'>💧 Smart Solution Maker</div>
-            <div class='feature-desc'>
-            Perhitungan larutan otomatis dengan tampilan modern.
-            </div>
+        <div style="
+            background:linear-gradient(135deg,#60A5FA,#2563EB);
+            height:190px;
+            padding:25px;
+            border-radius:20px;
+            color:white;
+            margin-bottom:20px;
+            box-shadow:0 8px 20px rgba(37,99,235,0.25);
+        ">
+            <h3>💧 Smart Solution Maker</h3>
+            <p>
+            Perhitungan larutan otomatis dengan tampilan modern dan langkah pembuatan larutan yang praktis.
+            </p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -879,11 +887,19 @@ if menu == "🏠 Home":
             go_to("📚 Informasi Bahan Kimia")
 
         st.markdown("""
-        <div class='card'>
-            <div class='feature-title'>📚 Chemical Database</div>
-            <div class='feature-desc'>
-            Informasi senyawa lengkap dan interaktif.
-            </div>
+        <div style="
+            background:linear-gradient(135deg,#60A5FA,#2563EB);
+            height:190px;
+            padding:25px;
+            border-radius:20px;
+            color:white;
+            margin-bottom:20px;
+            box-shadow:0 8px 20px rgba(37,99,235,0.25);
+        ">
+            <h3>📚 Chemical Database</h3>
+            <p>
+            Menampilkan informasi senyawa kimia lengkap, sifat, bahaya, dan struktur molekul.
+            </p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -893,11 +909,19 @@ if menu == "🏠 Home":
             go_to("⚗️ pH")
 
         st.markdown("""
-        <div class='card'>
-            <div class='feature-title'>⚡ Smart pH Calculator</div>
-            <div class='feature-desc'>
-            Analisis pH cepat dengan sistem otomatis.
-            </div>
+        <div style="
+            background:linear-gradient(135deg,#60A5FA,#2563EB);
+            height:190px;
+            padding:25px;
+            border-radius:20px;
+            color:white;
+            margin-bottom:20px;
+            box-shadow:0 8px 20px rgba(37,99,235,0.25);
+        ">
+            <h3>⚡ Smart pH Calculator</h3>
+            <p>
+            Menghitung pH larutan asam dan basa secara cepat dan otomatis.
+            </p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -905,59 +929,51 @@ if menu == "🏠 Home":
             go_to("🧪 Analisis Kimia")
 
         st.markdown("""
-        <div class='card'>
-            <div class='feature-title'>🧠 Chemical Analysis</div>
-            <div class='feature-desc'>
-            Analisis karakteristik senyawa modern.
-            </div>
+        <div style="
+            background:linear-gradient(135deg,#60A5FA,#2563EB);
+            height:190px;
+            padding:25px;
+            border-radius:20px;
+            color:white;
+            margin-bottom:20px;
+            box-shadow:0 8px 20px rgba(37,99,235,0.25);
+        ">
+            <h3>🧪 Chemical Analysis</h3>
+            <p>
+            Analisis karakteristik senyawa, reaktivitas, keamanan, dan interpretasi kimia.
+            </p>
         </div>
         """, unsafe_allow_html=True)
 
-    # ================= SYSTEM =================
+    st.markdown("<br>", unsafe_allow_html=True)
 
-    st.markdown("### 🚀 System Performance")
+    # ================= LIVE SYSTEM MONITOR =================
 
-    progress = st.progress(0)
+    st.markdown("## 🚀 Live System Monitor")
 
-    for i in range(100):
-        time.sleep(0.01)
-        progress.progress(i + 1)
+    c1, c2, c3 = st.columns(3)
 
-    st.success("System Ready ✅")
+    with c1:
+        st.metric(
+            label="🟢 Status",
+            value="ONLINE"
+        )
 
-    # ================= TENTANG =================
+    with c2:
+        st.metric(
+            label="⚡ Response Time",
+            value="0.2 s"
+        )
 
-    st.markdown("## 🧪 Tentang ChemAssist Ultra")
+    with c3:
+        st.metric(
+            label="🧪 Database",
+            value=f"{len(db)} Senyawa"
+        )
 
-    st.markdown("""
-    <div class='card'>
+    st.info("🔄 Smart Chemical Engine Running")
 
-    <div class='feature-title'>
-    ✨ Teknologi yang Digunakan
-    </div>
-
-    <div class='feature-desc'>
-    • Python<br>
-    • Streamlit<br>
-    • NumPy<br>
-    • Pandas<br>
-    • JSON Database
-    </div>
-
-    <br>
-
-    <div class='feature-title'>
-    🎯 Tujuan Aplikasi
-    </div>
-
-    <div class='feature-desc'>
-    Membantu mahasiswa, laboran, dan praktisi kimia dalam melakukan
-    perhitungan larutan, analisis pH, pencarian informasi senyawa,
-    serta analisis karakteristik bahan kimia secara cepat dan mudah.
-    </div>
-
-    </div>
-    """, unsafe_allow_html=True)
+    st.success("✅ ChemAssist Ultra Ready")
     
 # ================= LARUTAN =================
 
