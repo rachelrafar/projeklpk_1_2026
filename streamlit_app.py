@@ -1498,7 +1498,7 @@ elif menu == "🧪 Analisis Kimia":
 
     "FeSO4":"Sumber ion Fe²⁺ yang digunakan dalam farmasi dan analisis.",
 
-    "CuCl2":"Sumber ion Cu²⁺ yang digunakan dalam sintesis dan analisis kimia."
+    "CuCl2":"Sumber ion Cu²⁺ yang digunakan dalam sintesis dan analisis kimia.",
 
     "Na3PO4":"Garam fosfat yang digunakan sebagai pengatur pH dan bahan pembersih.",
 
