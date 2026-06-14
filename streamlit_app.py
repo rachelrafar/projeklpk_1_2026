@@ -2078,56 +2078,28 @@ if menu == "ℹ️ Tentang":
 
     st.title("ℹ️ Tentang Aplikasi")
 
-    st.markdown("""
-    <div style="
-        background:#1E293B;
-        padding:20px;
-        border-radius:15px;
-        color:white;
-        box-shadow:0 6px 15px rgba(0,0,0,0.3);
-    ">
+    st.subheader("🧪 ChemAssist Pro")
 
-    <h2>🧪 ChemAssist Pro</h2>
+    st.write("Aplikasi laboratorium kimia interaktif berbasis Python dan Streamlit.")
 
-    <p>
-    Aplikasi laboratorium kimia interaktif berbasis Python dan Streamlit.
-    </p>
+    st.markdown("### 🚀 Fitur Utama")
+    st.write("- Smart Solution Maker")
+    st.write("- Smart pH Calculator")
+    st.write("- Informasi Bahan Kimia")
+    st.write("- Smart Chemical Analysis")
 
-    <h3>🚀 Fitur Utama</h3>
+    st.markdown("### 👨‍💻 Teknologi")
+    st.write("- Python")
+    st.write("- Streamlit")
 
-    <ul>
-        <li>Smart Solution Maker</li>
-        <li>Smart pH Calculator</li>
-        <li>Informasi Bahan Kimia</li>
-        <li>Smart Chemical Analysis</li>
-    </ul>
+    st.markdown("### 🎓 Dikembangkan Untuk")
+    st.write("Praktikum dan pembelajaran kimia analitik dan laboratorium.")
 
-    <h3>👨‍💻 Teknologi</h3>
+    st.markdown("### 👥 Creator Team")
+    st.write("• Adlina Dhiva Tsaniyah (2560555)")
+    st.write("• Davina Faiza Laksono (2560605)")
+    st.write("• Rachel Rafa Rashika (2560738)")
+    st.write("• Tantri Nirwana Bandiani (2560795)")
 
-    <ul>
-        <li>Python</li>
-        <li>Streamlit</li>
-    </ul>
-
-    <h3>🎓 Dikembangkan Untuk</h3>
-
-    <p>
-    Praktikum dan pembelajaran kimia analitik,
-    kimia dasar, serta perhitungan laboratorium.
-    </p>
-
-    <h3>👥 Creator Team</h3>
-
-    <ul>
-        <li><b>Adlina Dhiva Tsaniyah</b> (2560555)</li>
-        <li><b>Davina Faiza Laksono</b> (2560605)</li>
-        <li><b>Rachel Rafa Rashika</b> (2560738)</li>
-        <li><b>Tantri Nirwana Bandiani</b> (2560795)</li>
-    </ul>
-
-    <h3>📌 Versi</h3>
-
-    <p><b>ChemAssist Ultra v5.0</b></p>
-
-    </div>
-    """, unsafe_allow_html=True)
+    st.markdown("### 📌 Versi")
+    st.write("ChemAssist Ultra v5.0")
