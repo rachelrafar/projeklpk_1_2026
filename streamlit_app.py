@@ -15,7 +15,6 @@ import os
 import hashlib
 from datetime import datetime
 
-
 # =========================
 # PAGE CONFIG
 # =========================
@@ -69,7 +68,26 @@ default_session = {
 for key, value in default_session.items():
     if key not in st.session_state:
         st.session_state[key] = value
+# ================= PAGE FUNCTIONS =================
 
+def home():
+    st.title("🏠 Home")
+    st.write("Ini halaman home / dashboard")
+
+def larutan():
+    st.title("💧 Larutan")
+
+def ph():
+    st.title("⚗️ pH")
+
+def info():
+    st.title("📚 Informasi Bahan Kimia")
+
+def analisis():
+    st.title("🧪 Analisis Kimia")
+
+def tentang():
+    st.title("ℹ️ Tentang")
 
 # =========================
 # GLOBAL STYLE
