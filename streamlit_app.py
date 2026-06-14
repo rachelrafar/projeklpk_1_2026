@@ -1619,40 +1619,77 @@ elif menu == "🧪 Analisis Kimia":
 
         sifat = {
 
-            "Asam kuat":[
-                "Elektrolit kuat",
-                "Terionisasi hampir sempurna",
-                "Korosif terhadap logam"
-            ],
+    "Asam kuat":[
+        "Terionisasi hampir sempurna dalam air",
+        "Elektrolit kuat",
+        "Bersifat korosif terhadap logam dan jaringan"
+    ],
 
-            "Asam lemah":[
-                "Terionisasi sebagian",
-                "Konduktivitas sedang",
-                "Dapat membentuk sistem buffer"
-            ],
+    "Asam lemah":[
+        "Terionisasi sebagian dalam air",
+        "Konduktivitas listrik sedang",
+        "Dapat membentuk larutan buffer"
+    ],
 
-            "Basa kuat":[
-                "Menghasilkan OH⁻ dalam jumlah besar",
-                "Elektrolit kuat",
-                "Korosif terhadap jaringan"
-            ],
+    "Basa kuat":[
+        "Menghasilkan ion OH⁻ dalam jumlah besar",
+        "Elektrolit kuat",
+        "Korosif terhadap kulit dan jaringan"
+    ],
 
-            "Basa lemah":[
-                "Terionisasi sebagian",
-                "Konduktivitas sedang",
-                "Reaktivitas lebih rendah"
-            ],
+    "Basa lemah":[
+        "Terionisasi sebagian",
+        "Konduktivitas sedang",
+        "Reaktivitas lebih rendah dibanding basa kuat"
+    ],
 
-            "Alkohol":[
-                "Mudah menguap",
-                "Digunakan sebagai pelarut",
-                "Mudah terbakar"
-            ],
+    "Garam":[
+        "Tersusun dari kation dan anion",
+        "Dapat terdisosiasi dalam larutan",
+        "Beberapa garam dapat mengalami hidrolisis"
+    ],
 
-            "Pelarut":[
-                "Melarutkan berbagai senyawa",
-                "Volatil",
-                "Berpotensi mudah terbakar"
+    "Alkohol":[
+        "Mengandung gugus hidroksil (-OH)",
+        "Mudah menguap",
+        "Sebagian besar mudah terbakar"
+    ],
+
+    "Keton":[
+        "Mengandung gugus karbonil (>C=O)",
+        "Bersifat polar",
+        "Sering digunakan sebagai pelarut organik"
+    ],
+
+    "Aromatik":[
+        "Mengandung cincin aromatik",
+        "Stabil karena resonansi",
+        "Umumnya bersifat nonpolar"
+    ],
+
+    "Karbohidrat":[
+        "Mengandung gugus hidroksil dan karbonil",
+        "Larut dalam air",
+        "Merupakan sumber energi biologis"
+    ],
+
+    "Amida":[
+        "Mengandung gugus -CONH₂",
+        "Mampu membentuk ikatan hidrogen",
+        "Banyak digunakan dalam sintesis organik"
+    ],
+
+    "Pelarut":[
+        "Melarutkan berbagai senyawa",
+        "Umumnya volatil",
+        "Digunakan dalam proses laboratorium"
+    ],
+
+    "Oksidator":[
+        "Mampu menerima elektron",
+        "Mempercepat reaksi oksidasi",
+        "Dapat bereaksi kuat dengan bahan organik"
+        
             ]
         }
 
