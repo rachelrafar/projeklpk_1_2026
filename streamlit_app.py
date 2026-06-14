@@ -1786,10 +1786,10 @@ elif menu == "🧪 Analisis Kimia":
         if "Asam" in jenis:
 
             st.info("""
-• Bereaksi dengan basa menghasilkan garam dan air.
-• Mengubah indikator menjadi merah.
-• Bersifat donor proton (H⁺).
-""")
+    • Bereaksi dengan basa menghasilkan garam dan air.
+    • Mengubah indikator menjadi merah.
+    • Bersifat donor proton (H⁺).
+    """)
 
         elif "Basa" in jenis:
 
