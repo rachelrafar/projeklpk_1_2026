@@ -1018,12 +1018,9 @@ if menu == "🏠 Home":
     
 # ================= LARUTAN =================
 
-elif menu=="💧 Larutan":
+elif menu == "💧 Larutan":
 
     st.title("💧 Smart Solution Maker")
-
-    if st.button("⬅ Kembali ke Home"):
-        go_to("🏠 Home")
 
     senyawa = st.selectbox(
         "Pilih Senyawa",
@@ -1050,10 +1047,36 @@ elif menu=="💧 Larutan":
 
     if metode == "Pembuatan Larutan":
 
-        M = st.number_input("Konsentrasi Larutan (M)", 0.1)
-        V = st.number_input("Volume Larutan (mL)", 100.0)
+        M = st.number_input(
+            "Konsentrasi Larutan (M)",
+            min_value=0.0,
+            value=0.1
+        )
 
-        if st.button("Hitung Massa Senyawa"):
+        V = st.number_input(
+            "Volume Larutan (mL)",
+            min_value=0.0,
+            value=100.0
+        )
+
+        st.markdown("<br>", unsafe_allow_html=True)
+
+        col1, col2 = st.columns(2)
+
+        with col1:
+            if st.button(
+                "⬅️ Kembali ke Home",
+                use_container_width=True
+            ):
+                go_to("🏠 Home")
+
+        with col2:
+            hitung = st.button(
+                "🧪 Hitung Massa Senyawa",
+                use_container_width=True
+            )
+
+        if hitung:
 
             with st.spinner("Sedang menghitung..."):
                 time.sleep(3)
@@ -1062,6 +1085,7 @@ elif menu=="💧 Larutan":
 
             st.success(f"""
 ✅ Massa senyawa yang diperlukan:
+
 {massa:.4f} gram
 """)
 
