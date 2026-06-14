@@ -2080,7 +2080,7 @@ if menu == "ℹ️ Tentang":
     st.write("Aplikasi laboratorium kimia interaktif berbasis Python dan Streamlit.")
 
     st.markdown("### 🚀 Fitur Utama")
-    st.markdown(
+    st.write(
         "- Smart Solution Maker\n"
         "- Smart pH Calculator\n"
         "- Informasi Bahan Kimia\n"
@@ -2088,17 +2088,17 @@ if menu == "ℹ️ Tentang":
     )
 
     st.markdown("### 👨‍💻 Teknologi")
-    st.markdown("- Python\n- Streamlit")
+    st.write("- Python\n- Streamlit")
 
     st.markdown("### 🎓 Dikembangkan Untuk")
     st.write("Praktikum dan pembelajaran kimia laboratorium.")
 
     st.markdown("### 👥 Creator Team")
-    st.markdown(
-        "- **Adlina Dhiva Tsaniyah** (2560555)\n"
-        "- **Davina Faiza Laksono** (2560605)\n"
-        "- **Rachel Rafa Rashika** (2560738)\n"
-        "- **Tantri Nirwana Bandiani** (2560795)"
+    st.write(
+        "- Adlina Dhiva Tsaniyah (2560555)\n"
+        "- Davina Faiza Laksono (2560605)\n"
+        "- Rachel Rafa Rashika (2560738)\n"
+        "- Tantri Nirwana Bandiani (2560795)"
     )
 
     st.success("ChemAssist Ultra v5.0")
