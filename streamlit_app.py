@@ -1326,87 +1326,131 @@ elif menu == "⚗️ pH":
 
 # ================= INFORMASI BAHAN =================
 
-elif menu=="📚 Informasi Bahan Kimia":
-   
-     st.title("📚 Informasi Bahan Kimia")
-     
-     if st.button("⬅ Kembali ke Home"):
+elif menu == "📚 Informasi Bahan Kimia":
+
+    st.title("📚 Informasi Bahan Kimia")
+
+    cari = st.text_input(
+        "🔎 Cari nama atau rumus senyawa"
+    )
+
+    hasil = [
+        x for x in db
+        if cari.lower() in x.lower()
+        or cari.lower() in db[x][0].lower()
+    ] if cari else list(db.keys())
+
+    pilih = st.selectbox(
+        "Pilih Senyawa",
+        hasil
+    )
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        home_info = st.button(
+            "⬅️ Kembali ke Home",
+            key="home_info",
+            use_container_width=True
+        )
+
+    with col2:
+        tampilkan_info = st.button(
+            "📖 Tampilkan Informasi",
+            key="btn_info",
+            use_container_width=True
+        )
+
+    if home_info:
         go_to("🏠 Home")
+
+    if tampilkan_info:
+
+        data = db[pilih]
+
+        st.markdown(f"""
+        <div class='card'>
+
+        <h3>🧪 Informasi Senyawa</h3>
+
+        <b>Nama Senyawa:</b> {data[0]}<br><br>
+
+        <b>Rumus Kimia:</b> {pilih}<br><br>
+
+        <b>Jenis:</b> {data[1]}<br><br>
+
+        <b>Mr:</b> {data[2]}<br><br>
+
+        <b>Bahaya:</b> {data[3]}<br><br>
+
+        <b>Bentuk/Fisik:</b> {data[4]}<br><br>
+
+        <b>Struktur Molekul:</b> {data[5]}
+
+        </div>
+        """, unsafe_allow_html=True)
         
-     cari=st.text_input("🔎 Cari nama atau rumus senyawa")
-
-     hasil = [
-         x for x in db
-         if cari.lower() in x.lower()
-         or cari.lower() in db[x][0].lower()
-     ] if cari else list(db.keys())
-
-
-     pilih=st.selectbox("Pilih Senyawa",hasil)
-
-     data=db[pilih]
-
-     st.markdown(f"""
-<div class='card'>
-
-<h3>🧪 Informasi Senyawa</h3>
-
-<b>Nama Senyawa:</b> {data[0]}<br><br>
-
-<b>Rumus Kimia:</b> {pilih}<br><br>
-
-<b>Jenis:</b> {data[1]}<br><br>
-
-<b>Mr:</b> {data[2]}<br><br>
-
-<b>Bahaya:</b> {data[3]}<br><br>
-
-<b>Bentuk/Fisik:</b> {data[4]}<br><br>
-
-<b>Struktur Molekul:</b> {data[5]}
-
-</div>
-""", unsafe_allow_html=True)
-
 # ================= ANALISIS KIMIA =================
 
-elif menu=="🧪 Analisis Kimia":
+elif menu == "🧪 Analisis Kimia":
 
     st.title("🧪 Smart Chemical Analysis")
-
-    if st.button("⬅ Kembali ke Home"):
-        go_to("🏠 Home")
 
     senyawa = st.selectbox(
         "Pilih Senyawa",
         list(db.keys())
     )
 
-    data = db[senyawa]
+    st.markdown("<br>", unsafe_allow_html=True)
 
-    st.markdown(f"""
-    <div class='info-box'>
+    col1, col2 = st.columns(2)
 
-    <h3>📊 Hasil Analisis Senyawa</h3>
+    with col1:
+        home_analisis = st.button(
+            "⬅️ Kembali ke Home",
+            key="home_analisis",
+            use_container_width=True
+        )
 
-    <b>🧪 Nama :</b> {data[0]}<br><br>
+    with col2:
+        tampilkan_analisis = st.button(
+            "🧪 Analisis Senyawa",
+            key="btn_analisis",
+            use_container_width=True
+        )
 
-    <b>📌 Rumus :</b> {senyawa}<br><br>
+    if home_analisis:
+        go_to("🏠 Home")
 
-    <b>⚗️ Jenis :</b> {data[1]}<br><br>
+    if tampilkan_analisis:
 
-    <b>⚖️ Mr :</b> {data[2]}<br><br>
+        data = db[senyawa]
 
-    <b>⚠️ Bahaya :</b> {data[3]}<br><br>
+        st.markdown(f"""
+        <div class='info-box'>
 
-    <b>🧬 Struktur :</b> {data[5]}
+        <h3>📊 Hasil Analisis Senyawa</h3>
 
-    </div>
-    """, unsafe_allow_html=True)
+        <b>🧪 Nama :</b> {data[0]}<br><br>
 
-    st.subheader("🧪 Interpretasi Kimia")
+        <b>📌 Rumus :</b> {senyawa}<br><br>
 
-    jenis = data[1]
+        <b>⚗️ Jenis :</b> {data[1]}<br><br>
+
+        <b>⚖️ Mr :</b> {data[2]}<br><br>
+
+        <b>⚠️ Bahaya :</b> {data[3]}<br><br>
+
+        <b>🧬 Struktur :</b> {data[5]}
+
+        </div>
+        """, unsafe_allow_html=True)
+
+        st.subheader("🧪 Interpretasi Kimia")
+
+        jenis = data[1]
 
     if jenis == "Asam kuat":
         interpretasi = "Asam kuat yang terionisasi hampir sempurna dalam air dan menghasilkan ion H⁺ dalam jumlah besar."
