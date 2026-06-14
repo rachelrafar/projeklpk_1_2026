@@ -1391,7 +1391,7 @@ elif menu == "📚 Informasi Bahan Kimia":
         or cari.lower() in db[x][0].lower()
     ] if cari else list(db.keys())
 
-    # ================= SELECT =================
+    # ================= SELECTBOX =================
     pilih = st.selectbox(
         "Pilih Senyawa",
         hasil,
@@ -1400,7 +1400,7 @@ elif menu == "📚 Informasi Bahan Kimia":
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # ================= BUTTON ROW =================
+    # ================= BUTTON =================
     col1, col2 = st.columns([1, 1])
 
     with col1:
@@ -1417,34 +1417,32 @@ elif menu == "📚 Informasi Bahan Kimia":
             use_container_width=True
         )
 
-    # ================= OUTPUT CARD =================
+    # ================= CARD OUTPUT =================
     if tampilkan_info and pilih:
 
         data = db[pilih]
 
         st.markdown(f"""
         <div style="
-            background:#1E293B;
-            padding:20px;
-            border-radius:15px;
-            color:white;
-            box-shadow:0 6px 15px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, #1E293B, #0F172A);
+            padding: 20px;
+            border-radius: 15px;
+            color: white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.35);
         ">
 
-            <h3>🧪 Informasi Senyawa</h3>
+            <h2 style="margin-bottom: 10px;">🧪 Informasi Senyawa</h2>
 
-            <b>Nama Senyawa:</b> {data[0]}<br><br>
-            <b>Rumus Kimia:</b> {pilih}<br><br>
-            <b>Jenis:</b> {data[1]}<br><br>
-            <b>Mr:</b> {data[2]}<br><br>
-            <b>Bahaya:</b> {data[3]}<br><br>
-            <b>Bentuk/Fisik:</b> {data[4]}<br><br>
-            <b>Struktur Molekul:</b> {data[5]}
+            <p><b>Nama Senyawa:</b> {data[0]}</p>
+            <p><b>Rumus Kimia:</b> {pilih}</p>
+            <p><b>Jenis:</b> {data[1]}</p>
+            <p><b>Mr:</b> {data[2]}</p>
+            <p><b>Bahaya:</b> {data[3]}</p>
+            <p><b>Bentuk/Fisik:</b> {data[4]}</p>
+            <p><b>Struktur Molekul:</b> {data[5]}</p>
 
         </div>
         """, unsafe_allow_html=True)
-
-    st.markdown("<br>", unsafe_allow_html=True)
 
     # ================= NAVIGATION =================
     if home_btn:
