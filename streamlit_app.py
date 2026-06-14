@@ -2059,7 +2059,7 @@ sesuai prosedur keselamatan laboratorium.
             key="home_analisis",
             use_container_width=True
         ):
-           st.session_state.menu = "🏠 Home"
+            st.session_state.menu = "🏠 Home"
             st.rerun()
         
 # ================= TENTANG =================
