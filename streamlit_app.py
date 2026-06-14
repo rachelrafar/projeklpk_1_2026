@@ -729,6 +729,8 @@ if dark_mode:
     st.markdown("""
     <style>
 
+    /* ================= BACKGROUND ================= */
+
     .stApp{
         background:linear-gradient(
         135deg,
@@ -738,7 +740,8 @@ if dark_mode:
         ) !important;
     }
 
-    /* SIDEBAR */
+    /* ================= SIDEBAR ================= */
+
     section[data-testid="stSidebar"]{
         background:#0F172A !important;
     }
@@ -751,18 +754,51 @@ if dark_mode:
         color:white !important;
     }
 
-    /* Card */
+    /* ChemAssist Menu */
+
+    section[data-testid="stSidebar"] h1,
+    section[data-testid="stSidebar"] h2,
+    section[data-testid="stSidebar"] h3,
+    section[data-testid="stSidebar"] h4,
+    section[data-testid="stSidebar"] p,
+    section[data-testid="stSidebar"] span{
+        color:white !important;
+    }
+
+    /* ================= CARD ================= */
+
     .card{
-        background:rgba(15,23,42,0.6) !important;
+        background:rgba(15,23,42,0.70) !important;
         border:1px solid rgba(255,255,255,0.08) !important;
         color:white !important;
     }
 
-    /* Metric Home */
-    .metric-box{
-        color:white !important;
-        background:rgba(15,23,42,0.6) !important;
+    /* ================= HOME CARD ================= */
+
+    .home-card{
+        background:linear-gradient(
+        135deg,
+        #1E293B,
+        #334155
+        ) !important;
+
         border:1px solid rgba(255,255,255,0.08) !important;
+
+        box-shadow:
+        0 8px 25px rgba(0,0,0,0.4) !important;
+    }
+
+    .home-card h3,
+    .home-card p{
+        color:white !important;
+    }
+
+    /* ================= METRIC ================= */
+
+    .metric-box{
+        background:rgba(15,23,42,0.70) !important;
+        border:1px solid rgba(255,255,255,0.08) !important;
+        color:white !important;
     }
 
     .metric-box h2{
@@ -777,108 +813,66 @@ if dark_mode:
         color:#E2E8F0 !important;
     }
 
-    /* Form */
-    .stSelectbox label,
-    .stNumberInput label,
-    .stTextInput label,
-    .stRadio label,
-    .stSlider label{
+    /* ================= BUTTON ================= */
+
+    .stButton > button{
+        background:#1E293B !important;
         color:white !important;
-        font-weight:600;
+        border:1px solid #334155 !important;
     }
 
-    /* Isi selectbox & input tetap hitam */
-    .stSelectbox div[data-baseweb="select"] *,
-    .stNumberInput input{
+    .stButton > button:hover{
+        background:#2563EB !important;
+        color:white !important;
+    }
+
+    /* ================= INPUT ================= */
+
+    .stTextInput input{
+        background:white !important;
         color:black !important;
     }
 
-    /* Judul */
-    h1,h2,h3,h4,h5,h6,p,span{
+    .stNumberInput input{
+        background:white !important;
+        color:black !important;
+    }
+
+    .stSelectbox div[data-baseweb="select"]{
+        background:white !important;
+    }
+
+    .stSelectbox div[data-baseweb="select"] *{
+        color:black !important;
+    }
+
+    /* ================= TEXT ================= */
+
+    h1,h2,h3,h4,h5,h6{
         color:white !important;
     }
 
-    .metric-label{
+    p,span,label{
         color:#E2E8F0 !important;
     }
 
-    /* Halaman Tentang */
-    .tentang-box,
-    .tentang-box h2,
-    .tentang-box h3,
-    .tentang-box li,
-    .tentang-box p{
+    /* ================= INFO ================= */
+
+    .stAlert{
+        background:#1E293B !important;
         color:white !important;
     }
 
-    /* ================= MENU KIRI ================= */
+    /* ================= TENTANG ================= */
 
-div[data-testid="stVerticalBlock"] h2{
-    color:white !important;
-}
+    .tentang-box{
+        background:rgba(15,23,42,0.7) !important;
+        border:1px solid rgba(255,255,255,0.08) !important;
+    }
 
-.menu-title{
-    color:white !important;
-}
-
-/* ================= MENU BUTTON ================= */
-
-.stButton > button{
-    background:#1E293B !important;
-    color:white !important;
-    border:1px solid #334155 !important;
-}
-
-.stButton > button:hover{
-    background:#2563EB !important;
-}
-
-/* ================= FEATURE CARD HOME ================= */
-
-.feature-card{
-    background:linear-gradient(
-    135deg,
-    #1E293B,
-    #334155
-    ) !important;
-
-    color:white !important;
-
-    border:1px solid rgba(255,255,255,0.08) !important;
-}
-
-.feature-card h2,
-.feature-card h3,
-.feature-card p{
-    color:white !important;
-}
-
-/* ================= SMART CARD ================= */
-
-.smart-card{
-    background:linear-gradient(
-    135deg,
-    #1E293B,
-    #334155
-    ) !important;
-
-    border:1px solid rgba(255,255,255,0.08) !important;
-}
-
-.smart-card *{
-    color:white !important;
-}
-
-/* ================= CARD PUTIH ATAS ================= */
-
-.quick-menu{
-    background:#1E293B !important;
-    color:white !important;
-}
-
-.quick-menu *{
-    color:white !important;
-}
+    .tentang-box *{
+        color:white !important;
+    }
 
     </style>
     """, unsafe_allow_html=True)
