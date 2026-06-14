@@ -1376,6 +1376,8 @@ elif menu == "⚗️ pH":
         else:
             st.error("⚫ Sangat Basa")
 
+# ================= INFORMASI BAHAN =================
+
 elif menu == "📚 Informasi Bahan Kimia":
 
     st.title("📚 Informasi Bahan Kimia")
@@ -1389,7 +1391,7 @@ elif menu == "📚 Informasi Bahan Kimia":
         or cari.lower() in db[x][0].lower()
     ] if cari else list(db.keys())
 
-    # ================= SELECTBOX =================
+    # ================= SELECT =================
     pilih = st.selectbox(
         "Pilih Senyawa",
         hasil,
@@ -1398,30 +1400,36 @@ elif menu == "📚 Informasi Bahan Kimia":
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # ================= BUTTON ROW (SEJAJAR) =================
+    # ================= BUTTON ROW =================
     col1, col2 = st.columns([1, 1])
 
     with col1:
-        tampilkan_info = st.button(
-            "📖 Tampilkan Informasi",
-            key="btn_info",
-            use_container_width=True
-        )
-
-    with col2:
         home_btn = st.button(
             "🏠 Kembali ke Home",
             key="btn_home_info",
             use_container_width=True
         )
 
-    # ================= ACTION =================
+    with col2:
+        tampilkan_info = st.button(
+            "📖 Tampilkan Informasi",
+            key="btn_info",
+            use_container_width=True
+        )
+
+    # ================= OUTPUT CARD =================
     if tampilkan_info and pilih:
 
         data = db[pilih]
 
         st.markdown(f"""
-        <div class="card">
+        <div style="
+            background:#1E293B;
+            padding:20px;
+            border-radius:15px;
+            color:white;
+            box-shadow:0 6px 15px rgba(0,0,0,0.3);
+        ">
 
             <h3>🧪 Informasi Senyawa</h3>
 
@@ -1436,7 +1444,9 @@ elif menu == "📚 Informasi Bahan Kimia":
         </div>
         """, unsafe_allow_html=True)
 
-    # ================= HOME ACTION =================
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    # ================= NAVIGATION =================
     if home_btn:
         st.session_state.menu = "🏠 Home"
         
