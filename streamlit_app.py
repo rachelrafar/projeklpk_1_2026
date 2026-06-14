@@ -2079,50 +2079,36 @@ if menu == "ℹ️ Tentang":
 
     st.title("ℹ️ Tentang Aplikasi")
 
+    st.markdown("## 🧪 ChemAssist Pro")
+    st.write("Aplikasi laboratorium kimia interaktif berbasis Python dan Streamlit.")
+
+    st.markdown("### 🚀 Fitur Utama")
     st.markdown("""
-    <div class="tentang-box">
+    - Smart Solution Maker  
+    - Smart pH Calculator  
+    - Informasi Bahan Kimia  
+    - Smart Chemical Analysis  
+    """)
 
-    <h2>🧪 ChemAssist Pro</h2>
+    st.markdown("### 👨‍💻 Teknologi")
+    st.markdown("""
+    - Python  
+    - Streamlit  
+    """)
 
-    <p>
-    Aplikasi laboratorium kimia interaktif berbasis Python dan Streamlit.
-    </p>
+    st.markdown("### 🎓 Dikembangkan Untuk")
+    st.write(
+        "Praktikum dan pembelajaran kimia analitik, "
+        "kimia dasar, serta perhitungan laboratorium."
+    )
 
-    <h3>🚀 Fitur Utama</h3>
+    st.markdown("### 👥 Creator Team")
+    st.markdown("""
+    - **Adlina Dhiva Tsaniyah** (2560555)  
+    - **Davina Faiza Laksono** (2560605)  
+    - **Rachel Rafa Rashika** (2560738)  
+    - **Tantri Nirwana Bandiani** (2560795)  
+    """)
 
-    <ul>
-        <li>Smart Solution Maker</li>
-        <li>Smart pH Calculator</li>
-        <li>Informasi Bahan Kimia</li>
-        <li>Smart Chemical Analysis</li>
-    </ul>
-
-    <h3>👨‍💻 Teknologi</h3>
-
-    <ul>
-        <li>Python</li>
-        <li>Streamlit</li>
-    </ul>
-
-    <h3>🎓 Dikembangkan Untuk</h3>
-
-    <p>
-    Praktikum dan pembelajaran kimia analitik,
-    kimia dasar, serta perhitungan laboratorium.
-    </p>
-
-    <h3>👥 Creator Team</h3>
-
-    <ul>
-        <li><b>Adlina Dhiva Tsaniyah</b> (2560555)</li>
-        <li><b>Davina Faiza Laksono</b> (2560605)</li>
-        <li><b>Rachel Rafa Rashika</b> (2560738)</li>
-        <li><b>Tantri Nirwana Bandiani</b> (2560795)</li>
-    </ul>
-
-    <h3>📌 Versi</h3>
-
-    <p><b>ChemAssist Ultra v5.0</b></p>
-
-    </div>
-    """, unsafe_allow_html=True)
+    st.markdown("### 📌 Versi")
+    st.success("ChemAssist Ultra v5.0")
