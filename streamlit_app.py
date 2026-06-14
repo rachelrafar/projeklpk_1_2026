@@ -385,7 +385,10 @@ def load_users():
 
     try:
         with open("users.json", "r") as f:
-            return json.load(f)
+            data = json.load(f)
+
+        return data if isinstance(data, dict) else {}
+
     except:
         return {}
 
@@ -399,10 +402,8 @@ def save_users(users):
 # ================= INIT SESSION =================
 if "login" not in st.session_state:
     st.session_state.login = False
-
 if "username" not in st.session_state:
     st.session_state.username = ""
-
 if "nama" not in st.session_state:
     st.session_state.nama = ""
 
@@ -412,15 +413,17 @@ if not st.session_state.login:
 
     users = load_users()
 
+    # ===== HEADER =====
     st.markdown("""
-    <div style='text-align:center; font-size:32px; font-weight:bold;'>
+    <div style='text-align:center; font-size:36px; font-weight:bold;'>
         🧪 ChemAssist Ultra
     </div>
-    <div style='text-align:center; margin-bottom:20px;'>
+    <div style='text-align:center; margin-bottom:20px; color:gray;'>
         Smart Chemical Analysis Platform
     </div>
     """, unsafe_allow_html=True)
 
+    # ===== CENTER LAYOUT =====
     col1, col2, col3 = st.columns([1, 2, 1])
 
     with col2:
@@ -446,17 +449,15 @@ if not st.session_state.login:
 
                     if user["password"] == hash_password(password):
 
-                        user["last_login"] = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
-
+                        user["last_login"] = str(datetime.now())
                         users[username_clean] = user
                         save_users(users)
 
                         st.session_state.login = True
                         st.session_state.username = username_clean
-                        st.session_state.nama = user["nama"]
+                        st.session_state.nama = user.get("nama", "")
 
                         st.success("Login berhasil ✅")
-
                         time.sleep(1)
                         st.rerun()
 
@@ -482,6 +483,7 @@ if not st.session_state.login:
 
                 username_clean = username_baru.strip().lower()
 
+                # ===== VALIDASI =====
                 if not nama or not email or not username_baru or not password_baru:
                     st.warning("Semua data wajib diisi")
 
@@ -497,16 +499,14 @@ if not st.session_state.login:
                         "nama": nama,
                         "email": email,
                         "password": hash_password(password_baru),
-                        "last_login": datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+                        "last_login": str(datetime.now())
                     }
 
                     save_users(users)
 
                     st.success("Akun berhasil dibuat 🎉")
-
                     time.sleep(1)
                     st.rerun()
-
 
     st.stop()
     
