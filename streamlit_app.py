@@ -1426,31 +1426,13 @@ elif menu == "🧪 Analisis Kimia":
 
     if tampilkan_analisis:
 
-        data = db[senyawa]
+    data = db[senyawa]
 
-        st.markdown(f"""
-        <div class='info-box'>
+    st.markdown(...)
+    
+    st.subheader("🧪 Interpretasi Kimia")
 
-        <h3>📊 Hasil Analisis Senyawa</h3>
-
-        <b>🧪 Nama :</b> {data[0]}<br><br>
-
-        <b>📌 Rumus :</b> {senyawa}<br><br>
-
-        <b>⚗️ Jenis :</b> {data[1]}<br><br>
-
-        <b>⚖️ Mr :</b> {data[2]}<br><br>
-
-        <b>⚠️ Bahaya :</b> {data[3]}<br><br>
-
-        <b>🧬 Struktur :</b> {data[5]}
-
-        </div>
-        """, unsafe_allow_html=True)
-
-        st.subheader("🧪 Interpretasi Kimia")
-
-        jenis = data[1]
+    jenis = data[1]
 
     if jenis == "Asam kuat":
         interpretasi = "Asam kuat yang terionisasi hampir sempurna dalam air dan menghasilkan ion H⁺ dalam jumlah besar."
@@ -1492,7 +1474,7 @@ elif menu == "🧪 Analisis Kimia":
         interpretasi = "Karakteristik kimia mengikuti gugus fungsi utamanya."
 
     st.info(interpretasi)
-    
+
     st.subheader("🔬 Analisis Spesifik Senyawa")
 
     analisis_spesifik = {
@@ -1597,7 +1579,8 @@ elif menu == "🧪 Analisis Kimia":
 
 "Urea":"Senyawa amida yang banyak digunakan sebagai bahan baku pupuk dan berbagai proses kimia."
 
-}
+ }
+
     if senyawa in analisis_spesifik:
         st.success(analisis_spesifik[senyawa])
     else:
