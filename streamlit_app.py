@@ -1336,229 +1336,154 @@ elif menu == "📚 Informasi Bahan Kimia":
 
 elif menu == "🧪 Analisis Kimia":
 
-    st.title("🧪 Smart Chemical Analysis (PubChem Mini + Vogel + MSDS)")
+    st.title("🧪 Smart Chemical Analysis")
 
-    # ================= SEARCH ENGINE =================
-    def search_senyawa(query, db):
-        query = query.lower()
-        hasil = []
-
-        for key, val in db.items():
-            if (
-                query in key.lower()
-                or query in val[0].lower()
-                or query in val[1].lower()
-                or query in val[3].lower()
-            ):
-                hasil.append(key)
-
-        return hasil
-
-
-    st.subheader("🔎 PubChem Mini Search Engine")
-
-    query = st.text_input("Cari senyawa (nama / jenis / rumus / keyword)", key="search_senyawa")
-
-    hasil_search = []
-
-    if query:
-        hasil_search = search_senyawa(query, db)
-
-        if hasil_search:
-            st.success(f"Ditemukan {len(hasil_search)} senyawa")
-        else:
-            st.warning("Tidak ditemukan")
-
-
-    # ================= SELECTOR AMAN =================
-    if hasil_search:
-        senyawa = st.selectbox("Hasil Search", hasil_search, key="hasil_search")
-    else:
-        senyawa = st.selectbox("Pilih Senyawa", list(db.keys()), key="pilih_senyawa")
-
+    senyawa = st.selectbox(
+        "Pilih Senyawa",
+        list(db.keys())
+    )
 
     st.markdown("<br>", unsafe_allow_html=True)
 
     col1, col2 = st.columns(2)
 
     with col1:
-        home_analisis = st.button("⬅️ Kembali ke Home", key="home_analisis", use_container_width=True)
+        home_analisis = st.button(
+            "⬅️ Kembali ke Home",
+            key="home_analisis",
+            use_container_width=True
+        )
 
     with col2:
-        tampilkan_analisis = st.button("🧪 Analisis Senyawa", key="btn_analisis", use_container_width=True)
+        tampilkan_analisis = st.button(
+            "🧪 Analisis Senyawa",
+            key="btn_analisis",
+            use_container_width=True
+        )
 
     if home_analisis:
         go_to("🏠 Home")
 
-
-
-# ================= ANALISIS KIMIA =================
-
-elif menu == "🧪 Analisis Kimia":
-
-    st.title("🧪 Smart Chemical Analysis (PubChem Mini + Vogel + MSDS)")
-
-    # ================= DATABASE AMAN (TIDAK NGEFECT LOGIN) =================
-    analisis_spesifik = {
-        "HCl": "Asam kuat, terionisasi sempurna dalam air.",
-        "H2SO4": "Asam kuat diprotik, bersifat dehidrasi.",
-        "HNO3": "Asam kuat dan oksidator.",
-        "CH3COOH": "Asam lemah.",
-        "HF": "Asam lemah tetapi sangat berbahaya.",
-        "NaOH": "Basa kuat kaustik.",
-        "KOH": "Basa kuat industri.",
-        "Ca(OH)2": "Basa kuat pengolahan air.",
-        "NH3": "Basa lemah berbau tajam.",
-        "NaCl": "Garam ionik sederhana.",
-        "KCl": "Garam kalium.",
-        "AgNO3": "Reagen analisis halida.",
-        "CuSO4": "Sumber Cu²⁺.",
-        "FeCl3": "Reagen fenol.",
-        "Na2CO3": "Garam basa.",
-        "NaHCO3": "Menghasilkan CO2 dengan asam.",
-        "KMnO4": "Oksidator kuat.",
-        "K2Cr2O7": "Oksidator toksik.",
-        "H2O2": "Oksidator.",
-        "Benzene": "Karsinogen.",
-        "Toluene": "Pelarut organik.",
-        "Acetone": "Pelarut volatil.",
-        "Glucose": "Sumber energi biologis.",
-        "Urea": "Pupuk nitrogen."
-    }
-
-    data_tambahan = {
-        "HCl": ("Cairan tidak berwarna, bau tajam", "Titrasi & industri logam", "Netralisasi asam-basa", "Korosif"),
-        "H2SO4": ("Cairan kental", "Baterai & pupuk", "Dehidrasi kuat", "Sangat korosif"),
-        "HNO3": ("Cairan bening", "Oksidator industri", "Reaksi redoks", "Oksidator kuat"),
-        "NaOH": ("Padatan putih", "Sabun & industri", "Netralisasi", "Kaustik"),
-        "KOH": ("Padatan putih", "Industri sabun", "Basa kuat", "Korosif"),
-        "NH3": ("Gas tajam", "Pupuk", "Pembentukan NH4+", "Iritan"),
-        "KMnO4": ("Kristal ungu", "Oksidator", "Redoks", "Oksidator kuat"),
-        "H2O2": ("Cairan bening", "Disinfektan", "Oksidasi", "Oksidator"),
-        "NaCl": ("Kristal putih", "Garam dapur", "Ionisasi", "Relatif aman"),
-        "C2H5OH": ("Cairan volatil", "Antiseptik", "Pelarut", "Flammable"),
-        "Acetone": ("Cairan mudah menguap", "Pelarut organik", "Evaporasi cepat", "Flammable"),
-        "Benzene": ("Cairan aromatik", "Industri kimia", "Substitusi aromatik", "Karsinogen"),
-        "CHCl3": ("Cairan berat", "Pelarut", "Anestetik", "Toksik")
-    }
-
-
-    # ================= SEARCH ENGINE (AMAN, TIDAK GLOBAL IMPACT) =================
-    def search_senyawa(query):
-        query = query.lower()
-        hasil = []
-
-        for key in db.keys():
-            if query in key.lower():
-                hasil.append(key)
-
-        return hasil
-
-
-    st.subheader("🔎 PubChem Mini Search Engine")
-
-    query = st.text_input("Cari senyawa (nama / rumus / keyword)", key="chem_search")
-
-    hasil_search = search_senyawa(query) if query else []
-
-
-    if hasil_search:
-        st.success(f"Ditemukan {len(hasil_search)} senyawa")
-        senyawa = st.selectbox("Hasil Search", hasil_search, key="chem_select_search")
-    else:
-        senyawa = st.selectbox("Pilih Senyawa", list(db.keys()), key="chem_select_default")
-
-
-    st.markdown("---")
-
-    col1, col2 = st.columns(2)
-
-    with col1:
-        home_analisis = st.button("⬅️ Kembali ke Home", key="home_chem_home", use_container_width=True)
-
-    with col2:
-        tampilkan_analisis = st.button("🧪 Analisis Senyawa", key="chem_analyze_btn", use_container_width=True)
-
-
-    if home_analisis:
-        go_to("🏠 Home")
-
-
-    # ================= ANALISIS =================
     if tampilkan_analisis:
 
-        if senyawa not in db:
-            st.error("Senyawa tidak ditemukan di database")
-            st.stop()
-
         data = db[senyawa]
-        jenis = data[1]
 
-        # ================= INTERPRETASI =================
+        st.markdown("<br>", unsafe_allow_html=True)
+
         st.subheader("🧪 Interpretasi Kimia")
 
-        if "Asam" in jenis:
-            interpretasi = "Bersifat asam (donor H⁺)."
-        elif "Basa" in jenis:
-            interpretasi = "Bersifat basa (menghasilkan OH⁻)."
-        elif "Oksidator" in jenis:
-            interpretasi = "Bersifat oksidator."
-        elif "Karbohidrat" in jenis:
-            interpretasi = "Sumber energi biologis."
+        jenis = data[1]
+
+        if jenis == "Asam kuat":
+            interpretasi = "Asam kuat yang terionisasi hampir sempurna dalam air dan menghasilkan ion H⁺ dalam jumlah besar."
+
+        elif jenis == "Asam lemah":
+            interpretasi = "Asam lemah yang hanya terionisasi sebagian dalam air."
+
+        elif jenis == "Basa kuat":
+            interpretasi = "Basa kuat yang menghasilkan ion OH⁻ dalam jumlah besar."
+
+        elif jenis == "Basa lemah":
+            interpretasi = "Basa lemah yang hanya terionisasi sebagian dalam air."
+
+        elif "Garam" in jenis:
+            interpretasi = "Senyawa ionik yang tersusun dari kation dan anion."
+
+        elif jenis == "Alkohol":
+            interpretasi = "Mengandung gugus hidroksil (-OH) dan umum digunakan sebagai pelarut."
+
+        elif jenis == "Keton":
+            interpretasi = "Mengandung gugus karbonil (>C=O)."
+
+        elif jenis == "Aromatik":
+            interpretasi = "Mengandung cincin aromatik yang stabil karena resonansi."
+
+        elif jenis == "Karbohidrat":
+            interpretasi = "Merupakan sumber energi penting pada sistem biologis."
+
+        elif jenis == "Amida":
+            interpretasi = "Mengandung gugus fungsi amida (-CONH₂)."
+
+        elif jenis == "Pelarut":
+            interpretasi = "Digunakan untuk melarutkan berbagai senyawa kimia."
+
+        elif jenis == "Oksidator":
+            interpretasi = "Mampu mengoksidasi zat lain dengan menerima elektron."
+
         else:
-            interpretasi = "Memiliki karakteristik kimia khusus."
+            interpretasi = "Karakteristik kimia mengikuti gugus fungsi utamanya."
 
         st.info(interpretasi)
 
+        st.subheader("🔬 Analisis Spesifik Senyawa")
 
-        # ================= ANALISIS SPESIFIK =================
-        st.subheader("🔬 Analisis Spesifik")
+        analisis_spesifik = {
+            "HCl": "Terionisasi sempurna dalam air menghasilkan ion H⁺ dan Cl⁻. Banyak digunakan sebagai titran dan pengatur pH.",
+            "H2SO4": "Asam diprotik kuat dengan sifat dehidrasi tinggi. Bereaksi eksotermik saat dicampur air.",
+            "HNO3": "Asam kuat sekaligus oksidator yang mampu mengoksidasi berbagai logam dan senyawa organik.",
+            "CH3COOH": "Asam lemah yang terionisasi sebagian dalam air dan sering digunakan sebagai pereaksi sintesis organik.",
+            "HF": "Meskipun tergolong asam lemah, memiliki bahaya tinggi karena dapat menembus jaringan dan bereaksi dengan kalsium tubuh.",
+            "H3BO3": "Asam lemah yang sering digunakan sebagai antiseptik dan bahan baku berbagai produk kimia.",
+            "NaOH": "Basa kuat yang terdisosiasi sempurna menghasilkan ion OH⁻ dan sering digunakan sebagai titran standar.",
+            "KOH": "Basa kuat yang umum digunakan pada industri sabun dan elektrolit baterai.",
+            "Ca(OH)2": "Basa kuat yang menghasilkan ion OH⁻ dalam larutan dan sering digunakan untuk pengolahan air.",
+            "NH3": "Basa lemah yang membentuk ion amonium dalam air dan banyak digunakan dalam industri pupuk.",
+            "NH4OH": "Basa lemah yang menghasilkan ion amonium dan ion hidroksida dalam larutan.",
+            "NaCl": "Garam yang terdisosiasi menghasilkan ion Na⁺ dan Cl⁻ dalam larutan.",
+            "KCl": "Garam yang menghasilkan ion kalium dan klorida dalam larutan serta banyak digunakan di laboratorium.",
+            "AgNO3": "Menghasilkan ion Ag⁺ yang digunakan dalam analisis argentometri dan pembentukan endapan halida.",
+            "CuSO4": "Sumber ion Cu²⁺ yang sering digunakan dalam analisis kualitatif dan pereaksi biuret.",
+            "FeCl3": "Digunakan sebagai pereaksi identifikasi fenol karena membentuk kompleks berwarna.",
+            "MgSO4": "Garam yang terdisosiasi menghasilkan ion magnesium dan sulfat dalam larutan.",
+            "Na2CO3": "Garam basa yang dapat meningkatkan pH larutan dan digunakan dalam berbagai proses industri.",
+            "NaHCO3": "Garam basa yang dapat bereaksi dengan asam menghasilkan gas karbon dioksida.",
+            "Pb(NO3)2": "Menghasilkan ion Pb²⁺ dalam larutan dan sering digunakan sebagai pereaksi analisis kimia.",
+            "ZnSO4": "Sumber ion Zn²⁺ yang digunakan dalam berbagai aplikasi laboratorium dan industri.",
+            "Na2SO4": "Garam yang terdisosiasi menghasilkan ion natrium dan sulfat dalam larutan.",
+            "HgCl2": "Sumber ion merkuri(II) yang bersifat sangat toksik dan memerlukan penanganan khusus.",
+            "NaNO3": "Garam yang mengandung ion nitrat dan digunakan dalam berbagai proses industri.",
+            "NH4Cl": "Garam amonium yang menghasilkan ion NH4⁺ dan Cl⁻ dalam larutan.",
+            "NH4NO3": "Garam yang mengandung ion amonium dan nitrat serta digunakan sebagai sumber nitrogen.",
+            "CaCO3": "Garam karbonat yang banyak ditemukan pada batu kapur dan berbagai material alami.",
+            "MgCl2": "Garam yang menghasilkan ion magnesium dan klorida dalam larutan.",
+            "Al2(SO4)3": "Digunakan dalam pengolahan air dan menghasilkan ion aluminium dalam larutan.",
+            "FeSO4": "Sumber ion Fe²⁺ yang digunakan dalam berbagai analisis dan proses industri.",
+            "CuCl2": "Sumber ion Cu²⁺ yang digunakan dalam sintesis dan analisis kimia.",
+            "Na3PO4": "Garam basa yang menghasilkan ion fosfat dan sering digunakan sebagai pengatur pH.",
+            "KNO3": "Garam yang mengandung ion kalium dan nitrat serta dikenal sebagai oksidator.",
+            "KMnO4": "Oksidator kuat yang digunakan sebagai titran pada permanganometri.",
+            "K2Cr2O7": "Oksidator kuat yang digunakan pada titrasi redoks dan mengandung kromium(VI) yang toksik.",
+            "H2O2": "Oksidator yang mudah terurai menghasilkan air dan oksigen.",
+            "NaClO": "Oksidator yang digunakan sebagai pemutih dan desinfektan serta dapat menghasilkan gas klorin jika bereaksi dengan asam.",
+            "CH3OH": "Alkohol sederhana yang sangat toksik dan dapat menyebabkan kebutaan bila tertelan.",
+            "C2H5OH": "Alkohol yang bercampur sempurna dengan air dan banyak digunakan sebagai pelarut serta antiseptik.",
+            "Acetone": "Pelarut organik volatil yang mudah menguap dan bercampur sempurna dengan air.",
+            "CH3COCH3": "Pelarut organik volatil yang mudah menguap dan bercampur sempurna dengan air.",
+            "Benzene": "Senyawa aromatik nonpolar yang stabil karena resonansi dan bersifat karsinogenik.",
+            "Toluene": "Turunan benzena yang banyak digunakan sebagai pelarut dan bahan baku sintesis organik.",
+            "CHCl3": "Pelarut organik dengan efek depresan sistem saraf pusat jika terhirup dalam jumlah besar.",
+            "CCl4": "Pelarut nonpolar yang bersifat hepatotoksik sehingga penggunaannya kini dibatasi.",
+            "Glucose": "Karbohidrat sederhana golongan monosakarida yang merupakan sumber energi utama bagi organisme hidup.",
+            "C6H12O6": "Karbohidrat sederhana golongan monosakarida yang merupakan sumber energi utama bagi organisme hidup.",
+            "Sucrose": "Karbohidrat golongan disakarida yang tersusun dari glukosa dan fruktosa.",
+            "C12H22O11": "Karbohidrat golongan disakarida yang tersusun dari glukosa dan fruktosa.",
+            "Urea": "Senyawa amida yang banyak digunakan sebagai bahan baku pupuk dan berbagai proses kimia."
+        }
 
-        st.success(analisis_spesifik.get(senyawa, "Analisis umum berdasarkan golongan."))
-
-
-        # ================= VOGEL + MSDS =================
-        st.subheader("📊 Vogel + MSDS")
-
-        if senyawa in data_tambahan:
-            fisik, kegunaan, reaksi, msds = data_tambahan[senyawa]
-
-            st.info(f"""
-🧪 Fisik: {fisik}  
-⚙️ Kegunaan: {kegunaan}  
-🔬 Reaksi: {reaksi}  
-⚠️ MSDS: {msds}
-""")
+        if senyawa in analisis_spesifik:
+            st.success(analisis_spesifik[senyawa])
         else:
-            st.info("Data Vogel/MSDS belum tersedia.")
+            st.info("Analisis spesifik senyawa belum tersedia. Analisis didasarkan pada golongan senyawanya.")
 
-
-        # ================= KESIMPULAN =================
         st.subheader("📋 Kesimpulan")
 
         st.success(f"""
-{senyawa} adalah senyawa golongan {jenis.lower()}.
+{data[0]} merupakan senyawa golongan {data[1].lower()}
+dengan massa molekul relatif {data[2]}.
 
-MR: {data[2]}
-
-Interpretasi:
-- {interpretasi}
-- Risiko: {data[3].lower()}
-
-Gunakan sesuai SOP laboratorium.
-""")
-
-        # ================= KESIMPULAN =================
-        st.subheader("📋 Kesimpulan")
-
-        st.success(f"""
-{senyawa} merupakan senyawa golongan {data[1].lower()}.
-
-Memiliki massa molekul relatif {data[2]} dan karakteristik:
-- {interpretasi}
-- Risiko: {data[3].lower()}
-
-Gunakan sesuai prosedur keselamatan laboratorium.
+Berdasarkan data yang tersedia, senyawa ini memiliki tingkat bahaya
+berupa {data[3].lower()} sehingga memerlukan penanganan yang sesuai
+dengan prosedur keselamatan laboratorium.
 """)
         
 # ================= TENTANG =================
