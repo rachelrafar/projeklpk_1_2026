@@ -1474,14 +1474,13 @@ elif menu == "🧪 Analisis Kimia":
     if tampilkan_analisis:
 
         data = db[senyawa]
+        jenis = data[1]
 
         st.markdown("<br>", unsafe_allow_html=True)
 
         # ================= INTERPRETASI =================
 
         st.subheader("🧪 Interpretasi Kimia")
-
-        jenis = data[1]
 
         if jenis == "Asam kuat":
             interpretasi = "Asam kuat yang terionisasi hampir sempurna dalam air dan menghasilkan ion H⁺ dalam jumlah besar."
@@ -1523,7 +1522,6 @@ elif menu == "🧪 Analisis Kimia":
             interpretasi = "Karakteristik kimia mengikuti gugus fungsi utamanya."
 
         st.info(interpretasi)
-
         st.subheader("🔬 Analisis Spesifik Senyawa")
 
         analisis_spesifik = {
@@ -1792,166 +1790,158 @@ elif menu == "🧪 Analisis Kimia":
 
             st.info("Karakteristik spesifik belum tersedia.")
 
- # ================= PREDIKSI LAB =================
+       # ================= PREDIKSI =================
 
-st.subheader("🔬 Prediksi Perilaku Laboratorium")
+        st.subheader("🔬 Prediksi Perilaku Laboratorium")
 
-if "Asam" in jenis:
+        if "Asam" in jenis:
+            st.info(
+                "• Bereaksi dengan basa menghasilkan garam dan air.\n"
+                "• Mengubah indikator menjadi merah.\n"
+                "• Bersifat donor proton (H⁺)."
+            )
 
-    st.info(
-        "• Bereaksi dengan basa menghasilkan garam dan air.\n"
-        "• Mengubah indikator menjadi merah.\n"
-        "• Bersifat donor proton (H⁺)."
+        elif "Basa" in jenis:
+            st.info(
+                "• Bereaksi dengan asam menghasilkan garam dan air.\n"
+                "• Mengubah indikator menjadi biru.\n"
+                "• Bersifat akseptor proton."
+            )
+
+        elif "Garam" in jenis:
+            st.info(
+                "• Dapat mengalami hidrolisis.\n"
+                "• Dapat membentuk endapan dengan ion tertentu.\n"
+                "• Meningkatkan konduktivitas larutan."
+            )
+
+        else:
+            st.info(
+                "• Perilaku dipengaruhi gugus fungsi utama.\n"
+                "• Digunakan sebagai pereaksi atau pelarut."
     )
 
-elif "Basa" in jenis:
+        # ================= NFPA =================
+        st.subheader("🚨 NFPA Hazard Indicator")
 
-    st.info(
-        "• Bereaksi dengan asam menghasilkan garam dan air.\n"
-        "• Mengubah indikator menjadi biru.\n"
-        "• Bersifat akseptor proton."
-    )
+        nfpa = {
+            "HCl": (0,3,1),
+            "H2SO4": (0,3,2),
+            "HNO3": (0,4,2),
+            "HF": (0,4,0),
+            "H3BO3": (0,1,0),
+            "CH3COOH": (2,2,0),
+            "NaOH": (0,3,1),
+            "KOH": (0,3,1),
+            "Ca(OH)2": (0,2,0),
+            "NH3": (1,3,0),
+            "NH4OH": (1,3,0),
+            "NaCl": (0,0,0),
+            "KCl": (0,1,0),
+            "AgNO3": (0,2,1),
+            "CuSO4": (0,2,0),
+            "FeCl3": (0,3,1),
+            "MgSO4": (0,1,0),
+            "Na2CO3": (0,1,0),
+            "NaHCO3": (0,1,0),
+            "Pb(NO3)2": (0,3,1),
+            "ZnSO4": (0,2,0),
+            "Na2SO4": (0,0,0),
+            "HgCl2": (0,4,0),
+            "NaNO3": (0,2,1),
+            "NH4Cl": (0,2,0),
+            "NH4NO3": (0,2,3),
+            "CaCO3": (0,0,0),
+            "MgCl2": (0,1,0),
+            "Al2(SO4)3": (0,1,0),
+            "FeSO4": (0,1,0),
+            "CuCl2": (0,2,1),
+            "Na3PO4": (0,2,0),
+            "KNO3": (0,1,2),
+            "KMnO4": (0,2,3),
+            "K2Cr2O7": (0,3,3),
+            "H2O2": (0,2,2),
+            "NaClO": (0,3,1),
+            "CH3OH": (3,2,0),
+            "C2H5OH": (3,2,0),
+            "Acetone": (3,1,0),
+            "CH3COCH3": (3,1,0),
+            "Benzene": (3,2,0),
+            "Toluene": (3,2,0),
+            "CHCl3": (0,2,0),
+            "CCl4": (0,2,0),
+            "Glucose": (1,0,0),
+            "C6H12O6": (1,0,0),
+            "Sucrose": (1,0,0),
+            "C12H22O11": (1,0,0),
+            "Urea": (0,1,0),
+            "BaCl2": (0,2,0),
+            "BaSO4": (0,1,0),
+            "CaCl2": (0,1,0),
+            "NaBr": (0,1,0),
+            "KI": (0,1,0),
+            "I2": (0,2,1),
+            "KIO3": (0,2,2),
+            "Na2S2O3": (0,1,0),
+            "EDTA": (0,1,0),
+            "NH4SCN": (0,2,1),
+            "K2SO4": (0,1,0),
+            "Fe2O3": (0,1,0),
+            "CuO": (0,1,0),
+            "ZnO": (0,1,0),
+            "MgO": (0,1,0),
+            "AlCl3": (0,3,1),
+            "NaF": (0,2,0),
+            "KF": (0,2,0),
+            "LiCl": (0,2,0),
+            "Na2B4O7": (0,1,0),
+            "H3PO4": (0,2,0)
+        }
 
-elif "Garam" in jenis:
+        def interpretasi_nfpa(nilai):
+            if nilai == 0:
+                return "Sangat Rendah"
+            elif nilai == 1:
+                return "Rendah"
+            elif nilai == 2:
+                return "Sedang"
+            elif nilai == 3:
+                return "Tinggi"
+            elif nilai == 4:
+                return "Sangat Tinggi"
+            return "-"
 
-    st.info(
-        "• Dapat mengalami hidrolisis.\n"
-        "• Dapat membentuk endapan dengan ion tertentu.\n"
-        "• Meningkatkan konduktivitas larutan."
-    )
+        if senyawa in nfpa:
 
-else:
+            f, h, r = nfpa[senyawa]
 
-    st.info(
-        "• Perilaku dipengaruhi gugus fungsi utama.\n"
-        "• Digunakan sebagai pereaksi atau pelarut."
-    )
+            c1, c2, c3 = st.columns(3)
 
-  # ================= NFPA =================
+            with c1:
+                st.metric("🔥 Flammability", f, interpretasi_nfpa(f))
 
-st.subheader("🚨 NFPA Hazard Indicator")
+            with c2:
+                st.metric("☣️ Health", h, interpretasi_nfpa(h))
 
-nfpa = {
-    "HCl": (0,3,1),
-    "H2SO4": (0,3,2),
-    "HNO3": (0,4,2),
-    "HF": (0,4,0),
-    "H3BO3": (0,1,0),
-    "CH3COOH": (2,2,0),
-    "NaOH": (0,3,1),
-    "KOH": (0,3,1),
-    "Ca(OH)2": (0,2,0),
-    "NH3": (1,3,0),
-    "NH4OH": (1,3,0),
-    "NaCl": (0,0,0),
-    "KCl": (0,1,0),
-    "AgNO3": (0,2,1),
-    "CuSO4": (0,2,0),
-    "FeCl3": (0,3,1),
-    "MgSO4": (0,1,0),
-    "Na2CO3": (0,1,0),
-    "NaHCO3": (0,1,0),
-    "Pb(NO3)2": (0,3,1),
-    "ZnSO4": (0,2,0),
-    "Na2SO4": (0,0,0),
-    "HgCl2": (0,4,0),
-    "NaNO3": (0,2,1),
-    "NH4Cl": (0,2,0),
-    "NH4NO3": (0,2,3),
-    "CaCO3": (0,0,0),
-    "MgCl2": (0,1,0),
-    "Al2(SO4)3": (0,1,0),
-    "FeSO4": (0,1,0),
-    "CuCl2": (0,2,1),
-    "Na3PO4": (0,2,0),
-    "KNO3": (0,1,2),
-    "KMnO4": (0,2,3),
-    "K2Cr2O7": (0,3,3),
-    "H2O2": (0,2,2),
-    "NaClO": (0,3,1),
-    "CH3OH": (3,2,0),
-    "C2H5OH": (3,2,0),
-    "Acetone": (3,1,0),
-    "CH3COCH3": (3,1,0),
-    "Benzene": (3,2,0),
-    "Toluene": (3,2,0),
-    "CHCl3": (0,2,0),
-    "CCl4": (0,2,0),
-    "Glucose": (1,0,0),
-    "C6H12O6": (1,0,0),
-    "Sucrose": (1,0,0),
-    "C12H22O11": (1,0,0),
-    "Urea": (0,1,0),
-    "BaCl2": (0,2,0),
-    "BaSO4": (0,1,0),
-    "CaCl2": (0,1,0),
-    "NaBr": (0,1,0),
-    "KI": (0,1,0),
-    "I2": (0,2,1),
-    "KIO3": (0,2,2),
-    "Na2S2O3": (0,1,0),
-    "EDTA": (0,1,0),
-    "NH4SCN": (0,2,1),
-    "K2SO4": (0,1,0),
-    "Fe2O3": (0,1,0),
-    "CuO": (0,1,0),
-    "ZnO": (0,1,0),
-    "MgO": (0,1,0),
-    "AlCl3": (0,3,1),
-    "NaF": (0,2,0),
-    "KF": (0,2,0),
-    "LiCl": (0,2,0),
-    "Na2B4O7": (0,1,0),
-    "H3PO4": (0,2,0)
-}
+            with c3:
+                st.metric("⚛️ Reactivity", r, interpretasi_nfpa(r))
 
-def interpretasi_nfpa(nilai):
-    if nilai == 0:
-        return "Sangat Rendah"
-    elif nilai == 1:
-        return "Rendah"
-    elif nilai == 2:
-        return "Sedang"
-    elif nilai == 3:
-        return "Tinggi"
-    elif nilai == 4:
-        return "Sangat Tinggi"
-    return "-"
+        else:
+            st.info("Data NFPA belum tersedia.")
 
-if senyawa in nfpa:
+        # ================= KESIMPULAN =================
+        st.subheader("📋 Kesimpulan")
 
-    f, h, r = nfpa[senyawa]
-
-    c1, c2, c3 = st.columns(3)
-
-    with c1:
-        st.metric("🔥 Flammability", f, interpretasi_nfpa(f))
-
-    with c2:
-        st.metric("☣️ Health", h, interpretasi_nfpa(h))
-
-    with c3:
-        st.metric("⚛️ Reactivity", r, interpretasi_nfpa(r))
-
-else:
-
-    st.info("Data NFPA belum tersedia.")
-    
-# ================= KESIMPULAN =================
-
-st.subheader("📋 Kesimpulan")
-
-kesimpulan = f"""
+        kesimpulan = f"""
 {data[0]} merupakan senyawa golongan {data[1].lower()}
 dengan massa molekul relatif {data[2]}.
 """
 
-if senyawa in nfpa:
+        if senyawa in nfpa:
 
-    f, h, r = nfpa[senyawa]
+            f, h, r = nfpa[senyawa]
 
-    kesimpulan += f"""
-
+            kesimpulan += f"""
 Berdasarkan karakteristik kimianya, senyawa ini termasuk
 golongan {data[1].lower()} yang memiliki sifat dan perilaku
 khas dalam berbagai reaksi kimia.
@@ -1962,73 +1952,50 @@ Data NFPA menunjukkan tingkat kemudahan terbakar
 (Reactivity) sebesar {r}.
 """
 
-    if h >= 3:
-
-        kesimpulan += """
-
+            if h >= 3:
+                kesimpulan += """
 Senyawa ini memiliki risiko kesehatan yang tinggi sehingga
-paparan langsung harus dihindari. Penggunaan APD lengkap,
-sarung tangan, kacamata keselamatan, dan lemari asam
-sangat disarankan.
+paparan langsung harus dihindari.
 """
 
-    elif h == 2:
-
-        kesimpulan += """
-
-Senyawa ini memiliki risiko kesehatan sedang dan dapat
-menyebabkan iritasi apabila terpapar dalam jumlah tertentu.
+            elif h == 2:
+                kesimpulan += """
+Senyawa ini memiliki risiko kesehatan sedang.
 """
 
-    else:
-
-        kesimpulan += """
-
-Risiko kesehatan relatif rendah, namun prosedur keselamatan
-laboratorium tetap harus diterapkan.
+            else:
+                kesimpulan += """
+Risiko kesehatan relatif rendah.
 """
 
-    if f >= 3:
-
-        kesimpulan += """
-
-Senyawa ini mudah terbakar sehingga harus dijauhkan dari
-sumber panas, percikan api, dan oksidator kuat.
+            if f >= 3:
+                kesimpulan += """
+Senyawa mudah terbakar.
 """
 
-    elif f == 2:
-
-        kesimpulan += """
-
-Senyawa memiliki potensi terbakar pada kondisi tertentu,
-sehingga penyimpanannya perlu diperhatikan.
+            elif f == 2:
+                kesimpulan += """
+Senyawa memiliki potensi terbakar.
 """
 
-    if r >= 2:
-
-        kesimpulan += """
-
-Tingkat reaktivitas yang cukup tinggi menunjukkan bahwa
-senyawa dapat bereaksi dengan zat lain dan memerlukan
-penanganan khusus selama penggunaan maupun penyimpanan.
+            if r >= 2:
+                kesimpulan += """
+Reaktivitas cukup tinggi sehingga perlu kehati-hatian.
 """
 
-else:
-
-    kesimpulan += f"""
-
+        else:
+            kesimpulan += f"""
 Berdasarkan data yang tersedia, senyawa ini memiliki tingkat
-bahaya {data[3].lower()} sehingga memerlukan penanganan
-sesuai prosedur keselamatan laboratorium.
+bahaya {data[3].lower()}.
 """
 
-st.success(kesimpulan)
+        st.success(kesimpulan)
 
-st.markdown("<br>", unsafe_allow_html=True)
+        st.markdown("<br>", unsafe_allow_html=True)
 
-if st.button("⬅️ Kembali ke Home", key="home_analisis"):
-    st.session_state.menu = "🏠 Home"
-    st.rerun()
+        if st.button("⬅️ Kembali ke Home", key="home_analisis"):
+            st.session_state.menu = "🏠 Home"
+            st.rerun()
 
 # ================= TENTANG =================
 
