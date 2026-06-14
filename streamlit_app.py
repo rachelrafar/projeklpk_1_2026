@@ -1937,16 +1937,16 @@ else:
 
 st.subheader("📋 Kesimpulan")
 
-        kesimpulan = f"""
+kesimpulan = f"""
 {data[0]} merupakan senyawa golongan {data[1].lower()}
 dengan massa molekul relatif {data[2]}.
 """
 
-        if senyawa in nfpa:
+if senyawa in nfpa:
 
-            f, h, r = nfpa[senyawa]
+    f, h, r = nfpa[senyawa]
 
-            kesimpulan += f"""
+    kesimpulan += f"""
 
 Berdasarkan karakteristik kimianya, senyawa ini termasuk
 golongan {data[1].lower()} yang memiliki sifat dan perilaku
@@ -1958,9 +1958,9 @@ Data NFPA menunjukkan tingkat kemudahan terbakar
 (Reactivity) sebesar {r}.
 """
 
-            if h >= 3:
+    if h >= 3:
 
-                kesimpulan += """
+        kesimpulan += """
 
 Senyawa ini memiliki risiko kesehatan yang tinggi sehingga
 paparan langsung harus dihindari. Penggunaan APD lengkap,
@@ -1968,63 +1968,63 @@ sarung tangan, kacamata keselamatan, dan lemari asam
 sangat disarankan.
 """
 
-            elif h == 2:
+    elif h == 2:
 
-                kesimpulan += """
+        kesimpulan += """
 
 Senyawa ini memiliki risiko kesehatan sedang dan dapat
 menyebabkan iritasi apabila terpapar dalam jumlah tertentu.
 """
 
-            else:
+    else:
 
-                kesimpulan += """
+        kesimpulan += """
 
 Risiko kesehatan relatif rendah, namun prosedur keselamatan
 laboratorium tetap harus diterapkan.
 """
 
-            if f >= 3:
+    if f >= 3:
 
-                kesimpulan += """
+        kesimpulan += """
 
 Senyawa ini mudah terbakar sehingga harus dijauhkan dari
 sumber panas, percikan api, dan oksidator kuat.
 """
 
-            elif f == 2:
+    elif f == 2:
 
-                kesimpulan += """
+        kesimpulan += """
 
 Senyawa memiliki potensi terbakar pada kondisi tertentu,
 sehingga penyimpanannya perlu diperhatikan.
 """
 
-            if r >= 2:
+    if r >= 2:
 
-                kesimpulan += """
+        kesimpulan += """
 
 Tingkat reaktivitas yang cukup tinggi menunjukkan bahwa
 senyawa dapat bereaksi dengan zat lain dan memerlukan
 penanganan khusus selama penggunaan maupun penyimpanan.
 """
 
-        else:
+else:
 
-            kesimpulan += f"""
+    kesimpulan += f"""
 
 Berdasarkan data yang tersedia, senyawa ini memiliki tingkat
 bahaya {data[3].lower()} sehingga memerlukan penanganan
 sesuai prosedur keselamatan laboratorium.
 """
 
-        st.success(kesimpulan)
+st.success(kesimpulan)
 
-        st.markdown("<br>", unsafe_allow_html=True)
+st.markdown("<br>", unsafe_allow_html=True)
 
-        if st.button("⬅️ Kembali ke Home", key="home_analisis"):
-            st.session_state.menu = "🏠 Home"
-            st.rerun()
+if st.button("⬅️ Kembali ke Home", key="home_analisis"):
+    st.session_state.menu = "🏠 Home"
+    st.rerun()
 
 # ================= TENTANG =================
 
