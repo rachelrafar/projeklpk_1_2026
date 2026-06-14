@@ -1422,6 +1422,10 @@ elif menu == "📚 Informasi Bahan Kimia":
 
         data = db[pilih]
 
+        # 🔥 INI FIX TAMBAHAN WAJIB
+        jenis = data[1]
+        senyawa = pilih
+
         st.markdown(f"""
         <div style="
             background:#1E293B;
