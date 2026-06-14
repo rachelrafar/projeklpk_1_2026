@@ -70,7 +70,7 @@ for key, value in default_session.items():
         st.session_state[key] = value
 # ================= PAGE FUNCTIONS =================
 
- def home():
+def home():
     st.write("Ini halaman home / dashboard")
 
 def larutan():
