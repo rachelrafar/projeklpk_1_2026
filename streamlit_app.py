@@ -70,24 +70,23 @@ for key, value in default_session.items():
         st.session_state[key] = value
 # ================= PAGE FUNCTIONS =================
 
-def home():
-    st.title("🏠 Home")
+ def home():
     st.write("Ini halaman home / dashboard")
 
 def larutan():
-    st.title("💧 Larutan")
+    st.write("Halaman Larutan")
 
 def ph():
-    st.title("⚗️ pH")
+    st.write("Halaman pH")
 
 def info():
-    st.title("📚 Informasi Bahan Kimia")
+    st.write("Halaman Informasi Bahan Kimia")
 
 def analisis():
-    st.title("🧪 Analisis Kimia")
+    st.write("Halaman Analisis Kimia")
 
 def tentang():
-    st.title("ℹ️ Tentang")
+    st.write("Halaman Tentang")
 
 # =========================
 # GLOBAL STYLE
@@ -1399,12 +1398,22 @@ elif menu == "📚 Informasi Bahan Kimia":
     )
 
     st.markdown("<br>", unsafe_allow_html=True)
-
-    tampilkan_info = st.button(
-        "📖 Tampilkan Informasi",
-        key="btn_info",
-        use_container_width=True
     
+    col1, col2 = st.columns([2, 1])
+
+    with col1:
+        pilih = st.selectbox(
+            "Pilih Senyawa",
+            hasil
+        )
+
+    with col2:
+        st.markdown("###")
+        
+        tampilkan_info = st.button(
+            "📖 Tampilkan Informasi",
+            key="btn_info",
+            use_container_width=True
         )
 
     if tampilkan_info:
