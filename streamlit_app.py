@@ -1306,13 +1306,14 @@ elif menu == "📚 Informasi Bahan Kimia":
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-        tampilkan_info = st.button(
-            "📖 Tampilkan Informasi",
-            key="btn_info",
-            use_container_width=True
+    tampilkan_info = st.button(
+        "📖 Tampilkan Informasi",
+        key="btn_info",
+        use_container_width=True
+    
         )
 
-    if tampilkan_info:
+   if tampilkan_info:
 
         data = db[pilih]
 
@@ -1335,7 +1336,8 @@ elif menu == "📚 Informasi Bahan Kimia":
 
         <b>Struktur Molekul:</b> {data[5]}
 
-              # ================= HOME =================
+        </div>
+        """, unsafe_allow_html=True)
 
         st.markdown("<br>", unsafe_allow_html=True)
 
@@ -1345,9 +1347,6 @@ elif menu == "📚 Informasi Bahan Kimia":
             use_container_width=True
         ):
             go_to("🏠 Home")
-
-        </div>
-        """, unsafe_allow_html=True)
         
 # ================= ANALISIS KIMIA =================
 
