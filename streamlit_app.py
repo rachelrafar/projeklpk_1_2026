@@ -1891,17 +1891,13 @@ elif menu == "🧪 Analisis Kimia":
 
             st.info("Data NFPA belum tersedia.")
 
-         # ================= KESIMPULAN =================
+        # ================= KESIMPULAN =================
 
         st.subheader("📋 Kesimpulan")
 
         kesimpulan = f"""
-🧪 {data[0]} merupakan senyawa golongan {data[1].lower()}
+{data[0]} merupakan senyawa golongan {data[1].lower()}
 dengan massa molekul relatif {data[2]}.
-
-Karakteristik utama senyawa ini menunjukkan sifat yang sesuai
-dengan golongannya dan dapat digunakan dalam berbagai aplikasi
-laboratorium maupun industri.
 """
 
         if senyawa in nfpa:
@@ -1910,29 +1906,31 @@ laboratorium maupun industri.
 
             kesimpulan += f"""
 
-🚨 Berdasarkan data NFPA:
+Berdasarkan karakteristik kimianya, senyawa ini termasuk
+golongan {data[1].lower()} yang memiliki sifat dan perilaku
+khas dalam berbagai reaksi kimia.
 
-🔥 Flammability : {f}
-☣️ Health Hazard : {h}
-⚛️ Reactivity : {r}
+Data NFPA menunjukkan tingkat kemudahan terbakar
+(Flammability) sebesar {f}, tingkat bahaya kesehatan
+(Health Hazard) sebesar {h}, dan tingkat reaktivitas
+(Reactivity) sebesar {r}.
 """
-
-            # Interpretasi Health
 
             if h >= 3:
 
                 kesimpulan += """
 
-Senyawa memiliki tingkat bahaya kesehatan tinggi sehingga
-paparan langsung harus dihindari. Gunakan APD lengkap,
-sarung tangan, kacamata keselamatan, dan lemari asam.
+Senyawa ini memiliki risiko kesehatan yang tinggi sehingga
+paparan langsung harus dihindari. Penggunaan APD lengkap,
+sarung tangan, kacamata keselamatan, dan lemari asam
+sangat disarankan.
 """
 
             elif h == 2:
 
                 kesimpulan += """
 
-Senyawa memiliki risiko kesehatan sedang dan dapat
+Senyawa ini memiliki risiko kesehatan sedang dan dapat
 menyebabkan iritasi apabila terpapar dalam jumlah tertentu.
 """
 
@@ -1940,18 +1938,16 @@ menyebabkan iritasi apabila terpapar dalam jumlah tertentu.
 
                 kesimpulan += """
 
-Risiko kesehatan relatif rendah namun prosedur keselamatan
-laboratorium tetap wajib diterapkan.
+Risiko kesehatan relatif rendah, namun prosedur keselamatan
+laboratorium tetap harus diterapkan.
 """
-
-            # Interpretasi Flammability
 
             if f >= 3:
 
                 kesimpulan += """
 
-Senyawa mudah terbakar sehingga harus dijauhkan dari sumber
-panas, percikan api, dan oksidator kuat.
+Senyawa ini mudah terbakar sehingga harus dijauhkan dari
+sumber panas, percikan api, dan oksidator kuat.
 """
 
             elif f == 2:
@@ -1962,36 +1958,13 @@ Senyawa memiliki potensi terbakar pada kondisi tertentu,
 sehingga penyimpanannya perlu diperhatikan.
 """
 
-            else:
+            if r >= 2:
 
                 kesimpulan += """
 
-Senyawa tidak mudah terbakar pada kondisi laboratorium normal.
-"""
-
-            # Interpretasi Reactivity
-
-            if r >= 3:
-
-                kesimpulan += """
-
-Senyawa memiliki reaktivitas tinggi dan dapat bereaksi hebat
-dengan zat tertentu sehingga memerlukan penanganan khusus.
-"""
-
-            elif r == 2:
-
-                kesimpulan += """
-
-Senyawa memiliki reaktivitas sedang dan perlu disimpan
-terpisah dari bahan yang tidak kompatibel.
-"""
-
-            else:
-
-                kesimpulan += """
-
-Senyawa relatif stabil dalam kondisi penyimpanan normal.
+Tingkat reaktivitas yang cukup tinggi menunjukkan bahwa
+senyawa dapat bereaksi dengan zat lain dan memerlukan
+penanganan khusus selama penggunaan maupun penyimpanan.
 """
 
         else:
@@ -1999,8 +1972,8 @@ Senyawa relatif stabil dalam kondisi penyimpanan normal.
             kesimpulan += f"""
 
 Berdasarkan data yang tersedia, senyawa ini memiliki tingkat
-bahaya {data[3].lower()} sehingga memerlukan penanganan sesuai
-prosedur keselamatan laboratorium.
+bahaya {data[3].lower()} sehingga memerlukan penanganan
+sesuai prosedur keselamatan laboratorium.
 """
 
         st.success(kesimpulan)
