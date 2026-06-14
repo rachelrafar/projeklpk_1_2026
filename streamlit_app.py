@@ -1438,106 +1438,147 @@ elif menu == "🧪 Analisis Kimia":
 
         analisis_spesifik = {
 
-    "HCl":"Asam kuat monoprotik yang terionisasi sempurna menghasilkan H⁺ dan Cl⁻. Digunakan sebagai titran dan pengatur pH. NFPA: H3 F0 R1",
+    "HCl":"Asam kuat yang terionisasi sempurna menghasilkan H⁺ dan Cl⁻. Digunakan sebagai titran dan pengatur pH.",
 
-    "H2SO4":"Asam diprotik kuat dengan sifat dehidrasi tinggi. Bereaksi eksotermik dengan air. NFPA: H3 F0 R2",
+    "H2SO4":"Asam diprotik kuat dengan sifat dehidrasi tinggi. Banyak digunakan dalam analisis dan industri.",
 
-    "HNO3":"Asam kuat sekaligus oksidator kuat. Digunakan dalam analisis dan sintesis nitrat. NFPA: H3 F0 R0",
+    "HNO3":"Asam kuat sekaligus oksidator yang mampu mengoksidasi berbagai logam.",
 
-    "HF":"Asam lemah namun sangat berbahaya karena mampu menembus jaringan tubuh. NFPA: H4 F0 R0",
+    "HF":"Asam lemah yang sangat berbahaya karena dapat menembus jaringan tubuh.",
 
-    "H3BO3":"Asam borat merupakan asam lemah yang digunakan sebagai antiseptik dan bahan baku industri. NFPA: H1 F0 R0",
+    "H3BO3":"Asam lemah yang digunakan sebagai antiseptik dan bahan baku industri.",
 
-    "CH3COOH":"Asam asetat merupakan asam organik lemah. Digunakan dalam sintesis organik dan pembuatan buffer. NFPA: H2 F2 R0",
+    "CH3COOH":"Asam organik lemah yang digunakan dalam sintesis organik dan pembuatan buffer.",
 
-    "NaOH":"Basa kuat yang menghasilkan ion OH⁻ dalam jumlah besar. Sangat korosif. NFPA: H3 F0 R1",
+    "NaOH":"Basa kuat yang menghasilkan ion OH⁻ dalam jumlah besar dan bersifat korosif.",
 
-    "KOH":"Basa kuat yang digunakan dalam industri sabun dan baterai. NFPA: H3 F0 R1",
+    "KOH":"Basa kuat yang digunakan dalam industri sabun dan baterai.",
 
-    "Ca(OH)2":"Basa kuat yang digunakan dalam pengolahan air dan industri konstruksi. NFPA: H2 F0 R0",
+    "Ca(OH)2":"Basa kuat yang digunakan dalam pengolahan air dan industri konstruksi.",
 
-    "NH3":"Basa lemah yang membentuk ion amonium dalam air. Digunakan dalam industri pupuk. NFPA: H3 F1 R0",
+    "NH3":"Basa lemah yang membentuk ion amonium dalam air dan digunakan dalam industri pupuk.",
 
-    "NH4OH":"Larutan amonia dalam air yang bersifat basa lemah dan iritan. NFPA: H3 F1 R0",
+    "NH4OH":"Larutan amonia dalam air yang bersifat basa lemah.",
 
-    "NaCl":"Garam netral yang terdisosiasi menjadi Na⁺ dan Cl⁻. Relatif aman. NFPA: H0 F0 R0",
+    "NaCl":"Garam netral yang terdisosiasi menjadi ion Na⁺ dan Cl⁻.",
 
-    "KCl":"Sumber ion kalium dalam analisis dan industri pupuk. NFPA: H1 F0 R0",
+    "KCl":"Sumber ion kalium yang banyak digunakan dalam pupuk dan laboratorium.",
 
-    "AgNO3":"Digunakan dalam argentometri dan pembentukan endapan halida. NFPA: H2 F0 R1",
+    "AgNO3":"Digunakan dalam analisis argentometri dan pembentukan endapan halida.",
 
-    "CuSO4":"Sumber ion Cu²⁺ dan pereaksi biuret. Berbahaya bagi organisme air. NFPA: H2 F0 R0",
+    "CuSO4":"Sumber ion Cu²⁺ yang digunakan dalam analisis kualitatif dan uji biuret.",
 
-    "FeCl3":"Digunakan sebagai pereaksi identifikasi fenol. Bersifat korosif. NFPA: H3 F0 R1",
+    "FeCl3":"Digunakan sebagai pereaksi identifikasi fenol karena membentuk kompleks berwarna.",
 
-    "MgSO4":"Garam magnesium yang digunakan dalam farmasi dan laboratorium. NFPA: H1 F0 R0",
+    "MgSO4":"Garam magnesium yang digunakan dalam farmasi dan laboratorium.",
 
-    "Na2CO3":"Garam basa yang digunakan untuk menaikkan pH larutan. NFPA: H1 F0 R0",
+    "Na2CO3":"Garam basa yang digunakan untuk meningkatkan pH larutan.",
 
-    "NaHCO3":"Garam basa yang menghasilkan CO₂ saat bereaksi dengan asam. NFPA: H1 F0 R0",
+    "NaHCO3":"Bereaksi dengan asam menghasilkan gas karbon dioksida.",
 
-    "Pb(NO3)2":"Sumber ion Pb²⁺. Bersifat toksik dan berbahaya bagi lingkungan. NFPA: H3 F0 R1",
+    "Pb(NO3)2":"Sumber ion Pb²⁺ yang digunakan dalam berbagai analisis kimia.",
 
-    "ZnSO4":"Sumber ion seng yang digunakan dalam analisis dan industri. NFPA: H2 F0 R0",
+    "ZnSO4":"Sumber ion seng yang digunakan dalam industri dan laboratorium.",
 
-    "Na2SO4":"Garam sulfat yang relatif stabil dan aman. NFPA: H0 F0 R0",
+    "Na2SO4":"Garam sulfat yang stabil dan mudah larut dalam air.",
 
-    "HgCl2":"Senyawa merkuri yang sangat toksik dan korosif. NFPA: H4 F0 R0",
+    "HgCl2":"Senyawa merkuri yang sangat toksik dan memerlukan penanganan khusus.",
 
-    "NaNO3":"Sumber ion nitrat dan oksidator ringan. NFPA: H2 F0 R1",
+    "NaNO3":"Garam yang mengandung ion nitrat dan digunakan sebagai bahan baku pupuk.",
 
-    "NH4Cl":"Garam amonium yang digunakan dalam buffer dan pupuk. NFPA: H2 F0 R0",
+    "NH4Cl":"Garam amonium yang digunakan dalam buffer dan pupuk.",
 
-    "NH4NO3":"Sumber nitrogen yang juga bersifat oksidator kuat. NFPA: H2 F0 R3",
+    "NH4NO3":"Sumber nitrogen penting dalam industri pupuk.",
 
-    "CaCO3":"Komponen utama batu kapur dan cangkang organisme. NFPA: H0 F0 R0",
+    "CaCO3":"Komponen utama batu kapur dan cangkang organisme.",
 
-    "MgCl2":"Sumber ion magnesium yang mudah larut dalam air. NFPA: H1 F0 R0",
+    "MgCl2":"Sumber ion magnesium yang mudah larut dalam air.",
 
-    "Al2(SO4)3":"Digunakan sebagai koagulan dalam pengolahan air. NFPA: H1 F0 R0",
+    "Al2(SO4)3":"Digunakan sebagai koagulan dalam pengolahan air.",
 
-    "FeSO4":"Sumber ion Fe²⁺ yang digunakan dalam analisis dan farmasi. NFPA: H1 F0 R0",
+    "FeSO4":"Sumber ion Fe²⁺ yang digunakan dalam farmasi dan analisis.",
 
-    "CuCl2":"Sumber ion Cu²⁺ yang digunakan dalam sintesis dan analisis. NFPA: H2 F0 R1",
+    "CuCl2":"Sumber ion Cu²⁺ yang digunakan dalam sintesis dan analisis kimia."
 
-    "Na3PO4":"Garam basa yang digunakan sebagai pengatur pH dan builder deterjen. NFPA: H2 F0 R0",
+        "Na3PO4":"Garam fosfat yang digunakan sebagai pengatur pH dan bahan pembersih.",
 
-    "KNO3":"Oksidator yang digunakan pada pupuk dan piroteknik. NFPA: H1 F0 R2",
+    "KNO3":"Garam yang mengandung ion kalium dan nitrat serta digunakan sebagai pupuk.",
 
-    "KMnO4":"Oksidator kuat yang digunakan dalam permanganometri. NFPA: H2 F0 R3",
+    "KMnO4":"Oksidator kuat yang digunakan pada titrasi permanganometri.",
 
-    "K2Cr2O7":"Oksidator kuat yang mengandung Cr(VI) bersifat karsinogenik. NFPA: H3 F0 R3",
+    "K2Cr2O7":"Oksidator kuat yang digunakan pada titrasi redoks.",
 
-    "H2O2":"Oksidator yang terurai menghasilkan air dan oksigen. NFPA: H2 F0 R2",
+    "H2O2":"Oksidator yang mudah terurai menjadi air dan oksigen.",
 
-    "NaClO":"Digunakan sebagai pemutih dan desinfektan. Bereaksi dengan asam menghasilkan Cl₂. NFPA: H3 F0 R1",
+    "NaClO":"Digunakan sebagai pemutih dan desinfektan.",
 
-    "CH3OH":"Metanol merupakan alkohol yang sangat toksik dan mudah terbakar. NFPA: H2 F3 R0",
+    "CH3OH":"Alkohol sederhana yang sangat toksik dan mudah terbakar.",
 
-    "C2H5OH":"Etanol digunakan sebagai pelarut dan antiseptik. Mudah terbakar. NFPA: H2 F3 R0",
+    "C2H5OH":"Alkohol yang banyak digunakan sebagai pelarut dan antiseptik.",
 
-    "Acetone":"Pelarut organik volatil yang sangat mudah terbakar. NFPA: H1 F3 R0",
+    "Acetone":"Pelarut organik volatil yang mudah menguap dan mudah terbakar.",
 
-    "CH3COCH3":"Nama lain aseton. Pelarut organik yang mudah menguap. NFPA: H1 F3 R0",
+    "CH3COCH3":"Nama lain aseton yang banyak digunakan sebagai pelarut.",
 
-    "Benzene":"Senyawa aromatik yang bersifat karsinogenik. NFPA: H2 F3 R0",
+    "Benzene":"Senyawa aromatik yang bersifat karsinogenik.",
 
-    "Toluene":"Pelarut aromatik yang mempengaruhi sistem saraf pusat. NFPA: H2 F3 R0",
+    "Toluene":"Turunan benzena yang digunakan sebagai pelarut organik.",
 
-    "CHCl3":"Kloroform merupakan pelarut yang bersifat depresan sistem saraf pusat. NFPA: H2 F0 R0",
+    "CHCl3":"Kloroform yang digunakan sebagai pelarut dalam sintesis organik.",
 
-    "CCl4":"Karbon tetraklorida bersifat hepatotoksik dan penggunaannya dibatasi. NFPA: H2 F0 R0",
+    "CCl4":"Karbon tetraklorida yang bersifat hepatotoksik.",
 
-    "Glucose":"Monosakarida sebagai sumber energi utama organisme hidup. NFPA: H0 F1 R0",
+    "Glucose":"Monosakarida yang merupakan sumber energi utama makhluk hidup.",
 
-    "C6H12O6":"Glukosa merupakan monosakarida yang mudah larut dalam air. NFPA: H0 F1 R0",
+    "C6H12O6":"Glukosa merupakan gula sederhana yang mudah larut dalam air.",
 
-    "Sucrose":"Disakarida penyusun gula pasir. Stabil pada kondisi normal. NFPA: H0 F1 R0",
+    "Sucrose":"Disakarida yang tersusun dari glukosa dan fruktosa.",
 
-    "C12H22O11":"Sukrosa merupakan disakarida hasil gabungan glukosa dan fruktosa. NFPA: H0 F1 R0",
+    "C12H22O11":"Sukrosa merupakan komponen utama gula pasir.",
 
-    "Urea":"Senyawa amida yang digunakan sebagai bahan baku pupuk dan industri kimia. NFPA: H1 F0 R0"
-            
+    "Urea":"Senyawa amida yang digunakan sebagai bahan baku pupuk.",
+
+    "BaCl2":"Barium klorida digunakan untuk identifikasi ion sulfat.",
+
+    "BaSO4":"Endapan putih yang sering digunakan pada analisis gravimetri.",
+
+    "CaCl2":"Garam yang higroskopis dan sering digunakan sebagai pengering.",
+
+    "NaBr":"Garam bromida yang larut baik dalam air.",
+
+    "KI":"Sumber ion iodida yang digunakan pada iodometri.",
+
+    "I2":"Iodin digunakan sebagai oksidator dan indikator pati.",
+
+    "KIO3":"Kalium iodat merupakan standar primer pada iodometri.",
+
+    "Na2S2O3":"Natrium tiosulfat digunakan sebagai titran pada iodometri.",
+
+    "EDTA":"Agen pengompleks yang digunakan pada titrasi kompleksometri.",
+
+    "NH4SCN":"Amonium tiosianat digunakan pada titrasi Volhard.",
+
+    "K2SO4":"Kalium sulfat digunakan sebagai pupuk dan sumber ion kalium.",
+
+    "Fe2O3":"Oksida besi(III) yang merupakan komponen utama karat.",
+
+    "CuO":"Oksida tembaga hitam yang digunakan pada berbagai sintesis.",
+
+    "ZnO":"Oksida seng yang digunakan dalam kosmetik dan farmasi.",
+
+    "MgO":"Oksida magnesium yang bersifat basa.",
+
+    "AlCl3":"Katalis yang sering digunakan dalam reaksi Friedel-Crafts.",
+
+    "NaF":"Sumber ion fluorida yang digunakan dalam pasta gigi.",
+
+    "KF":"Kalium fluorida sebagai sumber ion fluorida dalam sintesis.",
+
+    "LiCl":"Garam litium yang sangat higroskopis.",
+
+    "Na2B4O7":"Boraks yang digunakan sebagai buffer dan bahan pembersih.",
+
+    "H3PO4":"Asam fosfat yang digunakan dalam industri makanan dan pupuk."
         }
 
         if senyawa in analisis_spesifik:
@@ -1665,25 +1706,113 @@ elif menu == "🧪 Analisis Kimia":
 
         nfpa = {
 
-            "HCl": (0,3,1),
-            "H2SO4": (0,3,2),
-            "HNO3": (0,4,2),
-            "NaOH": (0,3,1),
-            "KOH": (0,3,1),
+    "HCl": (0,3,1),
+    "H2SO4": (0,3,2),
+    "HNO3": (0,4,2),
+    "HF": (0,4,0),
+    "H3BO3": (0,1,0),
 
-            "CH3OH": (3,2,0),
-            "C2H5OH": (3,2,0),
+    "CH3COOH": (2,2,0),
 
-            "Acetone": (3,1,0),
-            "CH3COCH3": (3,1,0),
+    "NaOH": (0,3,1),
+    "KOH": (0,3,1),
+    "Ca(OH)2": (0,2,0),
 
-            "Benzene": (3,2,0),
-            "Toluene": (3,2,0),
+    "NH3": (1,3,0),
+    "NH4OH": (1,3,0),
 
-            "KMnO4": (0,2,3),
-            "K2Cr2O7": (0,3,3),
+    "NaCl": (0,0,0),
+    "KCl": (0,1,0),
 
-            "H2O2": (0,2,2)
+    "AgNO3": (0,2,1),
+    "CuSO4": (0,2,0),
+    "FeCl3": (0,3,1),
+    "MgSO4": (0,1,0),
+
+    "Na2CO3": (0,1,0),
+    "NaHCO3": (0,1,0),
+
+    "Pb(NO3)2": (0,3,1),
+    "ZnSO4": (0,2,0),
+    "Na2SO4": (0,0,0),
+
+    "HgCl2": (0,4,0),
+
+    "NaNO3": (0,2,1),
+    "NH4Cl": (0,2,0),
+    "NH4NO3": (0,2,3),
+
+    "CaCO3": (0,0,0),
+    "MgCl2": (0,1,0),
+
+    "Al2(SO4)3": (0,1,0),
+    "FeSO4": (0,1,0),
+    "CuCl2": (0,2,1),
+
+    "Na3PO4": (0,2,0),
+
+    "KNO3": (0,1,2),
+    "KMnO4": (0,2,3),
+    "K2Cr2O7": (0,3,3),
+
+    "H2O2": (0,2,2),
+    "NaClO": (0,3,1),
+
+    "CH3OH": (3,2,0),
+    "C2H5OH": (3,2,0),
+
+    "Acetone": (3,1,0),
+    "CH3COCH3": (3,1,0),
+
+    "Benzene": (3,2,0),
+    "Toluene": (3,2,0),
+
+    "CHCl3": (0,2,0),
+    "CCl4": (0,2,0),
+
+    "Glucose": (1,0,0),
+    "C6H12O6": (1,0,0),
+
+    "Sucrose": (1,0,0),
+    "C12H22O11": (1,0,0),
+
+    "Urea": (0,1,0),
+
+    "BaCl2": (0,2,0),
+    "BaSO4": (0,1,0),
+
+    "CaCl2": (0,1,0),
+
+    "NaBr": (0,1,0),
+    "KI": (0,1,0),
+
+    "I2": (0,2,1),
+
+    "KIO3": (0,2,2),
+    "Na2S2O3": (0,1,0),
+
+    "EDTA": (0,1,0),
+
+    "NH4SCN": (0,2,1),
+
+    "K2SO4": (0,1,0),
+
+    "Fe2O3": (0,1,0),
+    "CuO": (0,1,0),
+    "ZnO": (0,1,0),
+    "MgO": (0,1,0),
+
+    "AlCl3": (0,3,1),
+
+    "NaF": (0,2,0),
+    "KF": (0,2,0),
+
+    "LiCl": (0,2,0),
+
+    "Na2B4O7": (0,1,0),
+
+    "H3PO4": (0,2,0)
+
         }
 
         if senyawa in nfpa:
