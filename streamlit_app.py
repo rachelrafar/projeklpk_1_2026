@@ -1127,7 +1127,7 @@ elif menu == "💧 Larutan":
             </div>
             """, unsafe_allow_html=True)
 
-    # ================= PENGENCERAN =================
+      # ================= PENGENCERAN =================
 
     else:
 
@@ -1135,10 +1135,30 @@ elif menu == "💧 Larutan":
         V1 = st.number_input("Volume Awal (mL)", 100.0)
         M2 = st.number_input("Molaritas Akhir (M)", 0.1)
 
-        if st.button("Hitung Pengenceran"):
+        st.markdown("<br>", unsafe_allow_html=True)
+
+        col1, col2 = st.columns(2)
+
+        with col1:
+            if st.button(
+                "⬅️ Kembali ke Home",
+                key="home_pengenceran",
+                use_container_width=True
+            ):
+                go_to("🏠 Home")
+
+        with col2:
+            hitung_pengenceran = st.button(
+                "💧 Hitung Pengenceran",
+                key="btn_pengenceran",
+                use_container_width=True
+            )
+
+        if hitung_pengenceran:
 
             if M2 >= M1:
                 st.error("Molaritas akhir harus lebih kecil dari molaritas awal.")
+
             else:
 
                 with st.spinner("Sedang menghitung..."):
@@ -1197,22 +1217,20 @@ larutan {M2} M.
 
                 </div>
                 """, unsafe_allow_html=True)
+                
 # ================= PH =================
 
-elif menu=="⚗️ pH":
+elif menu == "⚗️ pH":
 
     st.title("⚗️ Smart pH Calculator")
 
-    if st.button("⬅ Kembali ke Home"):
-        go_to("🏠 Home")
-
-    senyawa=st.selectbox(
-    "Pilih Senyawa",
-    list(data_ph.keys()),
-    format_func=lambda x:f"{data_ph[x]['nama']} ({x})"
+    senyawa = st.selectbox(
+        "Pilih Senyawa",
+        list(data_ph.keys()),
+        format_func=lambda x: f"{data_ph[x]['nama']} ({x})"
     )
 
-    info=data_ph[senyawa]
+    info = data_ph[senyawa]
 
     st.info(f"""
 🧪 Nama Senyawa : {info['nama']}
@@ -1222,33 +1240,68 @@ elif menu=="⚗️ pH":
 ⚖️ Mr : {info['Mr']} g/mol
 """)
 
-    C=st.number_input("Masukkan Konsentrasi (M)",0.01)
+    C = st.number_input(
+        "Masukkan Konsentrasi (M)",
+        min_value=0.0,
+        value=0.01
+    )
 
-    if st.button("Hitung pH"):
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    # ================= TOMBOL =================
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        home_ph = st.button(
+            "⬅️ Kembali ke Home",
+            key="home_ph",
+            use_container_width=True
+        )
+
+    with col2:
+        hitung_ph = st.button(
+            "⚗️ Hitung pH",
+            key="btn_ph",
+            use_container_width=True
+        )
+
+    if home_ph:
+        go_to("🏠 Home")
+
+    # ================= PERHITUNGAN =================
+
+    if hitung_ph:
+
         with st.spinner("Sedang menghitung..."):
-            time.sleep(5)
+            time.sleep(3)
 
         if "Asam kuat" in info["jenis"]:
 
-            ph=-math.log10(C*info["valensi"])
+            ph = -math.log10(C * info["valensi"])
 
         elif "Basa kuat" in info["jenis"]:
 
-            poh=-math.log10(C*info["valensi"])
-            ph=14-poh
+            poh = -math.log10(C * info["valensi"])
+            ph = 14 - poh
 
         elif "Asam lemah" in info["jenis"]:
 
-            H=math.sqrt(info["Ka"]*C)
-            ph=-math.log10(H)
+            H = math.sqrt(info["Ka"] * C)
+            ph = -math.log10(H)
 
         else:
 
-            OH=math.sqrt(info["Kb"]*C)
-            poh=-math.log10(OH)
-            ph=14-poh
+            OH = math.sqrt(info["Kb"] * C)
+            poh = -math.log10(OH)
+            ph = 14 - poh
 
-        st.metric("📊 Nilai pH",f"{ph:.2f}")
+        st.markdown("<br>", unsafe_allow_html=True)
+
+        st.metric(
+            "📊 Nilai pH",
+            f"{ph:.2f}"
+        )
 
         if ph <= 1:
             st.error("🔴 Sangat Asam")
