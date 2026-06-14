@@ -712,7 +712,7 @@ with st.sidebar:
             },
         }
     )
-st.session_state.menu = selected
+    st.session_state.menu = selected
 
     st.markdown("---")
 
