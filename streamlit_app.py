@@ -1494,15 +1494,164 @@ elif menu == "🧪 Analisis Kimia":
         else:
             st.info("Analisis spesifik senyawa belum tersedia. Analisis didasarkan pada golongan senyawanya.")
 
-        st.subheader("📋 Kesimpulan")
+       # ================= SAFETY ASSESSMENT =================
 
-        st.success(f"""
+st.subheader("⚠️ Safety Assessment")
+
+bahaya = data[3]
+
+if "tinggi" in bahaya.lower():
+    st.error("🔴 Risiko Tinggi - Gunakan APD lengkap dan kerjakan di lemari asam.")
+
+elif "sedang" in bahaya.lower():
+    st.warning("🟠 Risiko Sedang - Hindari kontak langsung dan gunakan sarung tangan.")
+
+else:
+    st.success("🟢 Risiko Rendah - Tetap ikuti prosedur keselamatan laboratorium.")
+
+# ================= KARAKTERISTIK KIMIA =================
+
+st.subheader("🧬 Karakteristik Kimia")
+
+sifat = {
+    "Asam kuat":[
+        "Elektrolit kuat",
+        "Terionisasi hampir sempurna",
+        "Korosif terhadap logam"
+    ],
+
+    "Asam lemah":[
+        "Terionisasi sebagian",
+        "Konduktivitas sedang",
+        "Dapat membentuk sistem buffer"
+    ],
+
+    "Basa kuat":[
+        "Menghasilkan OH⁻ dalam jumlah besar",
+        "Elektrolit kuat",
+        "Korosif terhadap jaringan"
+    ],
+
+    "Basa lemah":[
+        "Terionisasi sebagian",
+        "Konduktivitas sedang",
+        "Reaktivitas lebih rendah"
+    ],
+
+    "Alkohol":[
+        "Mudah menguap",
+        "Digunakan sebagai pelarut",
+        "Mudah terbakar"
+    ],
+
+    "Pelarut":[
+        "Melarutkan berbagai senyawa",
+        "Volatil",
+        "Berpotensi mudah terbakar"
+    ]
+}
+
+if jenis in sifat:
+
+    for item in sifat[jenis]:
+        st.write("✔️", item)
+
+else:
+
+    st.info("Karakteristik spesifik belum tersedia.")
+
+# ================= PREDIKSI LAB =================
+
+st.subheader("🔬 Prediksi Perilaku Laboratorium")
+
+if "Asam" in jenis:
+
+    st.info("""
+• Bereaksi dengan basa menghasilkan garam dan air.
+• Mengubah indikator menjadi merah.
+• Bersifat donor proton (H⁺).
+""")
+
+elif "Basa" in jenis:
+
+    st.info("""
+• Bereaksi dengan asam menghasilkan garam dan air.
+• Mengubah indikator menjadi biru.
+• Bersifat akseptor proton.
+""")
+
+elif "Garam" in jenis:
+
+    st.info("""
+• Dapat mengalami hidrolisis.
+• Dapat membentuk endapan dengan ion tertentu.
+• Meningkatkan konduktivitas larutan.
+""")
+
+else:
+
+    st.info("""
+• Perilaku dipengaruhi gugus fungsi utama.
+• Digunakan sebagai pereaksi atau pelarut.
+""")
+
+# ================= NFPA =================
+
+st.subheader("🚨 NFPA Hazard Indicator")
+
+nfpa = {
+
+    "HCl": (0,3,1),
+    "H2SO4": (0,3,2),
+    "HNO3": (0,4,2),
+    "NaOH": (0,3,1),
+    "KOH": (0,3,1),
+
+    "CH3OH": (3,2,0),
+    "C2H5OH": (3,2,0),
+
+    "Acetone": (3,1,0),
+    "CH3COCH3": (3,1,0),
+
+    "Benzene": (3,2,0),
+    "Toluene": (3,2,0),
+
+    "KMnO4": (0,2,3),
+    "K2Cr2O7": (0,3,3),
+
+    "H2O2": (0,2,2)
+}
+
+if senyawa in nfpa:
+
+    f, h, r = nfpa[senyawa]
+
+    c1, c2, c3 = st.columns(3)
+
+    with c1:
+        st.metric("🔥 Flammability", f)
+
+    with c2:
+        st.metric("☣️ Health", h)
+
+    with c3:
+        st.metric("⚛️ Reactivity", r)
+
+else:
+
+    st.info("Data NFPA belum tersedia.")
+
+# ================= KESIMPULAN =================
+
+st.subheader("📋 Kesimpulan")
+
+st.success(f"""
 {data[0]} merupakan senyawa golongan {data[1].lower()}
 dengan massa molekul relatif {data[2]}.
 
 Berdasarkan data yang tersedia, senyawa ini memiliki tingkat bahaya
-berupa {data[3].lower()} sehingga memerlukan penanganan yang sesuai
-dengan prosedur keselamatan laboratorium.
+berupa {data[3].lower()} sehingga memerlukan penanganan sesuai
+prosedur keselamatan laboratorium.
 """)
         
 # ================= TENTANG =================
