@@ -1391,7 +1391,7 @@ elif menu == "📚 Informasi Bahan Kimia":
         or cari.lower() in db[x][0].lower()
     ] if cari else list(db.keys())
 
-    # ================= SELECTBOX (HANYA 1) =================
+    # ================= SELECTBOX =================
     pilih = st.selectbox(
         "Pilih Senyawa",
         hasil,
@@ -1400,7 +1400,7 @@ elif menu == "📚 Informasi Bahan Kimia":
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # ================= BUTTON ROW =================
+    # ================= BUTTON =================
     col1, col2 = st.columns([1, 1])
 
     with col1:
@@ -1417,46 +1417,45 @@ elif menu == "📚 Informasi Bahan Kimia":
             use_container_width=True
         )
 
- # ================= OUTPUT CARD =================
-if tampilkan_info and pilih:
+    # ================= OUTPUT CARD (HARUS DI DALAM MENU) =================
+    if tampilkan_info and pilih:
 
-    data = db[pilih]
+        data = db[pilih]
 
-    # FIX WAJIB
-    jenis = data[1]
-    senyawa = pilih
+        jenis = data[1]
+        senyawa = pilih
 
-    st.markdown(f"""
-    <div style="
-        background:#F8FAFC;
-        padding:22px;
-        border-radius:16px;
-        color:#0F172A;
-        box-shadow:0 8px 20px rgba(0,0,0,0.12);
-        line-height:1.7;
-        border:1px solid #E2E8F0;
-    ">
+        st.markdown(f"""
+        <div style="
+            background:#F8FAFC;
+            padding:22px;
+            border-radius:16px;
+            color:#0F172A;
+            box-shadow:0 8px 20px rgba(0,0,0,0.12);
+            line-height:1.7;
+            border:1px solid #E2E8F0;
+        ">
 
-    <h3 style="
-        margin-bottom:18px;
-        color:#1E3A8A;
-        border-bottom:2px solid #1E3A8A;
-        padding-bottom:8px;
-    ">
-    🧪 Informasi Senyawa
-    </h3>
+        <h3 style="
+            margin-bottom:18px;
+            color:#1E3A8A;
+            border-bottom:2px solid #1E3A8A;
+            padding-bottom:8px;
+        ">
+        🧪 Informasi Senyawa
+        </h3>
 
-    <p><b style="color:#1E3A8A;">Nama Senyawa:</b> {data[0]}</p>
-    <p><b style="color:#1E3A8A;">Rumus Kimia:</b> {pilih}</p>
-    <p><b style="color:#1E3A8A;">Jenis:</b> {data[1]}</p>
-    <p><b style="color:#1E3A8A;">Mr:</b> {data[2]}</p>
-    <p><b style="color:#1E3A8A;">Bahaya:</b> {data[3]}</p>
-    <p><b style="color:#1E3A8A;">Bentuk/Fisik:</b> {data[4]}</p>
-    <p><b style="color:#1E3A8A;">Struktur Molekul:</b> {data[5]}</p>
+        <p><b style="color:#1E3A8A;">Nama Senyawa:</b> {data[0]}</p>
+        <p><b style="color:#1E3A8A;">Rumus Kimia:</b> {pilih}</p>
+        <p><b style="color:#1E3A8A;">Jenis:</b> {data[1]}</p>
+        <p><b style="color:#1E3A8A;">Mr:</b> {data[2]}</p>
+        <p><b style="color:#1E3A8A;">Bahaya:</b> {data[3]}</p>
+        <p><b style="color:#1E3A8A;">Bentuk/Fisik:</b> {data[4]}</p>
+        <p><b style="color:#1E3A8A;">Struktur Molekul:</b> {data[5]}</p>
 
-    </div>
-    """, unsafe_allow_html=True)
-    
+        </div>
+        """, unsafe_allow_html=True)
+
     # ================= NAVIGATION =================
     if home_btn:
         st.session_state.menu = "🏠 Home"
