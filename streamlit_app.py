@@ -777,36 +777,44 @@ if dark_mode:
         color:#E2E8F0 !important;
     }
 
-    /* Input */
-    .stTextInput input{
-        background:#0B1220 !important;
+    /* Form */
+    .stSelectbox label,
+    .stNumberInput label,
+    .stTextInput label,
+    .stRadio label,
+    .stSlider label{
         color:white !important;
-        border:1px solid #334155 !important;
+        font-weight:600;
     }
 
-    /* Selectbox */
-    div[data-baseweb="select"]{
-        background:#0B1220 !important;
-    }
-
-    div[data-baseweb="select"] *{
+    /* Isi selectbox & input tetap hitam */
+    .stSelectbox div[data-baseweb="select"] *,
+    .stNumberInput input{
         color:black !important;
     }
 
-    /* Button */
-    .stButton button{
-        background:#1E293B !important;
+    /* Judul */
+    h1,h2,h3,h4,h5,h6,p,span{
         color:white !important;
-        border:1px solid #334155 !important;
     }
 
-    /* Text global */
-    h1,h2,h3,h4,h5,h6,p,span,label{
+    .metric-label{
+        color:#E2E8F0 !important;
+    }
+
+    /* Halaman Tentang */
+    .tentang-box,
+    .tentang-box h2,
+    .tentang-box h3,
+    .tentang-box li,
+    .tentang-box p{
         color:white !important;
     }
 
     </style>
     """, unsafe_allow_html=True)
+
+menu = selected
     
 # ================= HOME =================
 
