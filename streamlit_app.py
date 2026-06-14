@@ -1376,8 +1376,6 @@ elif menu == "⚗️ pH":
         else:
             st.error("⚫ Sangat Basa")
 
-# ================= INFORMASI BAHAN =================
-
 elif menu == "📚 Informasi Bahan Kimia":
 
     st.title("📚 Informasi Bahan Kimia")
@@ -1391,7 +1389,7 @@ elif menu == "📚 Informasi Bahan Kimia":
         or cari.lower() in db[x][0].lower()
     ] if cari else list(db.keys())
 
-    # ================= SELECTBOX (HANYA 1, WAJIB) =================
+    # ================= SELECTBOX =================
     pilih = st.selectbox(
         "Pilih Senyawa",
         hasil,
@@ -1400,28 +1398,30 @@ elif menu == "📚 Informasi Bahan Kimia":
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # ================= LAYOUT BUTTON =================
-    col1, col2 = st.columns([2, 1])
+    # ================= BUTTON ROW (SEJAJAR) =================
+    col1, col2 = st.columns([1, 1])
 
     with col1:
-        st.write(f"🔬 Senyawa dipilih: **{pilih}**")
-
-    with col2:
-        st.markdown("###")
-
         tampilkan_info = st.button(
             "📖 Tampilkan Informasi",
             key="btn_info",
             use_container_width=True
         )
 
-    # ================= OUTPUT =================
+    with col2:
+        home_btn = st.button(
+            "🏠 Kembali ke Home",
+            key="btn_home_info",
+            use_container_width=True
+        )
+
+    # ================= ACTION =================
     if tampilkan_info and pilih:
 
         data = db[pilih]
 
         st.markdown(f"""
-        <div class='card'>
+        <div class="card">
 
             <h3>🧪 Informasi Senyawa</h3>
 
@@ -1436,10 +1436,8 @@ elif menu == "📚 Informasi Bahan Kimia":
         </div>
         """, unsafe_allow_html=True)
 
-    st.markdown("<br>", unsafe_allow_html=True)
-
-    # ================= BACK TO HOME =================
-    if st.button("⬅️ Kembali ke Home", key="back_home_info"):
+    # ================= HOME ACTION =================
+    if home_btn:
         st.session_state.menu = "🏠 Home"
         
 # ================= ANALISIS KIMIA =================
