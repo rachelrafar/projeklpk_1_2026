@@ -1880,22 +1880,74 @@ dengan massa molekul relatif {data[2]}.
 
             kesimpulan += f"""
 
-Berdasarkan klasifikasi NFPA:
+Berdasarkan karakteristik kimianya, senyawa ini termasuk
+golongan {data[1].lower()} yang memiliki sifat dan perilaku
+khas dalam berbagai reaksi kimia.
 
-🔥 Flammability : {f} ({interpretasi_nfpa(f)})
-☣️ Health : {h} ({interpretasi_nfpa(h)})
-⚛️ Reactivity : {r} ({interpretasi_nfpa(r)})
+Data NFPA menunjukkan tingkat kemudahan terbakar
+(Flammability) sebesar {f}, tingkat bahaya kesehatan
+(Health Hazard) sebesar {h}, dan tingkat reaktivitas
+(Reactivity) sebesar {r}.
+"""
 
-Senyawa ini memerlukan penanganan sesuai prosedur
-keselamatan laboratorium serta penggunaan APD yang tepat.
+            if h >= 3:
+
+                kesimpulan += """
+
+Senyawa ini memiliki risiko kesehatan yang tinggi sehingga
+paparan langsung harus dihindari. Penggunaan APD lengkap,
+sarung tangan, kacamata keselamatan, dan lemari asam
+sangat disarankan.
+"""
+
+            elif h == 2:
+
+                kesimpulan += """
+
+Senyawa ini memiliki risiko kesehatan sedang dan dapat
+menyebabkan iritasi apabila terpapar dalam jumlah tertentu.
+"""
+
+            else:
+
+                kesimpulan += """
+
+Risiko kesehatan relatif rendah, namun prosedur keselamatan
+laboratorium tetap harus diterapkan.
+"""
+
+            if f >= 3:
+
+                kesimpulan += """
+
+Senyawa ini mudah terbakar sehingga harus dijauhkan dari
+sumber panas, percikan api, dan oksidator kuat.
+"""
+
+            elif f == 2:
+
+                kesimpulan += """
+
+Senyawa memiliki potensi terbakar pada kondisi tertentu,
+sehingga penyimpanannya perlu diperhatikan.
+"""
+
+            if r >= 2:
+
+                kesimpulan += """
+
+Tingkat reaktivitas yang cukup tinggi menunjukkan bahwa
+senyawa dapat bereaksi dengan zat lain dan memerlukan
+penanganan khusus selama penggunaan maupun penyimpanan.
 """
 
         else:
 
             kesimpulan += f"""
 
-Tingkat bahaya senyawa ini adalah {data[3].lower()}.
-Gunakan APD dan ikuti prosedur keselamatan laboratorium.
+Berdasarkan data yang tersedia, senyawa ini memiliki tingkat
+bahaya {data[3].lower()} sehingga memerlukan penanganan
+sesuai prosedur keselamatan laboratorium.
 """
 
         st.success(kesimpulan)
