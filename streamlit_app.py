@@ -1441,16 +1441,6 @@ elif menu == "📚 Informasi Bahan Kimia":
 
         </div>
         """, unsafe_allow_html=True)
-
-        st.markdown("<br>", unsafe_allow_html=True)
-
-        if st.button(
-            "🏠 Kembali ke Home",
-            key="home_info_bahan",
-            use_container_width=True
-        ):
-            st.session_state.menu = "🏠 Home"
-            st.rerun()
         
 # ================= ANALISIS KIMIA =================
 
