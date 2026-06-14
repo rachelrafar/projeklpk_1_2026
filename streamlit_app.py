@@ -1779,40 +1779,40 @@ elif menu == "🧪 Analisis Kimia":
 
             st.info("Karakteristik spesifik belum tersedia.")
 
-        # ================= PREDIKSI LAB =================
+ # ================= PREDIKSI LAB =================
 
-        st.subheader("🔬 Prediksi Perilaku Laboratorium")
+st.subheader("🔬 Prediksi Perilaku Laboratorium")
 
-        if "Asam" in jenis:
+if "Asam" in jenis:
 
-            st.info("""
-    • Bereaksi dengan basa menghasilkan garam dan air.
-    • Mengubah indikator menjadi merah.
-    • Bersifat donor proton (H⁺).
-    """)
+    st.info(
+        "• Bereaksi dengan basa menghasilkan garam dan air.\n"
+        "• Mengubah indikator menjadi merah.\n"
+        "• Bersifat donor proton (H⁺)."
+    )
 
-        elif "Basa" in jenis:
+elif "Basa" in jenis:
 
-            st.info("""
-• Bereaksi dengan asam menghasilkan garam dan air.
-• Mengubah indikator menjadi biru.
-• Bersifat akseptor proton.
-""")
+    st.info(
+        "• Bereaksi dengan asam menghasilkan garam dan air.\n"
+        "• Mengubah indikator menjadi biru.\n"
+        "• Bersifat akseptor proton."
+    )
 
-        elif "Garam" in jenis:
+elif "Garam" in jenis:
 
-            st.info("""
-• Dapat mengalami hidrolisis.
-• Dapat membentuk endapan dengan ion tertentu.
-• Meningkatkan konduktivitas larutan.
-""")
+    st.info(
+        "• Dapat mengalami hidrolisis.\n"
+        "• Dapat membentuk endapan dengan ion tertentu.\n"
+        "• Meningkatkan konduktivitas larutan."
+    )
 
-        else:
+else:
 
-            st.info("""
-• Perilaku dipengaruhi gugus fungsi utama.
-• Digunakan sebagai pereaksi atau pelarut.
-""")
+    st.info(
+        "• Perilaku dipengaruhi gugus fungsi utama.\n"
+        "• Digunakan sebagai pereaksi atau pelarut."
+    )
 
         # ================= NFPA =================
 
