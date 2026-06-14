@@ -1313,7 +1313,7 @@ elif menu == "📚 Informasi Bahan Kimia":
     
         )
 
-   if tampilkan_info:
+    if tampilkan_info:
 
         data = db[pilih]
 
