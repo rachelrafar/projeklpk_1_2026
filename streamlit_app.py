@@ -1391,7 +1391,7 @@ elif menu == "📚 Informasi Bahan Kimia":
         or cari.lower() in db[x][0].lower()
     ] if cari else list(db.keys())
 
-    # ================= SELECTBOX =================
+    # ================= SELECTBOX (HANYA 1) =================
     pilih = st.selectbox(
         "Pilih Senyawa",
         hasil,
@@ -1400,7 +1400,7 @@ elif menu == "📚 Informasi Bahan Kimia":
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # ================= BUTTON =================
+    # ================= BUTTON ROW =================
     col1, col2 = st.columns([1, 1])
 
     with col1:
@@ -1422,7 +1422,7 @@ elif menu == "📚 Informasi Bahan Kimia":
 
         data = db[pilih]
 
-        # 🔥 INI FIX TAMBAHAN WAJIB
+        # 🔥 FIX WAJIB BIAR NGGAK ERROR DI SECTION LAIN
         jenis = data[1]
         senyawa = pilih
 
