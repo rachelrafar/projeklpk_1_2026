@@ -1382,9 +1382,8 @@ elif menu == "📚 Informasi Bahan Kimia":
 
     st.title("📚 Informasi Bahan Kimia")
 
-    cari = st.text_input(
-        "🔎 Cari nama atau rumus senyawa"
-    )
+    # ================= SEARCH =================
+    cari = st.text_input("🔎 Cari nama atau rumus senyawa")
 
     hasil = [
         x for x in db
@@ -1392,55 +1391,56 @@ elif menu == "📚 Informasi Bahan Kimia":
         or cari.lower() in db[x][0].lower()
     ] if cari else list(db.keys())
 
+    # ================= SELECTBOX (HANYA 1, WAJIB) =================
     pilih = st.selectbox(
         "Pilih Senyawa",
-        hasil
+        hasil,
+        key="select_senyawa_info"
     )
 
     st.markdown("<br>", unsafe_allow_html=True)
-    
+
+    # ================= LAYOUT BUTTON =================
     col1, col2 = st.columns([2, 1])
 
     with col1:
-        pilih = st.selectbox(
-            "Pilih Senyawa",
-            hasil
-        )
+        st.write(f"🔬 Senyawa dipilih: **{pilih}**")
 
     with col2:
         st.markdown("###")
-        
+
         tampilkan_info = st.button(
             "📖 Tampilkan Informasi",
             key="btn_info",
             use_container_width=True
         )
 
-    if tampilkan_info:
+    # ================= OUTPUT =================
+    if tampilkan_info and pilih:
 
         data = db[pilih]
 
         st.markdown(f"""
         <div class='card'>
 
-        <h3>🧪 Informasi Senyawa</h3>
+            <h3>🧪 Informasi Senyawa</h3>
 
-        <b>Nama Senyawa:</b> {data[0]}<br><br>
-
-        <b>Rumus Kimia:</b> {pilih}<br><br>
-
-        <b>Jenis:</b> {data[1]}<br><br>
-
-        <b>Mr:</b> {data[2]}<br><br>
-
-        <b>Bahaya:</b> {data[3]}<br><br>
-
-        <b>Bentuk/Fisik:</b> {data[4]}<br><br>
-
-        <b>Struktur Molekul:</b> {data[5]}
+            <b>Nama Senyawa:</b> {data[0]}<br><br>
+            <b>Rumus Kimia:</b> {pilih}<br><br>
+            <b>Jenis:</b> {data[1]}<br><br>
+            <b>Mr:</b> {data[2]}<br><br>
+            <b>Bahaya:</b> {data[3]}<br><br>
+            <b>Bentuk/Fisik:</b> {data[4]}<br><br>
+            <b>Struktur Molekul:</b> {data[5]}
 
         </div>
         """, unsafe_allow_html=True)
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    # ================= BACK TO HOME =================
+    if st.button("⬅️ Kembali ke Home", key="back_home_info"):
+        st.session_state.menu = "🏠 Home"
         
 # ================= ANALISIS KIMIA =================
 
