@@ -1500,7 +1500,7 @@ elif menu == "🧪 Analisis Kimia":
 
     "CuCl2":"Sumber ion Cu²⁺ yang digunakan dalam sintesis dan analisis kimia."
 
-        "Na3PO4":"Garam fosfat yang digunakan sebagai pengatur pH dan bahan pembersih.",
+    "Na3PO4":"Garam fosfat yang digunakan sebagai pengatur pH dan bahan pembersih.",
 
     "KNO3":"Garam yang mengandung ion kalium dan nitrat serta digunakan sebagai pupuk.",
 
