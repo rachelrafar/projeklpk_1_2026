@@ -2072,13 +2072,10 @@ sesuai prosedur keselamatan laboratorium.
 
         st.markdown("<br>", unsafe_allow_html=True)
 
-        if st.button(
-            "⬅️ Kembali ke Home",
-            key="home_analisis",
-            use_container_width=True
-        ):
+        if st.button("⬅️ Kembali ke Home", key="home_analisis"):
             st.session_state.menu = "🏠 Home"
             st.rerun()
+            
         
 # ================= TENTANG =================
 
