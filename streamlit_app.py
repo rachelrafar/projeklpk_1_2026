@@ -1417,37 +1417,46 @@ elif menu == "📚 Informasi Bahan Kimia":
             use_container_width=True
         )
 
-   # ================= OUTPUT CARD =================
+ # ================= OUTPUT CARD =================
 if tampilkan_info and pilih:
 
     data = db[pilih]
 
-    # 🔥 FIX WAJIB BIAR NGGAK ERROR DI SECTION LAIN
+    # FIX WAJIB
     jenis = data[1]
     senyawa = pilih
 
     st.markdown(f"""
     <div style="
-        background:#1E293B;
-        padding:20px;
-        border-radius:15px;
-        color:white;
-        box-shadow:0 6px 15px rgba(0,0,0,0.3);
-        line-height:1.6;
+        background:#F8FAFC;
+        padding:22px;
+        border-radius:16px;
+        color:#0F172A;
+        box-shadow:0 8px 20px rgba(0,0,0,0.12);
+        line-height:1.7;
+        border:1px solid #E2E8F0;
     ">
 
-    <h3 style="margin-bottom:15px;">🧪 Informasi Senyawa</h3>
+    <h3 style="
+        margin-bottom:18px;
+        color:#1E3A8A;
+        border-bottom:2px solid #1E3A8A;
+        padding-bottom:8px;
+    ">
+    🧪 Informasi Senyawa
+    </h3>
 
-    <b>Nama Senyawa:</b> {data[0]}<br>
-    <b>Rumus Kimia:</b> {pilih}<br>
-    <b>Jenis:</b> {data[1]}<br>
-    <b>Mr:</b> {data[2]}<br>
-    <b>Bahaya:</b> {data[3]}<br>
-    <b>Bentuk/Fisik:</b> {data[4]}<br>
-    <b>Struktur Molekul:</b> {data[5]}
+    <p><b style="color:#1E3A8A;">Nama Senyawa:</b> {data[0]}</p>
+    <p><b style="color:#1E3A8A;">Rumus Kimia:</b> {pilih}</p>
+    <p><b style="color:#1E3A8A;">Jenis:</b> {data[1]}</p>
+    <p><b style="color:#1E3A8A;">Mr:</b> {data[2]}</p>
+    <p><b style="color:#1E3A8A;">Bahaya:</b> {data[3]}</p>
+    <p><b style="color:#1E3A8A;">Bentuk/Fisik:</b> {data[4]}</p>
+    <p><b style="color:#1E3A8A;">Struktur Molekul:</b> {data[5]}</p>
 
     </div>
     """, unsafe_allow_html=True)
+    
     # ================= NAVIGATION =================
     if home_btn:
         st.session_state.menu = "🏠 Home"
