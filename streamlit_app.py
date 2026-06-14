@@ -712,6 +712,7 @@ with st.sidebar:
             },
         }
     )
+st.session_state.menu = selected
 
     st.markdown("---")
 
@@ -719,9 +720,28 @@ with st.sidebar:
         st.session_state.login = False
         st.session_state.username = ""
         st.session_state.nama = ""
-        
         st.rerun()
 
+# ================= ROUTING (INI DI LUAR SIDEBAR) =================
+
+if st.session_state.menu == "🏠 Home":
+    home()
+
+elif st.session_state.menu == "💧 Larutan":
+    larutan()
+
+elif st.session_state.menu == "⚗️ pH":
+    ph()
+
+elif st.session_state.menu == "📚 Informasi Bahan Kimia":
+    info()
+
+elif st.session_state.menu == "🧪 Analisis Kimia":
+    analisis()
+
+elif st.session_state.menu == "ℹ️ Tentang":
+    tentang()
+    
 # ================= DARK MODE =================
 
 if dark_mode:
@@ -1090,8 +1110,9 @@ elif menu == "💧 Larutan":
                 "⬅️ Kembali ke Home",
                 use_container_width=True
             ):
-                go_to("🏠 Home")
-
+                st.session_state.menu = "🏠 Home"
+                st.rerun()
+        
         with col2:
             hitung = st.button(
                 "🧪 Hitung Massa Senyawa",
@@ -1161,13 +1182,13 @@ elif menu == "💧 Larutan":
 
         col1, col2 = st.columns(2)
 
-        with col1:
-            if st.button(
-                "⬅️ Kembali ke Home",
-                key="home_pengenceran",
-                use_container_width=True
-            ):
-                go_to("🏠 Home")
+       with col1:
+           if st.button(
+               "⬅️ Kembali ke Home",
+               use_container_width=True
+           ):
+               st.session_state.menu = "🏠 Home"
+               st.rerun()
 
         with col2:
             hitung_pengenceran = st.button(
@@ -1275,11 +1296,12 @@ elif menu == "⚗️ pH":
     col1, col2 = st.columns(2)
 
     with col1:
-        home_ph = st.button(
-            "⬅️ Kembali ke Home",
-            key="home_ph",
-            use_container_width=True
-        )
+           if st.button(
+               "⬅️ Kembali ke Home",
+               use_container_width=True
+           ):
+               st.session_state.menu = "🏠 Home"
+               st.rerun()
 
     with col2:
         hitung_ph = st.button(
@@ -1287,9 +1309,6 @@ elif menu == "⚗️ pH":
             key="btn_ph",
             use_container_width=True
         )
-
-    if home_ph:
-        go_to("🏠 Home")
 
     # ================= PERHITUNGAN =================
 
@@ -1409,7 +1428,8 @@ elif menu == "📚 Informasi Bahan Kimia":
             key="home_info_bahan",
             use_container_width=True
         ):
-            go_to("🏠 Home")
+            st.session_state.menu = "🏠 Home"
+            st.rerun()
         
 # ================= ANALISIS KIMIA =================
 
@@ -2045,7 +2065,8 @@ sesuai prosedur keselamatan laboratorium.
             key="home_analisis",
             use_container_width=True
         ):
-            go_to("🏠 Home")
+           st.session_state.menu = "🏠 Home"
+            st.rerun()
         
 # ================= TENTANG =================
 
