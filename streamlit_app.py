@@ -1422,24 +1422,15 @@ if tampilkan_info and pilih:
 
     data = db[pilih]
 
-    st.markdown(f"""
-    <div style="
-        background: linear-gradient(135deg, #1E293B, #0F172A);
-        padding: 20px;
-        border-radius: 15px;
-        color: white;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.35);
-    ">
+    st.subheader("🧪 Informasi Senyawa")
 
-        <h2 style="margin-bottom: 10px;">🧪 Informasi Senyawa</h2>
-
-        <p><b>Nama Senyawa:</b> {data[0]}</p>
-        <p><b>Rumus Kimia:</b> {pilih}</p>
-        <p><b>Jenis:</b> {data[1]}</p>
-        <p><b>Mr:</b> {data[2]}</p>
-        <p><b>Bahaya:</b> {data[3]}</p>
-        <p><b>Bentuk/Fisik:</b> {data[4]}</p>
-        <p><b>Struktur Molekul:</b> {data[5]}</p>
+    st.write("Nama Senyawa :", data[0])
+    st.write("Rumus Kimia :", pilih)
+    st.write("Jenis :", data[1])
+    st.write("Mr :", data[2])
+    st.write("Bahaya :", data[3])
+    st.write("Bentuk/Fisik :", data[4])
+    st.write("Struktur Molekul :", data[5])
 
     </div>
     """, unsafe_allow_html=True)
